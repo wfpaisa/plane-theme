@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./assets/logo.svg" />
+<img src="logo.svg" />
 </p>
 
 
@@ -8,3 +8,12 @@
 -- Beta --
 
 - 	A beautiful theme for Gnome Linux
+
+
+
+## Update
+
+Upstream themes are downloaded and changes monitored.
+
+- Gtk: `/upstream/gtk-3.0` -> https://github.com/GNOME/gtk/tree/master/gtk/theme/Adwaita
+- Gnome-shell: `upstream/gnome-shell` -> https://github.com/GNOME/gnome-shell/tree/master/data/theme

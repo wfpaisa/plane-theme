@@ -1,0 +1,22 @@
+{
+  "name": "planegtk",
+  "version": "1.0.0",
+  "description": "Plane theme for Gnome Linux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wfpaisa/plane-theme.git"
+  },
+  "keywords": [
+    "plane-theme"
+  ],
+  "author": "wfpaisa",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/wfpaisa/plane-theme/issues"
+  },
+  "homepage": "https://github.com/wfpaisa/plane-theme#readme"
+}

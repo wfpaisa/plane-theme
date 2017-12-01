@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Plane-Dark
+Comment=A theme with transparent elements
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Plane-Dark
+MetacityTheme=Plane-Dark
+IconTheme=plane-dark
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close
