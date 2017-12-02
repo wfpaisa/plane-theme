@@ -10,6 +10,9 @@
 - 	A beautiful theme for Gnome Linux
 
 
+## Build
+- npm i
+- 
 
 ## Update
 

@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/wfpaisa/plane-theme/issues"
   },
-  "homepage": "https://github.com/wfpaisa/plane-theme#readme"
+  "homepage": "https://github.com/wfpaisa/plane-theme#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11"
+  }
 }

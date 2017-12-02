@@ -31,13 +31,13 @@ var fs = require('fs'),
 
 
 gulp.task('sass', function () {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src('./src/gtk-3.0/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./gtk-3.0'));
+    .pipe(gulp.dest('./build/Plane/gtk-3.0'));
 });
  
 gulp.task('sass:watch', function () {
-  gulp.watch('./src/**/*.scss', ['sass']);
+  gulp.watch('./src/gtk-3.0/**/*.scss', ['sass']);
 });
 
 
