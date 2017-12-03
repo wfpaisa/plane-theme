@@ -12,7 +12,8 @@
 
 ## Build
 - npm i
-- 
+- Autoreload Plane `gulp watch`
+- Autoreload Plane-dark `gulp watch -D`
 
 ## Update
 
