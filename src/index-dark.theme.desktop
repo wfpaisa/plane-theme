@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Plane-dark
+Comment=A beautiful theme for Gnome Linux
+Encoding=UTF-8
+
+Name[en_US]=index-dark.theme
+
+[X-GNOME-Metatheme]
+GtkTheme=Plane-dark
+MetacityTheme=Plane-dark
+IconTheme=plane-dark
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close

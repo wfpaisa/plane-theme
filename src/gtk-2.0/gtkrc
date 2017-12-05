@@ -12,21 +12,21 @@
 # order to not mess up the dark theme.
 
 # Text/base
-gtk-color-scheme = "text_color:white\nbase_color:#232729"
+gtk-color-scheme = "text_color:black\nbase_color:white"
 # Foreground/background
-gtk-color-scheme = "fg_color:#eeeeec\nbg_color:#33393b"
+gtk-color-scheme = "fg_color:#2e3436\nbg_color:#e8e8e7"
 # Selected foreground/background
-gtk-color-scheme = "selected_fg_color:#ffffff\nselected_bg_color:#215d9c"
+gtk-color-scheme = "selected_fg_color:#ffffff\nselected_bg_color:#4a90d9"
 # Insensitive foreground/background
-gtk-color-scheme = "insensitive_fg_color:#919494\ninsensitive_bg_color:#2d3234"
+gtk-color-scheme = "insensitive_fg_color:#8b8e8f\ninsensitive_bg_color:#f1f1f1"
 # Menus
-gtk-color-scheme = "menu_color:#262b2d"
+gtk-color-scheme = "menu_color:white"
 # Links
-gtk-color-scheme = "link_color:#4a90d9\nvisited_link_color:#2a76c6"
+gtk-color-scheme = "link_color:#2a76c6\nvisited_link_color:#215d9c"
 # Treeview headers
-gtk-color-scheme = "column_header_color:#898b8b\nhover_column_header_color:#bcbdbc"
+gtk-color-scheme = "column_header_color:#979a9b\nhover_column_header_color:#636769"
 # Window decoration
-gtk-color-scheme = "window_color:#2c3133"
+gtk-color-scheme = "window_color:#f4f4f4"
 # Tooltips
 gtk-color-scheme = "tooltip_fg_color:#ffffff\ntooltip_bg_color:#343434"
 
@@ -38,4 +38,3 @@ gtk-primary-button-warps-slider = 1
 include "main.rc"
 include "apps.rc"
 include "hacks.rc"
-include "hacks-dark.rc"
