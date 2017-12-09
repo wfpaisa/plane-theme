@@ -1438,16 +1438,15 @@ headerbar {
   min-height: 46px;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: transparentize($base_color,0.2);
+  border-color: lighten($bg_color,4%);
   border-radius: 0;
   
-  @include headerbar_fill(transparentize($bg_color,0.2), $base_color);
+  @include headerbar_fill(transparentize($bg_color,0.2));
 
   &:backdrop {
-    border-color: $backdrop_borders_color;
+    border-color: transparent;
     background-color: $bg_color;
     background-image: none;
-    box-shadow: inset 0 1px $top_hilight;
 
     transition: $backdrop_transition;
   }
@@ -4283,7 +4282,7 @@ colorchooser .popover.osd { border-radius: 5px; }
 decoration {
   border-radius: 0px;
   // lamefun trick to get rounded borders regardless of CSD use
-  border-width: 0px;
+  border: 1px solid $base_color;
 
   // this needs to be transparent
   // see bug #722563
