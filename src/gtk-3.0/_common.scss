@@ -1438,10 +1438,10 @@ headerbar {
   min-height: 46px;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: $alt_borders_color;
+  border-color: transparentize($base_color,0.2);
   border-radius: 0;
-
-  @include headerbar_fill;
+  
+  @include headerbar_fill(transparentize($bg_color,0.2), $base_color);
 
   &:backdrop {
     border-color: $backdrop_borders_color;
