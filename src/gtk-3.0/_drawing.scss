@@ -1,9 +1,9 @@
 // Drawing mixins
-$br-o: 2px; // Out, Top --General--
-$br-i: 1px; // In, Outline
-$br-c: 3px; // better antialiasing
-$br-b: 2px; // bottom windows
-
+$br-o: 2px; // Out, Top --General-- (default:7px)
+$br-i: 1px; // In, Outline (default:5px)
+$br-c: 3px; // better antialiasing (default:9px)
+$br-b: 2px; // bottom windows  (default:0px)
+$br-e: 2px; // buttons and widgets, (default:3px)
 
 // generic drawing of more complex things
 

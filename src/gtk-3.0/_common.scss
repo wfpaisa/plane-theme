@@ -110,7 +110,7 @@ $button_transition: all 200ms $ease-out-quad;
     &:focus, & {
       @extend %selected_items;
 
-      border-radius: 3px;
+      border-radius: $br-e;
     }
   }
 }
@@ -264,7 +264,7 @@ entry {
     padding-left: 8px;
     padding-right: 8px;
     border: 1px solid;
-    border-radius: 3px;
+    border-radius: $br-e;
     transition: all 200ms $ease-out-quad;
 
     @include entry(normal);
@@ -512,7 +512,7 @@ button {
     min-width: 16px;
     padding: 4px 8px;
     border: 1px solid;
-    border-radius: 3px;
+    border-radius: $br-e;
     transition: $button_transition;
 
     @include button(normal);
@@ -948,18 +948,18 @@ toolbar.inline-toolbar toolbutton:backdrop {
   @extend %linked_middle;
 
   &:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-top-left-radius: $br-e;
+    border-bottom-left-radius: $br-e;
   }
 
   &:last-child {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-top-right-radius: $br-e;
+    border-bottom-right-radius: $br-e;
     border-right-style: solid;
   }
 
   &:only-child {
-    border-radius: 3px;
+    border-radius: $br-e;
     border-style: solid;
   }
 }
@@ -973,18 +973,18 @@ toolbar.inline-toolbar toolbutton:backdrop {
   @extend %linked_vertical_middle;
 
   &:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: $br-e;
+    border-top-right-radius: $br-e;
   }
 
   &:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: $br-e;
+    border-bottom-right-radius: $br-e;
     border-style: solid;
   }
 
   &:only-child {
-    border-radius: 3px;
+    border-radius: $br-e;
     border-style: solid;
   }
 }
@@ -1005,7 +1005,7 @@ modelbutton.flat,
   min-height: 26px;
   padding-left: 5px;
   padding-right: 5px;
-  border-radius: 3px;
+  border-radius: $br-e;
   outline-offset: -2px;
 
   @extend %undecorated_button;
@@ -1178,9 +1178,9 @@ spinbutton {
         &:dir(rtl) { border-style: none solid none none; }
       }
 
-      &:dir(ltr):last-child { border-radius: 0 3px 3px 0; }
+      &:dir(ltr):last-child { border-radius: 0 $br-e $br-e 0; }
 
-      &:dir(rtl):first-child { border-radius: 3px 0 0 3px; }
+      &:dir(rtl):first-child { border-radius: $br-e 0 0 $br-e; }
     }
   }
 
@@ -1226,9 +1226,9 @@ spinbutton {
         box-shadow: none;
       }
 
-      &:dir(ltr):last-child { border-radius: 0 3px 3px 0; }
+      &:dir(ltr):last-child { border-radius: 0 $br-e $br-e 0; }
 
-      &:dir(rtl):first-child { border-radius: 3px 0 0 3px; }
+      &:dir(rtl):first-child { border-radius: $br-e 0 0 $br-e; }
     }
   }
 
@@ -1267,12 +1267,12 @@ spinbutton {
     }
 
     %top_button {
-      border-radius: 3px 3px 0 0;
+      border-radius: $br-e $br-e 0 0;
       border-style: solid solid none solid;
     }
 
     %bottom_button {
-      border-radius: 0 0 3px 3px;
+      border-radius: 0 0 $br-e $br-e;
       border-style: none solid solid solid;
     }
   }
@@ -1596,7 +1596,7 @@ headerbar {
   .fullscreen & {
     &:backdrop, & {
       border-radius: 0;
-      background-color:red;
+      background-color:$bg_color;
     }
   }
 
@@ -2603,7 +2603,7 @@ switch {
 
   // similar to the .scale
   border: 1px solid $borders_color;
-  border-radius: 3px;
+  border-radius: $br-e;
   color: $fg_color;
   background-color: $dark_fill;
   text-shadow: 0 1px transparentize(black, 0.9);
@@ -2649,7 +2649,7 @@ switch {
     min-width: 44px;
     min-height: 26px;
     border: 1px solid;
-    border-radius: 3px;
+    border-radius: $br-e;
     transition: $button_transition;
 
     @include button(normal-alt, $edge: $shadow_color);
@@ -2800,7 +2800,7 @@ radio {
 
 %check,
 check {
-  border-radius: 3px;
+  border-radius: $br-e;
 
   &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/check-symbolic.svg")),
                                       -gtk-recolor(url("assets/check-symbolic.symbolic.png"))); }
@@ -2871,7 +2871,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
  ************/
 %scale_trough {
   border: 1px solid $borders_color;
-  border-radius: 3px;
+  border-radius: $br-e;
   background-color: $dark_fill;
 
   &:disabled { background-color: $insensitive_bg_color; }
@@ -2898,7 +2898,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 
 %scale_highlight {
   border: 1px solid $selected_borders_color;
-  border-radius: 3px;
+  border-radius: $br-e;
   background-color: $selected_bg_color;
 
   &:disabled {
@@ -3433,7 +3433,7 @@ levelbar {
   trough {
     border: 1px solid;
     padding: 2px;
-    border-radius: 3px;
+    border-radius: $br-e;
     @include entry(normal);
 
     &:backdrop { @include entry(backdrop); }
@@ -3685,7 +3685,7 @@ calendar {
   &:selected {
     @extend %selected_items;
 
-    border-radius: 3px;
+    border-radius: $br-e;
   }
 
   &.header {
