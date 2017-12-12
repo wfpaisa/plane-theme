@@ -1641,8 +1641,8 @@ headerbar {
 
 .background .titlebar {
   &:backdrop, & {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    border-top-left-radius: $br-o;
+    border-top-right-radius: $br-o;
   }
 }
 
@@ -1662,14 +1662,14 @@ headerbar {
 headerbar { // headerbar border rounding
 
   window separator:first-child + &,
-  window &:first-child { &:backdrop, & { border-top-left-radius: 0px; }}
-  window &:last-child { &:backdrop, & { border-top-right-radius: 0px; }}
+  window &:first-child { &:backdrop, & { border-top-left-radius: $br-o; }}
+  window &:last-child { &:backdrop, & { border-top-right-radius: $br-o; }}
 
   window stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
       &:backdrop, & {
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
+        border-top-left-radius: $br-o;
+        border-top-right-radius: $br-o;
       }
     }
   }
@@ -3729,15 +3729,15 @@ messagedialog { // Message Dialog styling
     background-image: none;
     background-color: $bg_color;
     border-style: none;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    border-top-left-radius: $br-o;
+    border-top-right-radius: $br-o;
   }
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: $br-c;
+      border-bottom-right-radius: $br-c;
     }
 
     .dialog-action-area button {
@@ -3749,13 +3749,13 @@ messagedialog { // Message Dialog styling
 
       &:first-child{
         border-left-style: none;
-        border-bottom-left-radius: 0px;
-        // -gtk-outline-bottom-left-radius: 0px;
+        border-bottom-left-radius: $br-o;
+        -gtk-outline-bottom-left-radius: $br-i;
       }
 
       &:last-child {
-        border-bottom-right-radius: 0px;
-        // -gtk-outline-bottom-right-radius: 0px;
+        border-bottom-right-radius: $br-o;
+        -gtk-outline-bottom-right-radius: $br-i;
       }
     }
   }
@@ -4280,17 +4280,18 @@ colorchooser .popover.osd { border-radius: 5px; }
  * Window Decorations *
  *********************/
 decoration {
-  border-radius: 0px;
+  border-radius: $br-o $br-o $br-b $br-b;
   // lamefun trick to get rounded borders regardless of CSD use
-  border: 1px solid $base_color;
+  border-width: 0px;
 
   // this needs to be transparent
   // see bug #722563
   $_wm_border: if($variant=='light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
   $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.82), transparentize($borders_color, 0.1));
 
-  box-shadow: 0 3px 9px 1px transparentize(black, 0.5),
-              0 0 0 1px $_wm_border; //doing borders with box-shadow
+  box-shadow:   0px 0px 12px 0px rgba(0,0,0,0.1),
+                0px 0px 4px 0px rgba(0,0,0,0.4),
+                0px 0px 0px 1px rgba(0,0,0,0.1);
 
   // FIXME rationalize shadows
 
@@ -4302,9 +4303,9 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 3px 9px 1px transparent,
-                0 2px 6px 2px transparentize(black, 0.8),
-                0 0 0 1px $_wm_border_backdrop;
+    box-shadow:   0px 0px 12px 0px transparent,
+                  0px 0px 4px 0px rgba(0,0,0,0.4),
+                  0px 0px 0px 1px rgba(0,0,0,0.1);
     transition: $backdrop_transition;
   }
 
@@ -4333,7 +4334,7 @@ decoration {
   }
 
   messagedialog.csd & {
-    border-radius: 0px;
+    border-radius: $br-o;
     box-shadow: 0 1px 2px transparentize(black, 0.8),
                 0 0 0 1px transparentize($_wm_border, 0.1);
   }
@@ -4349,6 +4350,13 @@ decoration {
     &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color, inset 0 1px $top_hilight; }
   }
 }
+
+// Experimental
+.background.csd{
+  border-bottom-left-radius: $br-i;
+  border-bottom-right-radius: $br-i;
+}
+
 
 // Window Close button
 button.titlebutton {
