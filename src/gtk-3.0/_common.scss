@@ -1596,6 +1596,7 @@ headerbar {
   .fullscreen & {
     &:backdrop, & {
       border-radius: 0;
+      background-color:red;
     }
   }
 
