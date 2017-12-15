@@ -73,14 +73,16 @@ function autoreload(){
 
 		/* First change default theme and late change to our theme */
 		exec(`gsettings set  org.gnome.desktop.interface gtk-theme Adwaita`, () => {
-			
-			exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme}`, () => {
-				
-				timeLog(`Reload ${theme} theme`);
 
-				return;
+			setTimeout(function() {
+				exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme}`, () => {
+					
+					timeLog(`Reload ${theme} theme`);
+					return;
+					
+				})			
 				
-			})			
+			}, 500);
 		})
 
 	}
