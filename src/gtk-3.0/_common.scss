@@ -532,6 +532,10 @@ button {
         &:active { transition: $button_transition; }
       }
     }
+    
+    &:focus {
+      outline: none;
+    }
 
     &:hover {
       @include button(hover);
@@ -844,18 +848,18 @@ button {
     // so on relevant states we an additional background-image with a gradient clipped on the border-box,
     // so setting a transparent border would reveal it.
     // FIXME: take care of colored circular button.
-    $_border_bg: linear-gradient(to top, $alt-borders-color 25%, $borders-color 50%);
+    // $_border_bg: linear-gradient(to top, $alt-borders-color 25%, $borders-color 50%);
 
     &:not(.flat):not(:checked):not(:active):not(:disabled):not(:backdrop) {
       @include button(normal);
-      background-image: $button_fill, $_border_bg;
-      border-color: transparent;
+      // background-image: $button_fill, $_border_bg;
+      // border-color: transparent;
     }
 
     &:hover:not(:checked):not(:active):not(:disabled):not(:backdrop) {
       @include button(hover);
-      background-image: $button_fill, $_border_bg;
-      border-color: transparent;
+      // background-image: $button_fill, $_border_bg;
+      // border-color: transparent;
     }
 
     background-origin: padding-box, border-box;
@@ -899,6 +903,7 @@ button {
 .inline-toolbar toolbutton > button { // redefining the button look is
                                       // needed since those are flat...
   @include button(normal);
+  @include button(inline);
 
   &:hover { @include button(hover); }
 
@@ -942,10 +947,17 @@ toolbar.inline-toolbar toolbutton:backdrop {
 %linked_middle {
   border-radius: 0;
   border-right-style: none;
+  // margin-right: 5px;
 }
 
 %linked {
   @extend %linked_middle;
+  
+  // This must match with active button color in _drawing.css
+  &:active:not(:backdrop) + &:not(:backdrop),
+  &:checked:not(:backdrop) + &:not(:backdrop){
+    border-left-color: darken($bg_color, 28%); 
+  }
 
   &:first-child {
     border-top-left-radius: $br-e;
