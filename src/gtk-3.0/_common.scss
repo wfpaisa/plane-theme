@@ -1448,9 +1448,7 @@ searchbar,
 headerbar {
   padding: 0 6px;
   min-height: 46px;
-  border-width: 0 0 1px;
-  border-style: solid;
-  border-color: lighten($bg_color,4%);
+  border-width: 0;
   border-radius: 0;
   
   @include headerbar_fill(transparentize($bg_color,0.2));
@@ -1459,7 +1457,7 @@ headerbar {
     border-color: transparent;
     background-color: $bg_color;
     background-image: none;
-
+    box-shadow: none;
     transition: $backdrop_transition;
   }
 
@@ -3744,6 +3742,7 @@ messagedialog { // Message Dialog styling
     border-style: none;
     border-top-left-radius: $br-o;
     border-top-right-radius: $br-o;
+    box-shadow:none;
   }
 
   &.csd { // rounded bottom border styling for csd version
@@ -3751,6 +3750,7 @@ messagedialog { // Message Dialog styling
       // bigger radius for better antialiasing
       border-bottom-left-radius: $br-c;
       border-bottom-right-radius: $br-c;
+      box-shadow:inset 1px 0 lighten($bg_color, 4%), inset -1px 0 lighten($bg_color, 4%);
     }
 
     .dialog-action-area button {
@@ -4542,4 +4542,8 @@ button.emoji-section {
   :hover {
     background: $selected_bg_color;
   }
+}
+
+window.csd:not(:backdrop){
+  box-shadow: inset -1px -1px lighten($bg_color,4%), inset 1px 0px lighten($bg_color,4%);
 }
