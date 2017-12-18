@@ -4117,8 +4117,8 @@ colorswatch {
 
   &:drop(active), & { border-style: none; } // FIXME: implement a proper drop(active) state
 
-  $_colorswatch_radius: 5px;
-
+  $_colorswatch_radius: $br-e;
+  
   // base color corners rounding
   // to avoid the artifacts caused by rounded corner anti-aliasing the base color
   // sports a bigger radius.
@@ -4246,14 +4246,14 @@ colorswatch {
   row:selected & { box-shadow: 0 0 0 2px $selected_fg_color; }
 
   &#editor-color-sample {
-    border-radius: 4px;
+    border-radius: $br-e;
 
-    overlay { border-radius: 4.5px; }
+    overlay { border-radius: $br-e + 0.5px; }
   }
 }
 
 // colorscale popup
-colorchooser .popover.osd { border-radius: 5px; }
+colorchooser .popover.osd { border-radius: $br-e; }
 
 /********
  * Misc *
@@ -4274,14 +4274,14 @@ colorchooser .popover.osd { border-radius: 5px; }
 
   .osd & button.flat {  //FIXME: quick hack, redo properly
     border-style: none;
-    border-radius: 5px;
+    border-radius: $br-e;
   }
 
   button { // +/- buttons on GtkVolumeButton popup
     &:hover {
       @extend %undecorated_button;
       background-color: transparentize($fg_color,0.9);
-      border-radius: 5px;
+      border-radius: $br-e;
     }
 
     &:backdrop { &:hover, &:disabled, & { @extend %undecorated_button; }}
