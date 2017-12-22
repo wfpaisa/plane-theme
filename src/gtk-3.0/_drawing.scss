@@ -197,7 +197,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
   // normal button
   //
     $_va_t: if($variant == 'light', darken($bg_color, 12%), darken($bg_color, 6%));
-    $_va_d: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 12%));
+    $_va_d: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 8%));
     $_sh: if($c == $bg_color, lighten($c, 6%), $c);
 
     color: $tc;
@@ -206,7 +206,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     border-color: $_va_t;
     border-bottom-color: $_va_d;
     background-image:image(lighten($c, 2%));
-    box-shadow: inset 0 0 0 1 $_sh, 0 1px 2px $_va_t;
+    box-shadow: inset 0 0 0 1 $_sh, 0 1px 2px rgba(0,0,0,0.1);
   }
 
   @if $t==inline {
@@ -256,15 +256,16 @@ $br-e: 2px; // buttons and widgets, (default:3px)
   //
   // pushed button
   //
-    $_bc: if($variant == 'light', darken($c, 28%), darken($c, 14%));
-    $_bc_i: if($c == $bg_color, $_bc, darken($bg_color, 14%));
+    $_bc: if($variant == 'light', darken($c, 28%), darken($c, 12%));
+    $_bc_i: if($c == $bg_color, $_bc, if($variant == 'light', $_bc, darken($_bc, 3%)) );
 
     $_sh: if($variant == 'light', darken($c, 26%), darken($c, 12%));
     $_sh_i: if($c == $bg_color, $_sh, darken($c, 36%));
     
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    text-shadow: none;
+    // text-shadow: none;
+    @include _button_text_shadow($tc, $c);
     border-color: $_bc_i;
     background-image: image(darken($c, 3%));
     -gtk-icon-shadow: none;
