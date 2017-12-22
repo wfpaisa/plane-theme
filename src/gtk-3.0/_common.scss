@@ -3759,6 +3759,7 @@ messagedialog { // Message Dialog styling
       border-left-style: solid;
       border-right-style: none;
       border-bottom-style: none;
+      box-shadow:none;
 
       &:first-child{
         border-left-style: none;
