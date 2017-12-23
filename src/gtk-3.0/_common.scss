@@ -1645,8 +1645,8 @@ headerbar {
     margin-bottom: 6px;
   }
   switch {
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-top: 14px;
+    margin-bottom: 14px;
   }
 }
 
@@ -2607,94 +2607,87 @@ treeview ~ scrollbar.vertical {
  * Switch *
  **********/
 switch {
-  font-weight: bold;
   font-size: smaller;
   outline-offset: -4px;
 
   // similar to the .scale
-  border: 1px solid $borders_color;
-  border-radius: $br-e;
-  color: $fg_color;
-  background-color: $dark_fill;
-  text-shadow: 0 1px transparentize(black, 0.9);
+  border: 0px;
+  border-radius: 18px;
+  color: transparent;
+  background-color: rgba(0,0,0,0.3);
+  margin:3px;
+
 
   &:checked {
-    color: $selected_fg_color;
-    border-color: $selected_borders_color;
-    background-color: $selected_bg_color;
-    text-shadow: 0 1px transparentize($selected_borders_color, 0.5),
-                 0 0 2px transparentize(white, 0.4);
+    background-color: $switch_color;
   }
 
   &:disabled {
-    color: $insensitive_fg_color;
-    border-color: $borders_color;
-    background-color: $insensitive_bg_color;
-    text-shadow: none;
+    background-color: rgba(0,0,0,0.1);
   }
 
   &:backdrop {
-    color: $backdrop_fg_color;
-    border-color: $backdrop_borders_color;
-    background-color: $backdrop_dark_fill;
-    text-shadow: none;
+    background-color: rgba(0,0,0,0.1);
     transition: $backdrop_transition;
 
     &:checked {
-      @if $variant == 'light' { color: $backdrop_bg_color; }
-      border-color: if($variant == 'light', $selected_bg_color,
-                                            $selected_borders_color);
-      background-color: $selected_bg_color;
+      background-color: transparentize($switch_color, 0.4);
     }
 
     &:disabled {
-      color: $backdrop_insensitive_color;
-      border-color: $backdrop_borders_color;
-      background-color: $insensitive_bg_color;
+      background-color: rgba(0,0,0,0.05);
     }
   }
 
   slider {
-    margin: -1px;
-    min-width: 44px;
-    min-height: 26px;
-    border: 1px solid;
-    border-radius: $br-e;
+    margin: -2px 0px;
+    min-width: 22px;
+    min-height: 22px;
+    border: 0px;
+    border-radius: 18px;
     transition: $button_transition;
-
-    @include button(normal-alt, $edge: $shadow_color);
+    
+    background-image: linear-gradient(rgb(250,250,250), rgb(240,240,240));
+    box-shadow: 0 1px 2px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.2);
   }
 
-  &:hover slider { @include button(hover-alt, $edge: $shadow_color); }
+  &:hover slider { 
+    $_sh: if($variant == 'light', rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    box-shadow: 0 0 0 6px $_sh,
+                0 1px 2px rgba(0,0,0,0.6),
+                inset 0 0 0 1px rgba(255,255,255,0.2);
+  }
 
-  &:checked slider { border: 1px solid $selected_borders_color; }
+  &:checked slider { }
 
-  &:disabled slider { @include button(insensitive); }
+  &:disabled slider {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.2);
+  }
 
   &:backdrop {
     slider {
       transition: $backdrop_transition;
-
-      @include button(backdrop);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.2);
+    
     }
 
-    &:checked slider { border-color: if($variant == 'light', $selected_bg_color, $selected_borders_color); }
+    &:checked slider { }
 
-    &:disabled slider { @include button(backdrop-insensitive); }
+    &:disabled slider { }
   }
 
   row:selected & {
-    @if $variant == 'light' {
-      box-shadow: none;
-      border-color: $selected_borders_color;
+    // @if $variant == 'light' {
+    //   box-shadow: none;
+    //   border-color: $selected_borders_color;
 
-      &:backdrop { border-color: $selected_borders_color; }
+    //   &:backdrop { border-color: $selected_borders_color; }
 
-      slider:dir(rtl) { border-left-color: $borders_color; }
-      slider:dir(ltr) { border-right-color: $borders_color; }
+    //   slider:dir(rtl) { border-left-color: $borders_color; }
+    //   slider:dir(ltr) { border-right-color: $borders_color; }
 
-      slider { &:checked, & { border-color: $selected_borders_color; } }
-    }
+    //   slider { &:checked, & { border-color: $selected_borders_color; } }
+    // }
   }
 }
 
