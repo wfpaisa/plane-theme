@@ -2875,16 +2875,22 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 %scale_trough {
   border: 1px solid $borders_color;
   border-radius: $br-e;
-  background-color: $dark_fill;
+  background-color: $borders_color;
 
-  &:disabled { background-color: $insensitive_bg_color; }
+  &:disabled { 
+    background-color: mix($bg_color, $borders_color, 50%); 
+    border-color: mix($bg_color, $borders_color, 50%); 
+  }
 
   &:backdrop {
-    background-color: $backdrop_dark_fill;
+    background-color: $backdrop_borders_color;
     border-color: $backdrop_borders_color;
     transition: $backdrop_transition;
 
-    &:disabled { background-color: $insensitive_bg_color; }
+    &:disabled {
+      background-color: mix($backdrop_base_color, $backdrop_borders_color, 50%); 
+      border-color: mix($backdrop_base_color, $backdrop_borders_color, 50%); 
+    }
   }
 
   // ...on selected list rows
@@ -2900,7 +2906,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 }
 
 %scale_highlight {
-  border: 1px solid $selected_borders_color;
+  border: 1px solid $selected_bg_color;
   border-radius: $br-e;
   background-color: $selected_bg_color;
 
