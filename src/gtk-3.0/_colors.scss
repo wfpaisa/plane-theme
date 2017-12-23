@@ -68,5 +68,9 @@ $backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, 40
 
 $backdrop_menu_color: if($variant == 'light', $backdrop_base_color, mix($backdrop_bg_color, $backdrop_base_color, 20%));
 
+$switch_color: #2AC558;
 
-$switch_color: #33d351;
+$scale_color_a: mix($selected_bg_color, #CCE700, 90%);
+$scale_color_b: mix($selected_bg_color, #FF0041, 90%);
+
+

@@ -2873,23 +2873,19 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
  * GtkScale *
  ************/
 %scale_trough {
-  border: 1px solid $borders_color;
   border-radius: $br-e;
   background-color: $borders_color;
 
   &:disabled { 
     background-color: mix($bg_color, $borders_color, 50%); 
-    border-color: mix($bg_color, $borders_color, 50%); 
   }
 
   &:backdrop {
     background-color: $backdrop_borders_color;
-    border-color: $backdrop_borders_color;
     transition: $backdrop_transition;
 
     &:disabled {
-      background-color: mix($backdrop_base_color, $backdrop_borders_color, 50%); 
-      border-color: mix($backdrop_base_color, $backdrop_borders_color, 50%); 
+      background-color: mix($backdrop_base_color, $backdrop_borders_color, 50%);
     }
   }
 
@@ -2898,7 +2894,6 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 
   // OSD
   .osd & {
-    border-color: $osd_borders_color;
     background-color: transparentize($osd_borders_color, 0.2);
 
     &:disabled { background-color: $osd_insensitive_bg_color; }
@@ -2906,32 +2901,42 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 }
 
 %scale_highlight {
-  border: 1px solid $selected_bg_color;
   border-radius: $br-e;
   background-color: $selected_bg_color;
 
+  scale.horizontal & { 
+      background:linear-gradient(90deg,$scale_color_a,$scale_color_b);
+      &:dir(rtl) {
+        background-image:linear-gradient(-90deg,$scale_color_a,$scale_color_b);
+      }
+  }
+  scale.vertical & { 
+    background-image:linear-gradient($scale_color_a,$scale_color_b);
+  }
+  
+  scale.horizontal &:disabled,
+  scale.vertical &:disabled,
   &:disabled {
+    background-image:none;
     background-color: transparent;
-    border-color: transparent;
   }
 
   &:backdrop {
     border-color: if($variant=='light', $selected_bg_color,
-                                        $selected_borders_color);
+                                        red);
     &:disabled {
       background-color: transparent;
-      border-color: transparent;
     }
   }
 
   // ...on selected list rows
-  row:selected & { &:disabled, & { border-color: $selected_borders_color; }}
+  row:selected & { &:disabled, & { }}
 
   // OSD
   .osd & {
-    border-color: $osd_borders_color;
+    
 
-    &:disabled { border-color: transparent; }
+    &:disabled { }
   }
 }
 
@@ -2953,7 +2958,7 @@ scale {
   slider {
     min-height: 18px;
     min-width: 18px;
-    margin: -9px;
+    margin: -8px;
   }
 
   // click-and-hold the slider to activate
@@ -2987,6 +2992,7 @@ scale {
 
     outline-offset: 2px;
     -gtk-outline-radius: 5px;
+    padding:1px;
   }
 
   // the colored part of the backing bit
@@ -3020,23 +3026,29 @@ scale {
   }
 
   slider {
-    @include button(normal-alt, $edge: $shadow_color);
-
-    border: 1px solid darken($alt_borders_color, 3%);
     border-radius: 100%;
+    background:rgb(245,245,245);
+    border-radius:50%;
+    box-shadow: 0 0 0 6px rgba(255,255,255,0), 0 1px 2px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgb(255,255,255);
     transition: $button_transition;
     transition-property: background, border, box-shadow;
 
-    &:hover { @include button(hover-alt, $edge: $shadow_color); }
 
-    &:active { border-color: $selected_borders_color; }
+    &:hover { 
+      box-shadow: 0 0 0 8px rgba(255,255,255,0.4), 0 1px 2px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgb(255,255,255);
+    }
 
-    &:disabled { @include button(insensitive); }
+    &:active { background:rgb(255,255,255); }
+
+    &:disabled { 
+      background:rgb(240,240,240);
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    }
 
     &:backdrop {
       transition: $backdrop_transition;
 
-      @include button(backdrop);
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 
       &:disabled { @include button(backdrop-insensitive); }
     }
