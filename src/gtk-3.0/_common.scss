@@ -1451,7 +1451,7 @@ headerbar {
   border-width: 0;
   border-radius: 0;
   
-  @include headerbar_fill(transparentize($bg_color,0.2));
+  @include headerbar_fill(transparentize($bg_color,0.24));
 
   &:backdrop {
     border-color: transparent;
@@ -1464,7 +1464,6 @@ headerbar {
   .title {
     padding-left: 12px;
     padding-right: 12px;
-    font-weight: bold;
   }
 
   .subtitle {
@@ -2923,7 +2922,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 
   &:backdrop {
     border-color: if($variant=='light', $selected_bg_color,
-                                        red);
+                                        $selected_borders_color);
     &:disabled {
       background-color: transparent;
     }
