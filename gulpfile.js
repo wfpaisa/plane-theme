@@ -73,46 +73,21 @@ function autoreload(){
 
 		/* First change default theme and late change to our theme */
 		exec(`gsettings set  org.gnome.desktop.interface gtk-theme Adwaita`, () => {
-			
-			exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme}`, () => {
-				
-				timeLog(`Reload ${theme} theme`);
 
-				return;
+			setTimeout(function() {
+				exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme}`, () => {
+					
+					timeLog(`Reload ${theme} theme`);
+					return;
+					
+				})			
 				
-			})			
+			}, 500);
 		})
 
 	}
 }
 
-
-/**
- * Sass 
- * Generate css files
- *
- * @param      {string}    dir     The directory
- * @param      {Function}  cb      callback
- */
-function reSass(dir,cb){
-  	 
-	gulp.src(`./src/${dir}/**/*.scss`)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(rename(function (path) {
-
-				// Send dark files to dark directory
-				if(path.basename.indexOf('-dark') > -1 ){				
-					path.basename = path.basename.replace('-dark','');
-					path.dirname = `../../${dirDark}/${dir}`;
-				}
-
-			}))
-			.pipe(gulp.dest(`./build/${dirLight}/${dir}`))
-			.on('end',()=>{
-				cb();
-			}); 
-
-}
 
 /*=====  End of Global functions  ======*/
 
@@ -124,14 +99,18 @@ function reSass(dir,cb){
 
 /*----------  gtk-3.0  ----------*/
 
-gulp.task('gtk3-sass', function (cb) {
-
-	reSass('gtk-3.0', function(){
-		cb();
-	}); 
-
+gulp.task('gtk3-light', function (cb) {
+	return gulp.src(`./src/gtk-3.0/**/*.scss`)
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest(`./build/${dirLight}/gtk-3.0`))
 });
 
+gulp.task('gtk3-dark', function (cb) {	 
+	return gulp.src(`./src/gtk-3.0/gtk-contained-dark.scss`)
+			.pipe(sass().on('error', sass.logError))
+			.pipe(rename('gtk.css'))
+			.pipe(gulp.dest(`./build/${dirDark}/gtk-3.0/`));
+});
 
 gulp.task('gtk3-assets', function(){
 	return 	gulp.src("./src/gtk-3.0/assets/*")
@@ -198,7 +177,7 @@ gulp.task('watch', function () {
   // });  
   gulp.watch('./src/gtk-3.0/**/*.scss',  function(cb){
   		
-  		gulp.start('gtk3-sass', function(){
+  		gulp.start(['gtk3-light','gtk3-dark'], function(){
   			autoreload();	
   		})
   		
@@ -235,6 +214,6 @@ gulp.task('watch', function () {
  *
  */
 
-gulp.task('default', ['theme-light','theme-dark','gtk3-sass', 'gtk3-assets', 'gtk2-light', 'gtk2-dark'], (cb) => {
+gulp.task('default', ['theme-light','theme-dark','gtk3-light', 'gtk3-dark', 'gtk3-assets', 'gtk2-light', 'gtk2-dark'], (cb) => {
 
 });
