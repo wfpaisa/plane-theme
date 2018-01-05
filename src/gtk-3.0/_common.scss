@@ -2622,7 +2622,7 @@ switch {
   }
 
   &:disabled {
-    background-color: rgba(0,0,0,0.1);
+    background-color: if($variant == 'light', rgba(0,0,0,0.1), rgba(0,0,0,0.2));
   }
 
   &:backdrop {
@@ -2660,7 +2660,8 @@ switch {
   &:checked slider { }
 
   &:disabled slider {
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2), inset 0 0 0 1px rgba(255,255,255,0.2);
+    background: if($variant == 'light', lighten($bg_color,2% ), lighten($bg_color,10% ));
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
 
   &:backdrop {
