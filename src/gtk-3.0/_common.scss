@@ -3034,56 +3034,37 @@ scale {
 
 
     &:hover { 
-      box-shadow: 0 0 0 8px rgba(255,255,255,0.4), 0 1px 2px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgb(255,255,255);
+      $_sh: if($variant == 'light', rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+      box-shadow: 0 0 0 8px $_sh, 0 1px 2px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgb(255,255,255);
     }
 
     &:active { background:rgb(255,255,255); }
 
-    &:disabled { 
-      background:rgb(240,240,240);
+    &:disabled {
+      background: if($variant == 'light', lighten($bg_color,2% ), lighten($bg_color,10% ));
       box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
     }
 
     &:backdrop {
-      transition: $backdrop_transition;
-
       box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 
       &:disabled { @include button(backdrop-insensitive); }
     }
 
     // ...on selected list rows
-    row:selected & { &:disabled, & { border-color: $selected_borders_color; } }
+    row:selected & { &:disabled, & {  } }
 
     // OSD
     .osd & {
-      @include button(osd);
-      border-color: darken($osd_borders_color, 3%);
-      background-color: opacify($osd_bg_color, 1); // solid background needed here
 
-      &:hover {
-        @include button(osd-hover);
-        background-color: opacify($osd_bg_color, 1); // solid background needed here
-      }
+      &:hover {}
 
-      &:active {
-        @include button(osd-active);
-        background-color: opacify($osd_bg_color, 1); // solid background needed here
-      }
+      &:active {}
 
-      &:disabled {
-        @include button(osd-insensitive);
-        background-color: opacify($osd_bg_color, 1); // solid background needed here
-      }
+      &:disabled {}
 
       &:backdrop {
-        @include button(osd-backdrop);
-        background-color: opacify($osd_bg_color, 1); // solid background needed here
-
-        &:disabled {
-          @include button(osd-backdrop-insensitive);
-          background-color: opacify($osd_bg_color, 1); // solid background needed here
-        }
+        &:disabled {}
       }
     }
   }
