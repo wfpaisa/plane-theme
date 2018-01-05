@@ -2639,9 +2639,9 @@ switch {
   }
 
   slider {
-    margin: -2px 0px;
-    min-width: 22px;
-    min-height: 22px;
+    margin: 1px;
+    min-width: 20px;
+    min-height: 20px;
     border: 0px;
     border-radius: 18px;
     transition: $button_transition;
