@@ -1,5 +1,5 @@
 <p align="center">
-<img src="logo.svg" />
+<img src="assets/logo.svg" />
 </p>
 
 
@@ -9,6 +9,11 @@
 
 - 	A beautiful theme for Gnome Linux
 
+<p align="center">
+<img src="assets/screenshots/light1.png" />
+<br>
+<img src="assets/screenshots/dark1.png" />
+</p>
 
 ## Build
 - npm i
