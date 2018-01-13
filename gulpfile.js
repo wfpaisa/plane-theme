@@ -158,7 +158,8 @@ gulp.task('theme-light', function(){
 })
 gulp.task('theme-dark', function(){
 	return gulp.src('./src/index-dark.theme')
-			.pipe(gulp.dest(`./build/${dirDark}/index.theme`))
+			.pipe(rename('index.theme'))
+			.pipe(gulp.dest(`./build/${dirDark}`))
 })
 /*=====  End of Common tasks  ======*/
 

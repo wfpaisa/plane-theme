@@ -4,8 +4,6 @@ Name=Plane-dark
 Comment=A beautiful theme for Gnome Linux
 Encoding=UTF-8
 
-Name[en_US]=index-dark.theme
-
 [X-GNOME-Metatheme]
 GtkTheme=Plane-dark
 MetacityTheme=Plane-dark
