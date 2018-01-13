@@ -4525,6 +4525,25 @@ button.emoji-section {
   }
 }
 
-window.csd:not(:backdrop){
-  box-shadow: inset -1px -1px lighten($bg_color,4%), inset 1px 0px lighten($bg_color,4%);
+
+//
+// Nautilus
+//
+.nautilus-desktop.nautilus-canvas-item {
+  color: white;
+  text-shadow: 1px 1px transparentize(black, 0.4);
+}
+
+.nautilus-window {
+  // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
+  .searchbar-container { margin-top: -1px; }
+}
+
+
+//
+// Transmission
+//
+.tr-workarea undershoot,
+.tr-workarea overshoot {
+  border-color: transparent; // Remove black border on over- and undershoot
 }
