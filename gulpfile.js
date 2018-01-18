@@ -29,7 +29,8 @@ var fs = require('fs'),
 	exec = require('child_process').exec,
 	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
-	rename = require("gulp-rename");
+	rename = require("gulp-rename"),
+	os = require('os');
 
 
 /* Global variables */
@@ -88,6 +89,17 @@ function autoreload(){
 	}
 }
 
+
+/**
+ *
+ * Copy all files in user folder
+ *
+ */
+
+gulp.task('copy-user-theme-folder',function(){
+	return gulp.src('./build/**/*')
+			.pipe(gulp.dest(os.homedir() + '/.local/share/themes/'))
+})
 
 /*=====  End of Global functions  ======*/
 
@@ -179,7 +191,10 @@ gulp.task('watch', function () {
   gulp.watch('./src/gtk-3.0/**/*.scss',  function(cb){
   		
   		gulp.start(['gtk3-light','gtk3-dark'], function(){
-  			autoreload();	
+  			
+  			gulp.start('copy-user-theme-folder', function(){
+  				autoreload();	  				
+  			})
   		})
   		
   });  
