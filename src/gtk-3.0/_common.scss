@@ -1450,6 +1450,7 @@ headerbar {
   min-height: 46px;
   border-width: 0;
   border-radius: 0;
+  border-bottom:1px solid lighten($bg_color, 4%);
   
   @include headerbar_fill(transparentize($bg_color,0.24));
 

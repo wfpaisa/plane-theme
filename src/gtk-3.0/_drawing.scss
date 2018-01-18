@@ -488,7 +488,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
   @if $ov != none { background: $c $ov, $gradient; }
   @else { background: $c $gradient; }
   
-  box-shadow: inset 1px 1px lighten($bg_color, 4%),inset -1px 0px lighten($bg_color, 4%), 0 1px lighten($bg_color, 4%); // top highlight
+  box-shadow: inset 1px 1px lighten($bg_color, 4%),inset -1px 0px lighten($bg_color, 4%); // top highlight
 }
 
 @mixin overshoot($p, $t:normal, $c:$fg_color) {
