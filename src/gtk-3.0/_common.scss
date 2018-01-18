@@ -627,7 +627,7 @@ button {
     &.image-button { min-width: 32px; }
 
     color: $osd_fg_color;
-    border-radius: 5px;
+    border-radius: $br-o;
 
     @include button(osd);
 
@@ -818,7 +818,7 @@ button {
 
   // inline-toolbar buttons
   .inline-toolbar &, .inline-toolbar &:backdrop {
-    border-radius: 2px;
+    border-radius: $br-o;
     border-width: 1px;
     @extend %linked;
   }
@@ -1380,7 +1380,7 @@ toolbar {
   &.osd {
     padding: 13px;
     border: none;
-    border-radius: 5px;
+    border-radius: $br-o;
     background-color: $osd_bg_color;
 
     &.left,
@@ -1413,7 +1413,7 @@ toolbar {
 
   padding: 3px;
   border-width: 0 1px 1px;
-  border-radius: 0  0 5px 5px;
+  border-radius: 0  0 $br-o $br-o;
 }
 
 searchbar,
@@ -2116,12 +2116,14 @@ menuitem {
 
 popover.background {
   padding: 2px;
-  border-radius: 5px;
+  border-radius: $br-o;
   background-color: $popover_bg_color;
-
-  .csd &, & { border: 1px solid $borders_color; }
-
-  box-shadow: 0 1px 2px transparentize(black, 0.7);
+  
+  $_br-pop-color: if($variant == 'light', lighten($bg_color, 12%), lighten($bg_color, 6%) );
+  .csd &, & { border: 1px solid $_br-pop-color; }
+  
+  $_sh-pop-color: if($variant == 'light', transparentize(black, 0.8), transparentize(black, 0.4) );
+  box-shadow: 0 0 4px $_sh-pop-color, 0 0 2px transparentize(black, 0.8);
 
   &:backdrop {
     background-color: $backdrop_bg_color;
@@ -3630,7 +3632,7 @@ row {
   @extend %osd;
 
   padding: 10px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 $br-o $br-o;
   background-color: $osd_bg_color;
   background-image: linear-gradient(to bottom, transparentize(black, 0.8),
                                                transparent 2px);
@@ -4073,7 +4075,7 @@ tooltip {
   }
 
   padding: 4px; /* not working */
-  border-radius: 5px;
+  border-radius: $br-o;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
   text-shadow: 0 1px black;
 
@@ -4518,7 +4520,7 @@ button.emoji-section {
 .emoji {
   font-size: x-large;
   padding: 6px;
-  border-radius: 6px;
+  border-radius: $br-o;
 
   :hover {
     background: $selected_bg_color;
