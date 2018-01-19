@@ -3726,6 +3726,7 @@ messagedialog { // Message Dialog styling
     border-top-left-radius: $br-o;
     border-top-right-radius: $br-o;
     box-shadow:none;
+    box-shadow: inset 1px 1px lighten($bg_color, 4%),inset -1px 0px lighten($bg_color, 4%); // same -> headerbar_fill
   }
 
   &.csd { // rounded bottom border styling for csd version
