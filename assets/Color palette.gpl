@@ -1,0 +1,22 @@
+GIMP Palette
+Name: Color palette.gpl
+Columns: 1
+#
+252	252	252	Light Base
+238	239	240	Light Bg
+82	87	98	Light Text
+45	52	65	Dark Base
+51	58	71	Dark Bg
+240	240	240	Dark Text
+42	145	250	Select
+113	242	195	Editor Green
+255	246	178	Editor Yellow
+181	157	219	Editor Purple
+255	135	191	Editor Red
+160	223	255	Editor Blue
+255	154	120	Editor Orange
+138	254	255	Editor Turquoise
+248	248	242	Editor Text color
+36	40	50	Editor Background
+42	46	54	Editor LineHighlight
+64	68	77	Editor LineSelection
