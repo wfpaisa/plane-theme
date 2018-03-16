@@ -200,7 +200,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     $_sh: if($c == $bg_color, lighten($c, 8%), $c);
 
     color: $tc;
-    outline-color: transparentize($tc, 0.7);
+    outline-color: transparentize($tc, 0.8);
     @include _button_text_shadow($tc, $c);
     border-color: $_va_t;
     border-bottom-color: $_va_d;
@@ -220,7 +220,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     $_bc: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 10%));
 
     color: $tc;
-    outline-color: transparentize($tc, 0.7);
+    outline-color: transparentize($tc, 0.8);
     background-image:image(lighten($c, 10%));
     border-color: $_bc;
     border-bottom-color: darken($bg_color, 32%);
@@ -232,7 +232,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
   //
     
     color: $tc;
-    outline-color: transparentize($tc, 0.7);
+    outline-color: transparentize($tc, 0.8);
     border-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
     @include _button_text_shadow($tc, $c);
     background-image:image(lighten($c, 2%)); 
@@ -245,7 +245,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
   // hovered button alternative look
   //
     color: $tc;
-    outline-color: transparentize($tc, 0.7);
+    outline-color: transparentize($tc, 0.8);
     border-color: if($c != $bg_color, _border_color($c, true), $alt_borders_color);
     background-image:image(lighten($c, 6%));
   }
@@ -261,7 +261,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     $_sh_i: if($c == $bg_color, $_sh, darken($c, 36%));
     
     color: $tc;
-    outline-color: transparentize($tc, 0.7);
+    outline-color: transparentize($tc, 0.8);
     // text-shadow: none;
     @include _button_text_shadow($tc, $c);
     border-color: $_bc_i;
@@ -294,7 +294,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
   // insensitive pushed button
   //
     color: $tc;
-    outline-color: transparentize($tc, 0.7);
+    outline-color: transparentize($tc, 0.8);
     text-shadow: none;
     background-image: image(darken($c, 2%));
     box-shadow: inset 0px 0px 2px 0px darken($c, 16%);
@@ -386,7 +386,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     box-shadow: inset 0 1px transparentize(white, 0.9);
     text-shadow: 0 1px black;
     -gtk-icon-shadow: 0 1px black;
-    outline-color: transparentize($osd_fg_color, 0.7);
+    outline-color: transparentize($osd_fg_color, 0.8);
   }
 
   @else if $t==osd-hover {
@@ -404,7 +404,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     box-shadow: inset 0 1px transparentize(white, 0.9);
     text-shadow: 0 1px black;
     -gtk-icon-shadow: 0 1px black;
-    outline-color: transparentize($osd_fg_color, 0.7);
+    outline-color: transparentize($osd_fg_color, 0.8);
   }
 
   @else if $t==osd-active {
@@ -422,7 +422,7 @@ $br-e: 2px; // buttons and widgets, (default:3px)
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
-    outline-color: transparentize($osd_fg_color, 0.7);
+    outline-color: transparentize($osd_fg_color, 0.8);
   }
 
   @else if $t==osd-insensitive {

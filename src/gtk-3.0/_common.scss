@@ -534,7 +534,7 @@ button {
     }
     
     &:focus {
-      outline: none;
+      outline-offset: -8px;
     }
 
     &:hover {
