@@ -73,10 +73,10 @@ function autoreload(){
 
 
 		/* First change default theme and late change to our theme */
-		exec(`gsettings set  org.gnome.desktop.interface gtk-theme Adwaita`, () => {
+		exec(`gsettings set  org.gnome.desktop.interface gtk-theme Adwaita && gsettings set org.gnome.shell.extensions.user-theme name "Deault"`, () => {
 
 			setTimeout(function() {
-				exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme}`, () => {
+				exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme} && gsettings set org.gnome.shell.extensions.user-theme name ${theme}`, () => {
 					
 					timeLog(`Reload ${theme} theme`);
 					return;
@@ -108,6 +108,37 @@ gulp.task('copy-user-theme-folder',function(){
 /*====================================
 =            Common tasks            =
 ====================================*/
+
+/*----------  Gnome-shell  ----------*/
+
+gulp.task('gnome-shell-light', function (cb) {
+	return gulp.src(`./src/gnome-shell/gnome-shell.scss`)
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`))
+});
+
+gulp.task('gnome-shell-light-assets', function(){
+	return 	gulp.src([
+						"./src/gnome-shell/common-assets/*.*",
+						"./src/gnome-shell/light-assets/*.*",
+					])
+				.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`));
+})
+
+gulp.task('gnome-shell-dark', function (cb) {
+	return gulp.src(`./src/gnome-shell/gnome-shell-dark.scss`)
+			.pipe(sass().on('error', sass.logError))
+			.pipe(rename('gnome-shell.css'))
+			.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`))
+});
+
+gulp.task('gnome-shell-dark-assets', function(){
+	return 	gulp.src([
+						"./src/gnome-shell/common-assets/*.*",
+						"./src/gnome-shell/dark-assets/*.*",
+					])
+				.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`));
+})
 
 /*----------  gtk-3.0  ----------*/
 
@@ -184,10 +215,7 @@ gulp.task('theme-dark', function(){
 
 gulp.task('watch', function () {
   
-  // gulp.watch('./src/gtk-3.0/**/*.scss',  ['gtk3-sass'], function(cb){
-  // 		autoreload();
-  // 		cb()
-  // });  
+  // Gtk3
   gulp.watch('./src/gtk-3.0/**/*.scss',  function(cb){
   		
   		gulp.start(['gtk3-light','gtk3-dark'], function(){
@@ -199,10 +227,6 @@ gulp.task('watch', function () {
   		
   });  
   	
-
-
-  /* Images */
-  
   gulp.watch('./src/gtk-3.0/assets/*', function(file){
 
 	gulp.src(file.path)
@@ -214,6 +238,22 @@ gulp.task('watch', function () {
 
 		})
 
+  });
+
+  // Gnome-shell
+  gulp.watch('./src/gnome-shell/**/*.scss',  function(cb){
+  		
+  		gulp.start([
+  			'gnome-shell-light',
+			'gnome-shell-light-assets',
+			'gnome-shell-dark',
+			'gnome-shell-dark-assets'
+			], function(){
+  				gulp.start('copy-user-theme-folder', function(){
+  					autoreload();	  				
+  				})
+  			})
+  		
   });
 
 
@@ -230,6 +270,18 @@ gulp.task('watch', function () {
  *
  */
 
-gulp.task('default', ['theme-light','theme-dark','gtk3-light', 'gtk3-dark', 'gtk3-assets', 'gtk2-light', 'gtk2-dark'], (cb) => {
+gulp.task('default', [
+	'theme-light',
+	'theme-dark',
+	'gtk3-light',
+	'gtk3-dark',
+	'gtk3-assets',
+	'gtk2-light',
+	'gtk2-dark',
+	'gnome-shell-light',
+	'gnome-shell-light-assets',
+	'gnome-shell-dark',
+	'gnome-shell-dark-assets'
+	], (cb) => {
 
 });
