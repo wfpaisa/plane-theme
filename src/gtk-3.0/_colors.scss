@@ -2,14 +2,13 @@
 // it gets @if ed depending on $variant
 
 
-$base_color: if($variant == 'light', rgba(252, 252, 252, 0.999), rgba(45, 52, 65, 0.999));
-$text_color: if($variant == 'light', rgb(82,87,98), rgb(230, 230, 230));
-$bg_color: if($variant == 'light', rgba(238, 239, 240, 0.999), rgba(51, 58, 71, 0.999));
-$fg_color: if($variant == 'light', rgb(82,87,98), rgb(240, 240, 240));
+$base_color: if($variant == 'light', rgba(252, 252, 252, 0.999), rgba(45, 52, 65, 0.999)); // #FCFCFC , #2C333D
+$text_color: if($variant == 'light', rgb(82,87,98), rgb(230, 230, 230)); //#525762, #E6E6E6
+$bg_color: if($variant == 'light', rgba(238, 239, 240, 0.999), rgba(51, 58, 71, 0.999)); //#EEEFF0, #333A47
+$fg_color: if($variant == 'light', rgb(82,87,98), rgb(240, 240, 240)); // #525762, #F0F0F0
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', rgb(234, 84, 33), rgb(234, 84, 33));
-$selected_bg_color: #2A91FA;
+$selected_bg_color: if($variant == 'light', rgb(42, 145, 250), rgb(42, 145, 250)); //#2A91FA
 $selected_borders_color: if($variant== 'light', darken($selected_bg_color, 30%), darken($selected_bg_color, 20%));
 $borders_color: if($variant == 'light', darken($bg_color, 12%), darken($bg_color, 10%));
 $alt_borders_color: if($variant == 'light', darken($bg_color, 35%), darken($bg_color, 17%));
