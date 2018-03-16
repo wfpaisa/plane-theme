@@ -2610,7 +2610,7 @@ treeview ~ scrollbar.vertical {
  **********/
 switch {
   font-size: smaller;
-  outline-offset: -4px;
+  outline-offset: 2px;
 
   // similar to the .scale
   border: 0px;
@@ -2618,7 +2618,6 @@ switch {
   color: transparent;
   background-color: rgba(0,0,0,0.3);
   margin:3px;
-
 
   &:checked {
     background-color: $switch_bg_color;
@@ -2665,6 +2664,14 @@ switch {
   &:disabled slider {
     background: if($variant == 'light', lighten($bg_color,2% ), lighten($bg_color,10% ));
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  &:focus slider{
+    outline-color: $selected_bg_color;
+    outline-offset: -16px;
+    outline-style: solid;
+    outline-width: 4px;
+    -gtk-outline-radius:100%;
   }
 
   &:backdrop {
@@ -2745,7 +2752,7 @@ radio {
     }
   }
 
-  background: if($variant == 'light', lighten($bg_color, 32%), lighten($bg_color, 22%));
+  background: if($variant == 'light', lighten($bg_color, 32%), lighten($bg_color, 8%));
   box-shadow: if($variant == 'light', inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px 0px 0px 1px rgba(255,255,255,0.1));
   color: $check_fg_color;
   min-height: 14px;
@@ -2759,7 +2766,10 @@ radio {
   &:active,
   &:checked{ background: $check_bg_color; box-shadow:none; }
 
-  &:disabled { box-shadow: if($variant == 'light', inset 0px 0px 0px 1px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(255,255,255,0.06) )}
+  &:disabled { 
+    background: if($variant == 'light', lighten($bg_color, 22%), lighten($bg_color, 2%));
+    box-shadow: if($variant == 'light', inset 0px 0px 0px 1px rgba(0,0,0,0.1), inset 0px 0px 0px 1px rgba(255,255,255,0.06));
+  }
   &:disabled:active,
   &:disabled:checked{ background: mix(lighten($bg_color, 32%), $check_bg_color, 60%); box-shadow:none; color: transparentize($check_fg_color,0.4); padding:1px; }
   
