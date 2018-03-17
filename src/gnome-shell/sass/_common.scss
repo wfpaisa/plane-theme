@@ -4,7 +4,7 @@
 $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 /* #{$cakeisalie} */
 
-$panel-corner-radius: 6px;
+$panel-corner-radius: 1px;
 
 /* Copyright 2009, 2015 Red Hat, Inc.
  *
@@ -28,7 +28,7 @@ $panel-corner-radius: 6px;
 
 /* GLOBALS */
 $font-size: 11;
-$font-family: Cantarell, Sans-Serif;
+$font-family: Roboto, Cantarell, Sans-Serif;
 $_bubble_bg_color: opacify($osd_bg_color,0.25);
 $_bubble_fg_color: $osd_fg_color;
 $_bubble_borders_color: transparentize($osd_fg_color,0.8);
@@ -144,24 +144,24 @@ StScrollBar {
   StBin {
     width: 24px;
     height: 22px;
-    background-image: url("resource:///org/gnome/shell/theme/checkbox-off.svg");
+    background-image: url("./checkbox-off.svg");
   }
-  &:focus StBin { background-image: url("resource:///org/gnome/shell/theme/checkbox-off-focused.svg"); }
-  &:checked StBin { background-image: url("resource:///org/gnome/shell/theme/checkbox.svg"); }
-  &:focus:checked StBin { background-image: url("resource:///org/gnome/shell/theme/checkbox-focused.svg"); }
+  &:focus StBin { background-image: url("./checkbox-off-focused.svg"); }
+  &:checked StBin { background-image: url("./checkbox.svg"); }
+  &:focus:checked StBin { background-image: url("./checkbox-focused.svg"); }
 }
 
 /* Switches */
 .toggle-switch {
-  width: 65px;
+  width: 48px;
   height: 22px;
   background-size: contain;
 }
 
   @each $v in us, intl {
     .toggle-switch-#{$v} {
-      background-image: url("resource:///org/gnome/shell/theme/toggle-off-#{$v}.svg");
-      &:checked { background-image: url("resource:///org/gnome/shell/theme/toggle-on-#{$v}.svg"); }
+      background-image: url("./toggle-off-#{$v}.svg");
+      &:checked { background-image: url("./toggle-on-#{$v}.svg"); }
     }
   }
 
@@ -687,7 +687,7 @@ StScrollBar {
     height: 50px;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
-    //background-image: url("resource:///org/gnome/shell/theme/ws-switch-arrow-up.png");
+    //background-image: url("./ws-switch-arrow-up.png");
     background-size: 32px;
     border-radius: 8px;
   }
@@ -731,8 +731,9 @@ StScrollBar {
   background-color: rgba(0, 0, 0, 0.35);
   /* transition from solid to transparent */
   transition-duration: 500ms;
-  font-weight: bold;
+  font-weight: normal;
   height: 1.86em;
+  font-size: 90%;
 
   &.unlock-screen,
   &.login-screen,
@@ -764,7 +765,7 @@ StScrollBar {
   .panel-button {
     -natural-hpadding: 12px;
     -minimum-hpadding: 6px;
-    font-weight: bold;
+    font-weight: normal;
     color: #eee;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.9);
     transition-duration: 100ms;
@@ -803,7 +804,7 @@ StScrollBar {
       & > .system-status-icon { icon-shadow: black 0 2px 2px; }
     }
 
-    .system-status-icon { icon-size: 1.09em; padding: 0 5px; }
+    .system-status-icon { icon-size: 16px; padding: 0 4px; }
     .unlock-screen &,
     .login-screen &,
     .lock-screen & {
@@ -943,12 +944,12 @@ StScrollBar {
     }
 
       .calendar-change-month-back { //arrow back
-        background-image: url("resource:///org/gnome/shell/theme/calendar-arrow-left.svg");
-        &:rtl { background-image: url("resource:///org/gnome/shell/theme/calendar-arrow-right.svg"); }
+        background-image: url("./calendar-arrow-left.svg");
+        &:rtl { background-image: url("./calendar-arrow-right.svg"); }
       }
       .calendar-change-month-forward { //arrow foreward
-        background-image: url("resource:///org/gnome/shell/theme/calendar-arrow-right.svg");
-        &:rtl { background-image: url("resource:///org/gnome/shell/theme/calendar-arrow-left.svg"); }
+        background-image: url("./calendar-arrow-right.svg");
+        &:rtl { background-image: url("./calendar-arrow-left.svg"); }
       }
 
     .calendar-day-base {
@@ -990,7 +991,7 @@ StScrollBar {
       .calendar-day-with-events {
         color: lighten($fg_color,10%);
         font-weight: bold;
-        background-image: url("resource:///org/gnome/shell/theme/calendar-today.svg");
+        background-image: url("./calendar-today.svg");
       }
       .calendar-other-month-day {
         color: transparentize($fg_color,0.85);
@@ -1102,7 +1103,7 @@ StScrollBar {
   }
 
   #appMenu {
-    spinner-image: url("resource:///org/gnome/shell/theme/process-working.svg");
+    spinner-image: url("./process-working.svg");
     spacing: 4px;
 
     .label-shadow { color: transparent; }
@@ -1140,12 +1141,12 @@ StScrollBar {
 .ripple-box {
   width: 52px;
   height: 52px;
-  background-image: url("resource:///org/gnome/shell/theme/corner-ripple-ltr.png");
+  background-image: url("./corner-ripple-ltr.png");
   background-size: contain;
 }
 
 .ripple-box:rtl {
-  background-image: url("resource:///org/gnome/shell/theme/corner-ripple-rtl.png");
+  background-image: url("./corner-ripple-rtl.png");
 }
 
 // not really top bar only
@@ -1155,14 +1156,14 @@ StScrollBar {
 //close buttons
 
 .window-close {
-  background-image: url("resource:///org/gnome/shell/theme/close-window.svg");
+  background-image: url("./close-window.svg");
   background-size: 32px;
   height: 32px;
   width: 32px;
   -shell-close-overlap: 16px;
 
-  &:hover { background-image: url("resource:///org/gnome/shell/theme/close-window-hover.svg"); }
-  &:active { background-image: url("resource:///org/gnome/shell/theme/close-window-active.svg"); }
+  &:hover { background-image: url("./close-window-hover.svg"); }
+  &:active { background-image: url("./close-window-active.svg"); }
 }
 
 /* NETWORK DIALOGS */
@@ -1307,7 +1308,7 @@ StScrollBar {
     }
 
     .placeholder {
-      background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
+      background-image: url("./dash-placeholder.svg");
       background-size: contain;
       height: 24px;
     }
@@ -1327,7 +1328,7 @@ StScrollBar {
     border-radius: 7px;
     padding: 4px 12px;
     color: $osd_fg_color;
-    background-color: transparentize($osd_bg_color,0.3);
+    background-color: $osd_bg_color;
     text-align: center;
     -x-offset: 8px;
   }
@@ -1413,7 +1414,7 @@ StScrollBar {
   }
 
   .app-well-app.app-folder > .overview-icon {
-    background-color: transparentize($osd_bg_color,.6);
+    background-color: $osd_bg_color
   }
 
   .show-apps:checked .show-apps-icon,
@@ -1426,7 +1427,7 @@ StScrollBar {
   // Collections
   .app-folder-popup { //expanded collection
     -arrow-border-radius: 8px;
-    -arrow-background-color: transparentize($osd_bg_color,0.7);
+    -arrow-background-color: $osd_bg_color;
     -arrow-base: 24px;
     -arrow-rise: 11px;
   }
@@ -1443,13 +1444,13 @@ StScrollBar {
     .page-indicator-icon {
       width: 18px;
       height: 18px;
-      background-image: url(resource:///org/gnome/shell/theme/page-indicator-inactive.svg);
+      background-image: url(./page-indicator-inactive.svg);
     }
 
-    &:hover .page-indicator-icon { background-image: url(resource:///org/gnome/shell/theme/page-indicator-hover.svg); }
-    &:active .page-indicator-icon { background-image: url(resource:///org/gnome/shell/theme/page-indicator-active.svg); }
+    &:hover .page-indicator-icon { background-image: url(./page-indicator-hover.svg); }
+    &:active .page-indicator-icon { background-image: url(./page-indicator-active.svg); }
     &:checked .page-indicator-icon,
-    &:checked:active { background-image: url(resource:///org/gnome/shell/theme/page-indicator-checked.svg); }
+    &:checked:active { background-image: url(./page-indicator-checked.svg); }
   }
 
   .no-frequent-applications-label { @extend %status_text; }
@@ -1471,7 +1472,7 @@ StScrollBar {
     &:rtl { border-radius: 0 9px 9px 0;}
 
     .placeholder {
-      background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
+      background-image: url("./dash-placeholder.svg");
       background-size: contain;
       height: 24px;
     }
@@ -1632,7 +1633,7 @@ StScrollBar {
 }
 
 #keyboard {
-    background-color: transparentize($osd_bg_color, 0.3);
+    background-color: $osd_bg_color;
 }
 
   .key-container {
@@ -1664,29 +1665,29 @@ StScrollBar {
     &.enter-key {
       border-color: #005684;
       background-color: #006098;
-      background-image: url("resource:///org/gnome/shell/theme/key-enter.svg");
+      background-image: url("./key-enter.svg");
     }
     &.shift-key-lowercase {
-      background-image: url("resource:///org/gnome/shell/theme/key-shift.svg");
+      background-image: url("./key-shift.svg");
     }
     &.shift-key-uppercase {
-      background-image: url("resource:///org/gnome/shell/theme/key-shift-uppercase.svg");
+      background-image: url("./key-shift-uppercase.svg");
     }
     &.shift-key-uppercase:latched {
-      background-image: url("resource:///org/gnome/shell/theme/key-shift-latched-uppercase.svg");
+      background-image: url("./key-shift-latched-uppercase.svg");
     }
     &.hide-key {
-      background-image: url("resource:///org/gnome/shell/theme/key-hide.svg");
+      background-image: url("./key-hide.svg");
     }
     &.layout-key {
-      background-image: url("resource:///org/gnome/shell/theme/key-layout.svg");
+      background-image: url("./key-layout.svg");
     }
   }
 
   .keyboard-subkeys { //long press on a key popup
     color: white;
     -arrow-border-radius: 10px;
-    -arrow-background-color: transparentize($osd_bg_color, 0.3);
+    -arrow-background-color: $osd_bg_color;
     -arrow-border-width: 2px;
     -arrow-border-color: $_bubble_borders_color;
     -arrow-base: 20px;
@@ -1889,7 +1890,7 @@ StScrollBar {
   .screen-shield-notification-source {
     padding: 12px 6px;
     border: 1px solid $_bubble_borders_color;
-    background-color: transparentize($osd_bg_color,0.5);
+    background-color: $osd_bg_color;
     color: $_bubble_fg_color;
     border-radius: 4px;
   }
@@ -1912,7 +1913,7 @@ StScrollBar {
 }
 
 #lockDialogGroup {
-  background: #2e3436 url(resource:///org/gnome/shell/theme/noise-texture.png);
+  background: #2e3436 url(./noise-texture.png);
   background-repeat: repeat;
 }
 
