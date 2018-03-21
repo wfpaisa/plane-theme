@@ -21,6 +21,8 @@
 
 "use strict";
 
+const version = '0.984';
+
 /* Dependencies */
 var fs = require('fs'),
 	path = require('path'),
@@ -30,7 +32,9 @@ var fs = require('fs'),
 	watch = require('gulp-watch'),
 	sass = require('gulp-sass'),
 	rename = require("gulp-rename"),
-	os = require('os');
+	os = require('os'),
+	zip = require("gulp-zip");
+
 
 
 /* Global variables */
@@ -261,6 +265,17 @@ gulp.task('watch', function () {
 
 /*=====  End of Watch  ======*/
 
+gulp.task('zip-light', function(){
+	return 	gulp.src(`./build/${dirLight}/**/*`)
+		.pipe(zip(`${dirLight}-${version}.zip`))
+		.pipe(gulp.dest('./build/'))
+})
+
+gulp.task('zip-dark', function(){
+	return 	gulp.src(`./build/${dirDark}/**/*`)
+		.pipe(zip(`${dirDark}-${version}.zip`))
+		.pipe(gulp.dest('./build/'))
+})
 
 
 
@@ -281,7 +296,11 @@ gulp.task('default', [
 	'gnome-shell-light',
 	'gnome-shell-light-assets',
 	'gnome-shell-dark',
-	'gnome-shell-dark-assets'
+	'gnome-shell-dark-assets',
 	], (cb) => {
+
+		gulp.start(['zip-light','zip-dark'], function(){
+			cb;	  				
+		})
 
 });

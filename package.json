@@ -19,7 +19,9 @@
     "url": "https://github.com/wfpaisa/plane-theme/issues"
   },
   "homepage": "https://github.com/wfpaisa/plane-theme#readme",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-zip": "^4.1.0"
+  },
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
