@@ -8,6 +8,7 @@
   - Dash:  #dash 
   - Message tray: .notification-banner 
   - Menus: .popup-menu-boxpointer
+  - icons color text:   %icon_tile
 */
 
 //let's start by telling people not to edit the generated CSS:
@@ -809,19 +810,11 @@ StScrollBar {
     .system-status-icon,
     .app-menu-icon > StIcon,
     .popup-menu-arrow {
-      icon-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+      $shadow: if($variant == 'light', rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.1));
+      icon-shadow: 0px 1px 1px $shadow;
+      color: $fg_color;
     }
 
-    // &:hover {
-    //   color: lighten($fg_color, 10%);
-    //   // text-shadow: 0px 1px 6px rgba(0, 0, 0, 1);
-
-    //   .system-status-icon,
-    //   .app-menu-icon > StIcon,
-    //   .popup-menu-arrow {
-    //     // icon-shadow: 0px 1px 6px rgba(0, 0, 0, 1);
-    //   }
-    // }
 
      &:hover,&:active, &:overview, &:focus, &:checked {
       // Trick due to St limitations. It needs a background to draw
@@ -832,6 +825,11 @@ StScrollBar {
       box-shadow:none;
 
       & > .system-status-icon { icon-shadow: black 0 2px 2px; }
+      .system-status-icon,
+      .app-menu-icon > StIcon,
+      .popup-menu-arrow {
+        color: $selected_fg_color;
+      }
     }
 
     .system-status-icon { icon-size: 16px; padding: 0 4px; }
@@ -1304,17 +1302,18 @@ StScrollBar {
   .search-section-content { spacing: 32px; } // This is the space between the provider icon and the results container
   .search-statustext { // "no results"
     @extend %status_text;
+    color: white;
   }
   .list-search-results { spacing: 3px; }
 
   .search-section-separator { height: 2px; background-color: rgba(255, 255, 255, 0.2); }
 
-  .list-search-result-content { spacing: 30px; }
-  .list-search-result-title { color: darken($osd_fg_color,5%); spacing: 12px; }
-  .list-search-result-description { color: transparentize(darken($osd_fg_color,15%), 0.5); }
-  .list-search-provider-details { width: 150px; color: darken($osd_fg_color,5%); margin-top: 0.24em; }
+  .list-search-result-content { spacing: 30px;}
+  .list-search-result-title { color: white; spacing: 12px; }
+  .list-search-result-description { color: white; }
+  .list-search-provider-details { width: 150px; color: white; margin-top: 0.24em; }
   .list-search-provider-content { spacing: 20px; }
-  .search-provider-icon { padding: 15px; }
+  .search-provider-icon { padding: 15px;}
 
 
   /* DASHBOARD */
@@ -1430,7 +1429,7 @@ StScrollBar {
   }
 
   %icon_tile {
-    color: $osd_fg_color;
+    color: white;
     border-radius: 4px;
     padding: 6px;
     border: 1px solid transparent;
