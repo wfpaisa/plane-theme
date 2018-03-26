@@ -149,18 +149,16 @@
   //
   // focused button
   //
-    color: $selected_fg_color;
     text-shadow: 0 1px black;
     icon-shadow: 0 1px black;
-    background-color: $selected_bg_color;
+    box-shadow: inset 0px 0px 0 1px $selected_bg_color;
   }
 
   @else if $t==hover {
   //
   // active osd button
   //
-    color: $selected_fg_color;
-    background-color: $selected_bg_color;
+    background-color: lighten($bg_color,10%);
     text-shadow: 0 1px black;
     icon-shadow: 0 1px black;
 

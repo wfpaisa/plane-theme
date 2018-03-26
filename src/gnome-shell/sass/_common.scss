@@ -327,7 +327,9 @@ StScrollBar {
     font-size: 10pt;
   }
   // power off
-  .end-session-dialog .modal-dialog-linked-button:last-child:focus, 
+  .end-session-dialog .modal-dialog-linked-button:last-child:focus{
+    box-shadow: inset 0px 0px 0 1px $error_color;
+  }
   .end-session-dialog .modal-dialog-linked-button:last-child:hover,
   .end-session-dialog .modal-dialog-linked-button:last-child:active{
     background-color: $error_color;
