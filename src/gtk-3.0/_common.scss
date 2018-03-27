@@ -2928,7 +2928,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
       }
   }
   scale.vertical & { 
-    background-image:linear-gradient($scale_color_a,$scale_color_b);
+    background-image:linear-gradient($scale_color_b,$scale_color_a);
   }
   
   scale.horizontal &:disabled,
@@ -2968,7 +2968,7 @@ scale {
 
   // those are inside the trough node, I need them to show their own border over the trough one, so negative margin
   fill,
-  highlight { margin: -1px; }
+  highlight { margin: 0px; }
 
   // the slider is inside the trough, so to have make it bigger there's a negative margin
 
@@ -3009,7 +3009,7 @@ scale {
 
     outline-offset: 2px;
     -gtk-outline-radius: 5px;
-    padding:1px;
+    padding: 0px;
   }
 
   // the colored part of the backing bit
@@ -3044,9 +3044,9 @@ scale {
 
   slider {
     border-radius: 100%;
-    background:rgb(245,245,245);
-    border-radius:50%;
-    box-shadow: 0 0 0 4px rgba(255,255,255,0), 0 1px 2px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgb(255,255,255);
+    background: rgba(245,245,245,1);
+    border-radius: 100%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0), 0 1px 3px 0 rgba(0,0,0,0.4), inset 0 0 0 1px rgb(255,255,255);
     transition: $button_transition;
     transition-property: background, border, box-shadow;
 
@@ -3056,7 +3056,7 @@ scale {
       box-shadow: 0 0 0 8px $_sh, 0 1px 2px 0 rgba(0,0,0,0.5), inset 0 0 0 1px rgb(255,255,255);
     }
 
-    &:active { background:rgb(255,255,255); }
+    &:active { background:rgba(255,255,255,1); }
 
     &:disabled {
       background: if($variant == 'light', lighten($bg_color,2% ), lighten($bg_color,10% ));
@@ -3154,66 +3154,50 @@ scale {
             &#{$state} {
               // an asymmetric slider asset is used here, so the margins are uneven, the smaller
               // margin is set on the point side.
-              margin: -10px;
-              $_scale_asset: 'assets/slider-#{$dir_infix}-#{$marks_infix}#{$state_infix}#{$suffix}';
+              margin: -11px -4px;
+              padding: 0px;
               border-style: none;
-              border-radius: 0;
-
-              background-color: transparent;
-              background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png'));
+              border-radius: 6px;
 
               $_scale_slider_bg_pos: bottom;
 
               @if $dir_class == 'horizontal' {
-                min-height: 26px;
-                min-width: 22px;
+                min-height: 24px;
+                min-width: 9px;
 
                 @if $marks_infix == 'scale-has-marks-above' {
-                  margin-top: -14px;
-
                   $_scale_slider_bg_pos: top;
                 }
 
-                @else { margin-bottom: -14px; }
               }
 
               @else {
-                min-height: 22px;
-                min-width: 26px;
+                margin: -4px -11px;
+                min-height: 9px;
+                min-width: 24px;
 
                 @if $marks_infix == 'scale-has-marks-above' {
-                  margin-left: -14px;
-
                   $_scale_slider_bg_pos: left bottom;
                 }
 
                 @else {
-                  margin-right: -14px;
-
                   $_scale_slider_bg_pos: right bottom;
                 }
               }
 
-              background-position: $_scale_slider_bg_pos;
-              background-repeat: no-repeat;
-              box-shadow: none;
+              
             }
           }
 
           &.fine-tune slider {
             // bigger negative margins to make the trough grow here as well
-            margin: -7px;
+             margin: -8px -4px;
 
             @if $dir_class == 'horizontal' {
-              @if $marks_infix == 'scale-has-marks-above' { margin-top: -11px; }
-
-              @else { margin-bottom: -11px; }
             }
 
             @else {
-              @if $marks_infix == 'scale-has-marks-above' { margin-left: -11px; }
-
-              @else { margin-right: -11px; }
+              margin: -4px -8px;
             }
           }
         }
@@ -3222,29 +3206,17 @@ scale {
   }
 
   &.color {
-    min-height: 0;
-    min-width: 0;
 
-    trough {
-      background-image: image($borders_color);
-      background-repeat: no-repeat;
-    }
+    trough {}
 
     &.horizontal {
-      padding: 0 0 15px 0;
 
-      trough {
-        padding-bottom: 4px;
-        background-position: 0 -3px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
+      trough {}
 
       slider {
         &:dir(ltr), &:dir(rtl) { // specificity bumb
           &:hover, &:backdrop, &:disabled, &:backdrop:disabled, & {
-            margin-bottom: -15px;
-            margin-top: 6px;
+            background-color: rgba(255,255,255,0.7);
           }
         }
       }
@@ -3252,37 +3224,22 @@ scale {
 
     &.vertical {
       &:dir(ltr) {
-        padding: 0 0 0 15px;
 
-        trough {
-          padding-left: 4px;
-          background-position: 3px 0;
-          border-bottom-right-radius: 0;
-          border-top-right-radius: 0;
-        }
+        trough {}
 
         slider {
           &:hover, &:backdrop, &:disabled, &:backdrop:disabled, & {
-            margin-left: -15px;
-            margin-right: 6px;
+            background-color: rgba(255,255,255,0.7);
           }
         }
       }
 
       &:dir(rtl) {
-        padding: 0 15px 0 0;
 
-        trough {
-          padding-right: 4px;
-          background-position: -3px 0;
-          border-bottom-left-radius: 0;
-          border-top-left-radius: 0;
-        }
+        trough {}
 
         slider {
           &:hover, &:backdrop, &:disabled, &:backdrop:disabled, & {
-            margin-right: -15px;
-            margin-left: 6px;
           }
         }
       }
@@ -3291,47 +3248,26 @@ scale {
     &.fine-tune {
       &.horizontal {
         &:dir(ltr), &:dir(rtl) { // specificity bump
-          padding: 0 0 12px 0;
 
-          trough {
-            padding-bottom: 7px;
-            background-position: 0 -6px;
-          }
+          trough {}
 
-          slider {
-            margin-bottom: -15px;
-            margin-top: 6px;
-          }
+          slider {}
         }
       }
 
       &.vertical {
         &:dir(ltr) {
-          padding: 0 0 0 12px;
 
-          trough {
-            padding-left: 7px;
-            background-position: 6px 0;
-          }
+          trough {}
 
-          slider {
-            margin-left: -15px;
-            margin-right: 6px;
-          }
+          slider {}
         }
 
         &:dir(rtl) {
-          padding: 0 12px 0 0;
 
-          trough {
-            padding-right: 7px;
-            background-position: -6px 0;
-          }
+          trough {}
 
-          slider {
-            margin-right: -15px;
-            margin-left: 6px;
-          }
+          slider {}
         }
       }
     }
