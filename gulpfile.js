@@ -208,6 +208,34 @@ gulp.task('theme-dark', function(){
 			.pipe(rename('index.theme'))
 			.pipe(gulp.dest(`./build/${dirDark}`))
 })
+
+
+/*----------  xfwm4  ----------*/
+
+gulp.task('xfwm4-light', function (cb) {
+	return gulp.src([
+				'./src/xfwm4/assets/*.png',
+				'./src/xfwm4/themerc'
+				])
+			.pipe(gulp.dest(`./build/${dirLight}/xfwm4`))
+});
+
+
+gulp.task('xfwm4-dark', ['xfwm4-dark-assets','xfwm4-dark-themerc']);
+
+gulp.task('xfwm4-dark-assets', function (cb) {
+	return gulp.src('./src/xfwm4/assets-dark/*.png')
+			.pipe(gulp.dest(`./build/${dirDark}/xfwm4`))
+});
+
+gulp.task('xfwm4-dark-themerc', function (cb) {
+	return gulp.src('./src/xfwm4/themerc-dark')
+			.pipe(rename('themerc'))
+			.pipe(gulp.dest(`./build/${dirDark}/xfwm4`))
+});
+
+
+
 /*=====  End of Common tasks  ======*/
 
 
@@ -297,6 +325,8 @@ gulp.task('default', [
 	'gnome-shell-light-assets',
 	'gnome-shell-dark',
 	'gnome-shell-dark-assets',
+	'xfwm4-light',
+	'xfwm4-dark'
 	], (cb) => {
 
 		gulp.start(['zip-light','zip-dark'], function(){
