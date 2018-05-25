@@ -25,8 +25,8 @@
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-sass": "^3.2.1",
     "gulp-watch": "^4.3.11"
   }
 }
