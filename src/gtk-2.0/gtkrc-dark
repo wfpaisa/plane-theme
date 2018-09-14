@@ -14,6 +14,7 @@ gtk-color-scheme = "link_color: #2A91FA"
 gtk-color-scheme = "menu_bg: #333A47"
 
 gtk-color-scheme = "bg_panel: #333A47"
+gtk-color-scheme = "fg_panel: #d3dae3"
 gtk-color-scheme = "bg_panel_light: #3B4251"
 gtk-color-scheme = "cwhite: #FFFFFF"
 gtk-color-scheme = "cblack: #000000"
