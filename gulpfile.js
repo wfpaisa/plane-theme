@@ -21,7 +21,7 @@
 
 "use strict";
 
-const version = '0.986';
+const version = '0.988';
 
 /* Dependencies */
 var fs = require('fs'),
@@ -167,37 +167,95 @@ gulp.task('gtk3-assets', function(){
 
 
 /*----------  gtk-2.0  ----------*/
+// Light
+gulp.task('gtk2-light', ['gtk2-light-assets','gtk2-light-menubar','gtk2-light-files']);
 
-gulp.task('gtk2-light', function(){
+gulp.task('gtk2-light-assets', function (cb) {
+	return gulp.src('./src/gtk-2.0/assets/*')
+			.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/assets`))
+});
+gulp.task('gtk2-light-menubar', function (cb) {
+	return gulp.src([
+				"./src/gtk-2.0/menubar-toolbar/*",
+				"!./src/gtk-2.0/menubar-toolbar/menubar-toolbar-dark.rc",
+				])
+			.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/menubar-toolbar`))
+});
+
+gulp.task('gtk2-light-files', function(){
 	return 	gulp.src([
-						"./src/gtk-2.0/*",
-						"./src/gtk-2.0/*/*",
-						"!./src/gtk-2.0/*-dark",
-						"!./src/gtk-2.0/*-dark/*",
+					"./src/gtk-2.0/apps.rc",
+					"./src/gtk-2.0/gtkrc",
+					"./src/gtk-2.0/main.rc",
+					"./src/gtk-2.0/panel.rc",
+					"./src/gtk-2.0/xfce-notify.rc",
 					])
-				.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/`));
+				.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0`));
+})
+
+// Dark
+gulp.task('gtk2-dark', ['gtk2-dark-assets','gtk2-dark-menubar','gtk2-dark-files','gtk2-gtkrc-dark']);
+
+gulp.task('gtk2-dark-assets', function (cb) {
+	return gulp.src('./src/gtk-2.0/assets-dark/*')
+			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/assets`))
+});
+gulp.task('gtk2-dark-menubar', function (cb) {
+	return gulp.src([
+				"./src/gtk-2.0/menubar-toolbar/*",
+				"!./src/gtk-2.0/menubar-toolbar/menubar-toolbar.rc",
+				])
+			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/menubar-toolbar`))
+});
+
+gulp.task('gtk2-dark-files', function(){
+	return 	gulp.src([
+					"./src/gtk-2.0/apps.rc",
+					"./src/gtk-2.0/main.rc",
+					"./src/gtk-2.0/panel.rc",
+					"./src/gtk-2.0/xfce-notify.rc",
+					])
+				.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0`));
+})
+
+gulp.task('gtk2-gtkrc-dark', function (cb) {
+	return gulp.src('./src/gtk-2.0/gtkrc-dark')
+			.pipe(rename('gtkrc'))
+			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0`))
+});
+
+// gulp.task('gtk2-light', function(){
+// 	return 	gulp.src([
+// 						"./src/gtk-2.0/*",
+// 						"./src/gtk-2.0/*/*",
+// 						"!./src/gtk-2.0/*-dark",
+// 						"!./src/gtk-2.0/*-dark/*",
+// 					])
+// 				.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/`));
 		
 
-})
+// })
 
-gulp.task('gtk2-dark', function(){
-	return 	gulp.src([
-						"./src/gtk-2.0/*",
-						"./src/gtk-2.0/*/*",
-						"!./src/gtk-2.0/assets/*",
-					])
-			.pipe(rename(function (path) {
+// gulp.task('gtk2-dark', function(){
+// 	return 	gulp.src([
+// 						"./src/gtk-2.0/*",
+// 						"./src/gtk-2.0/*/*",
+// 						"!./src/gtk-2.0/assets/*",
+// 					])
+// 			.pipe(rename(function (path) {
 
-				// Send dark files to dark directory
-				if(path.basename.indexOf('-dark') > -1 || path.dirname.indexOf('-dark') > -1 ){
-					path.basename = path.basename.replace('-dark','');
-					path.dirname = path.dirname.replace('-dark','');
-				}
+// 				// Send dark files to dark directory
+// 				if(path.basename.indexOf('-dark') > -1 || path.dirname.indexOf('-dark') > -1 ){
+// 					path.basename = path.basename.replace('-dark','');
+// 					path.dirname = path.dirname.replace('-dark','');
+// 				}
 
-			}))
-			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/`));
-})
+// 			}))
+// 			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/`));
+// })
 
+
+/*----------  Theme File  ----------*/
 
 gulp.task('theme-light', function(){
 	return gulp.src('./src/index.theme')

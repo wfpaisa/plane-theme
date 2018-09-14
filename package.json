@@ -23,10 +23,10 @@
     "gulp-zip": "^4.1.0"
   },
   "devDependencies": {
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.3",
-    "gulp-sass": "^3.2.1",
-    "gulp-watch": "^4.3.11"
+    "gulp-sass": "^4.0.1",
+    "gulp-watch": "^5.0.1"
   }
 }
