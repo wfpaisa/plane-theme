@@ -4500,6 +4500,10 @@ button.emoji-section {
   text-shadow: 1px 1px transparentize(black, 0.4);
 }
 
+
+// info bar bottom
+.floating-bar{background:$bg_color;}
+
 .nautilus-window {
   // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
   .searchbar-container { margin-top: -1px; }
