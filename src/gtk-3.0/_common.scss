@@ -260,9 +260,8 @@ spinner {
 %entry,
 entry {
   %entry_basic, & {
-    min-height: 32px;
-    padding-left: 8px;
-    padding-right: 8px;
+    min-height: 22px;
+    padding:2px 8px;
     border: 1px solid;
     border-radius: $br-e;
     transition: all 200ms $ease-out-quad;
@@ -508,14 +507,15 @@ $_dot_color: if($variant=='light', $selected_bg_color,
 button {
   @at-root %button_basic, & {
 
-    min-height: 24px;
-    min-width: 16px;
-    padding: 4px 8px;
+    min-height: 22px;
+    min-width: 20px;
+    padding: 2px 6px;
     border: 1px solid;
     border-radius: $br-e;
     transition: $button_transition;
 
     @include button(normal);
+
 
     &.flat {
       @include button(undecorated);
@@ -579,22 +579,32 @@ button {
 
     &.image-button {
       min-width: 24px;
-      padding-left: 4px;
-      padding-right: 4px;
+      padding-left: 5px;
+      padding-right: 5px;
     }
 
     &.text-button {
-      padding-left: 16px;
-      padding-right: 16px;
+      padding-left: 12px;
+      padding-right: 12px;
     }
 
     &.text-button.image-button {
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-left: 5px;
+      padding-right: 5px;
 
       label {
-        padding-left: 8px;
-        padding-right: 8px;
+        &:first-child {
+          padding-left: 8px;
+          padding-right: 2px;
+        }
+        &:last-child {
+          padding-right: 8px;
+          padding-left: 2px;
+        }
+        &:only-child {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
       }
     }
 
@@ -621,10 +631,14 @@ button {
 
   // big standalone buttons like in Documents pager
   &.osd {
-    min-width: 24px;
-    min-height: 32px;
+    // min-width: 24px;
+    // min-height: 32px;
 
-    &.image-button { min-width: 32px; }
+    &.image-button {
+      padding: 0;
+      min-height: 36px;
+      min-width: 36px;
+    }
 
     color: $osd_fg_color;
     border-radius: $br-o;
@@ -838,6 +852,10 @@ button {
   .linked.vertical > &:backdrop { @extend %linked_vertical; }
 
   &.circular { // The Bloody Circul Button
+    min-height: 24px;
+    min-width: 16px;
+    padding: 2px 6px;
+
     border-radius: 9999px;
     -gtk-outline-radius: 9999px;
 
@@ -1320,6 +1338,11 @@ spinbutton {
  * ComboBoxes *
  **************/
 combobox {
+  button.combo {
+    min-width: 0;       // otherwise the arrow placement is unsymmetric
+    padding-left: 8px;  //
+    padding-right: 8px  //
+  }
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     min-height: 16px;
@@ -1447,11 +1470,11 @@ searchbar,
 %titlebar,
 headerbar {
   padding: 0 6px;
-  min-height: 46px;
+  min-height: 0px;
   border-width: 0;
   border-radius: 0;
   border-bottom:1px solid lighten($bg_color, 4%);
-  
+
   @include headerbar_fill(transparentize($bg_color,0.24));
 
   &:backdrop {
@@ -1645,8 +1668,8 @@ headerbar {
     margin-bottom: 6px;
   }
   switch {
-    margin-top: 14px;
-    margin-bottom: 14px;
+    margin-top: 9px;
+    margin-bottom: 9px;
   }
 }
 
@@ -2817,7 +2840,7 @@ radio {
 check {
   border-radius: $br-e;
 
-  &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/check-symbolic.svg")),
+  &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/check-symbolic.svg")), 
                                       -gtk-recolor(url("assets/check-symbolic.symbolic.png"))); }
 
   &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/dash-symbolic.svg")),
@@ -4325,7 +4348,8 @@ button.titlebutton {
 
   @extend %button_basic.flat;
 
-  @include _button_text_shadow;
+  //@include _button_text_shadow;
+  -gtk-icon-shadow: none;
 
   .selection-mode & {
     @extend %button.flat.suggested-action;
@@ -4334,6 +4358,10 @@ button.titlebutton {
   }
 
   &:backdrop { -gtk-icon-shadow: none; }
+
+  // &.minimize:hover{color:#FFBD00;}
+  // &.maximize:hover{color:#00D67D;}
+  // &.close:hover{color:#FF267C;}
 }
 
 headerbar.selection-mode button.titlebutton,
