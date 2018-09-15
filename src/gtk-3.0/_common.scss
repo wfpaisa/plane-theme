@@ -4535,6 +4535,12 @@ button.emoji-section {
 .nautilus-window {
   // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
   .searchbar-container { margin-top: -1px; }
+
+  // Transparentize
+  background-color: transparent;
+  notebook{background-color: $bg_color;}
+  .sidebar{background-color:  transparentize($bg_color,0.04);}
+
 }
 
 
