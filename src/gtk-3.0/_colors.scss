@@ -8,7 +8,7 @@ $bg_color: if($variant == 'light', rgba(238, 239, 240, 0.999), rgba(51, 58, 71, 
 $fg_color: if($variant == 'light', rgb(82,87,98), rgb(240, 240, 240)); // #525762, #F0F0F0
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', rgb(42, 145, 250), rgb(42, 145, 250)); //#2A91FA
+$selected_bg_color: if($variant == 'light', rgb(0, 126, 255), rgb(0, 126, 255)); //#007EFF
 $selected_borders_color: if($variant== 'light', darken($selected_bg_color, 30%), darken($selected_bg_color, 20%));
 $borders_color: if($variant == 'light', darken($bg_color, 12%), darken($bg_color, 10%));
 $alt_borders_color: if($variant == 'light', darken($bg_color, 35%), darken($bg_color, 17%));
