@@ -3568,7 +3568,7 @@ separator {
  * Lists *
  *********/
 list {
-  color: $text_color;
+  color: if($variant == 'light', darken($text_color, 10%), $text_color);
   background-color: $base_color;
   border-color: $borders_color;
 
