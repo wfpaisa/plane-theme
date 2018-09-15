@@ -2,12 +2,12 @@
 // it gets @if ed depending on $variant
 
 
-$base_color: if($variant == 'light', rgba(252, 252, 252, 0.999), rgba(40, 47, 60, 0.999));
-$bg_color: if($variant == 'light', rgba(244, 248, 255, 0.98), rgba(40, 47, 60, 0.96)); 
+$base_color: if($variant == 'light', rgba(252, 252, 252, 0.86), rgba(40, 47, 60, 0.86));
+$bg_color: if($variant == 'light', rgba(255, 255, 255, 0.999), rgba(40, 47, 60, 0.96)); 
 $fg_color: if($variant == 'light', rgb(50,60,70), rgb(240, 240, 240)); 
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', rgb(42, 145, 250), rgb(42, 145, 250)); //#2A91FA
+$selected_bg_color: if($variant == 'light', rgb(0, 126, 255), rgb(0, 126, 255)); //#2A91FA
 $selected_borders_color: if($variant=='light', darken($selected_bg_color, 30%),
                                                darken($selected_bg_color, 20%));
 $borders_color: if($variant == 'light', rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
