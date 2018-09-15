@@ -17,7 +17,7 @@
    height="14"
    id="svg7384"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    width="14">
   <metadata
      id="metadata90">
@@ -37,8 +37,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="-15.966869"
-     inkscape:cy="8.8415069"
+     inkscape:cx="9.8756981"
+     inkscape:cy="5.5711304"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -50,13 +50,13 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      showborder="true"
-     showgrid="false"
+     showgrid="true"
      showguides="true"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="false"
      inkscape:snap-global="true"
      inkscape:snap-grids="true"
-     inkscape:snap-nodes="false"
+     inkscape:snap-nodes="true"
      inkscape:snap-others="false"
      inkscape:snap-to-guides="true"
      inkscape:window-height="1016"
@@ -64,20 +64,24 @@
      inkscape:window-width="1920"
      inkscape:window-x="0"
      inkscape:window-y="27"
-     inkscape:zoom="15.238496"
+     inkscape:zoom="42.716872"
      inkscape:showpageshadow="false">
     <inkscape:grid
        dotted="false"
        empspacing="2"
        enabled="true"
        id="grid4866"
-       originx="-159.99995"
+       originx="0"
        originy="120"
        snapvisiblegridlinesonly="true"
-       spacingx="1px"
-       spacingy="1px"
+       spacingx="1"
+       spacingy="1"
        type="xygrid"
-       visible="true" />
+       visible="true"
+       color="#9f9f9f"
+       opacity="0.1254902"
+       empcolor="#9f9f9f"
+       empopacity="0.25098039" />
   </sodipodi:namedview>
   <title
      id="title9167">Gnome Symbolic Icon Theme</title>
@@ -100,10 +104,11 @@
      style="display:inline;opacity:1"
      transform="translate(-401.00015,-339)">
     <path
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:3;marker:none;enable-background:accumulate"
-       d="m 415.00015,339.98047 -6.5,6.39453 -2.9375,-2.9375 -2.125,2.125 5.0625,5.0625 6.5,-6.60547 0,-4.03906 z"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:3;marker:none;enable-background:accumulate"
+       d="m 412.24279,341.05025 -5.65685,5.65686 -2.82843,-2.82844 -2.12132,2.12133 4.94975,4.94974 7.77817,-7.77816 z"
        id="path8913-6-7-1-5-1"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc" />
   </g>
   <g
      inkscape:groupmode="layer"

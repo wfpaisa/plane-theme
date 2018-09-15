@@ -17,7 +17,7 @@
    height="14"
    id="svg7384"
    version="1.1"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    width="14">
   <metadata
      id="metadata90">
@@ -37,8 +37,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="-0.21186395"
-     inkscape:cy="5.1774672"
+     inkscape:cx="9.8566305"
+     inkscape:cy="5.6166397"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -46,11 +46,11 @@
      inkscape:object-nodes="true"
      inkscape:object-paths="false"
      objecttolerance="10"
-     pagecolor="#3a3b39"
-     inkscape:pageopacity="1"
+     pagecolor="#2b2b2a"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      showborder="true"
-     showgrid="false"
+     showgrid="true"
      showguides="true"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-midpoints="false"
@@ -64,7 +64,7 @@
      inkscape:window-width="1920"
      inkscape:window-x="0"
      inkscape:window-y="27"
-     inkscape:zoom="22.005438"
+     inkscape:zoom="43.749011"
      inkscape:showpageshadow="false">
     <inkscape:grid
        dotted="false"
@@ -77,7 +77,11 @@
        spacingx="1px"
        spacingy="1px"
        type="xygrid"
-       visible="true" />
+       visible="true"
+       color="#9f9f9f"
+       opacity="0.1254902"
+       empcolor="#9f9f9f"
+       empopacity="0.25098039" />
   </sodipodi:namedview>
   <title
      id="title9167">Gnome Symbolic Icon Theme</title>
@@ -101,10 +105,10 @@
      transform="translate(-381.00015,-339)">
     <path
        inkscape:connector-curvature="0"
-       d="m 388.00015,343.01754 c -1.64587,0 -2.98246,1.33658 -2.98246,2.98246 0,1.64587 1.33659,2.98246 2.98246,2.98246 1.64587,0 2.98246,-1.33659 2.98246,-2.98246 0,-1.64588 -1.33659,-2.98246 -2.98246,-2.98246 z"
+       d="m 388.00015,342 c -2.2074,0 -4,1.79259 -4,4 0,2.2074 1.7926,4 4,4 2.2074,0 4,-1.7926 4,-4 0,-2.20741 -1.7926,-4 -4,-4 z"
        id="path9555"
        sodipodi:nodetypes="csssc"
-       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0pt;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.78125;marker:none" />
+       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0pt;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.38896751;marker:none" />
   </g>
   <g
      inkscape:groupmode="layer"
