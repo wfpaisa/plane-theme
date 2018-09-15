@@ -24,7 +24,7 @@
        id="selected_bg_color"
        osb:paint="solid">
       <stop
-         style="stop-color:#5294e2;stop-opacity:1;"
+         style="stop-color:#007EFF;stop-opacity:1;"
          offset="0"
          id="stop4407" />
     </linearGradient>
@@ -1311,7 +1311,7 @@
          y="0"
          x="0" />
       <g
-         style="fill:#5294e2;fill-opacity:1"
+         style="fill:#007EFF;fill-opacity:1"
          transform="translate(25,2.9999812)"
          id="g5140-7">
         <rect
@@ -1406,7 +1406,7 @@
          y="0"
          x="0" />
       <g
-         style="fill:#5294e2;fill-opacity:1"
+         style="fill:#007EFF;fill-opacity:1"
          transform="translate(22.999996,-1.0000226)"
          id="g5193-7">
         <rect
