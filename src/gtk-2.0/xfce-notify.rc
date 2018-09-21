@@ -12,7 +12,7 @@ style "notify-window" {
 }
 
 style "notify-button" {
-  bg[NORMAL] = "#2C333D"
+  bg[NORMAL] = "#2A2D35"
   bg[PRELIGHT] = "#5C6070"
   bg[ACTIVE] = @selected_bg_color
 

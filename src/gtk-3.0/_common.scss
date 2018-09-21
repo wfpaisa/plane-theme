@@ -534,7 +534,7 @@ button {
     }
     
     &:focus {
-      outline-offset: -8px;
+      outline-offset: -4px;
     }
 
     &:hover {
@@ -2323,7 +2323,7 @@ notebook {
       min-width: 30px;
       padding: 1px 12px;
 
-      outline-offset: -8px;
+      outline-offset: -6px;
 
       color: $insensitive_fg_color;
       font-weight: bold;
@@ -4541,6 +4541,11 @@ button.emoji-section {
   notebook{background-color: $bg_color;}
   .sidebar{background-color:  transparentize($bg_color,0.04);}
 
+  paned {
+  > separator {
+     background-image: image(if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%))); 
+     }
+  }
 }
 
 
