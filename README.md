@@ -5,8 +5,6 @@
 
 # PLANE THEME
 
--- Beta --
-
 - 	A beautiful theme for Gnome Linux, more information in [Plane project](https://github.com/wfpaisa/plane)
 
 <p align="center">
