@@ -5,10 +5,10 @@ Columns: 1
 252	252	252	Light Base
 238	239	240	Light Bg
 82	87	98	Light Text
-45	52	65	Dark Base
-51	58	71	Dark Bg
+42	45	53	Dark Base
+47	51	61	Dark Bg
 240	240	240	Dark Text
-42	145	250	Select
+0	126	255	Select
 113	242	195	Editor Green
 255	246	178	Editor Yellow
 181	157	219	Editor Purple
@@ -17,6 +17,6 @@ Columns: 1
 255	154	120	Editor Orange
 138	254	255	Editor Turquoise
 248	248	242	Editor Text color
-36	40	50	Editor Background
-42	46	54	Editor LineHighlight
-64	68	77	Editor LineSelection
+31	34	40	Editor Background
+40	43	50	Editor LineHighlight
+52	55	62	Editor LineSelection
