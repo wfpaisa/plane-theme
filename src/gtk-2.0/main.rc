@@ -1954,8 +1954,8 @@ style "separator_menu_item" {
 
     image {
       function = BOX
-      file = "assets/null.png"
-      border = { 0, 0, 1, 0 }
+      file = "assets/line-h.png"
+      border = { 0, 0, 2, 0 }
       stretch = TRUE
     }
   }
