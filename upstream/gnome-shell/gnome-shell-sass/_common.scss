@@ -48,17 +48,18 @@ stage {
   padding: 4px 32px;
   @include button(normal);
   &:focus { @include button(focus); }
+  &:hover { @include button(hover); }
   &:insensitive { @include button(insensitive); }
   &:active { @include button(active); }
-
 }
 
 .modal-dialog-linked-button {
   border-right-width: 1px;
   @include button(normal);
   &:insensitive { @include button(insensitive); }
-  &:active { @include button(active); }
   &:focus { @include button(focus); }
+  &:hover { @include button(hover); }
+  &:active { @include button(active); }
   padding: 12px;
 
   &:first-child {
@@ -128,12 +129,15 @@ StScrollBar {
 
 .slider {
   height: 1em;
-  -slider-height: 0.3em;
-  -slider-background-color: $insensitive_bg_color; //background of the trough
-  -slider-border-color: $borders_color; //trough border color
-  -slider-active-background-color: $selected_bg_color; //active trough fill
-  -slider-active-border-color: darken($selected_bg_color,10%); //active trough border
-  -slider-border-width: 1px;
+  -barlevel-height: 0.3em;
+  -barlevel-background-color: $insensitive_bg_color; //background of the trough
+  -barlevel-border-color: $borders_color; //trough border color
+  -barlevel-active-background-color: $selected_bg_color; //active trough fill
+  -barlevel-active-border-color: darken($selected_bg_color,10%); //active trough border
+  -barlevel-overdrive-color: $destructive_color;
+  -barlevel-overdrive-border-color: darken($destructive_color,10%);
+  -barlevel-overdrive-separator-width: 0.2em;
+  -barlevel-border-width: 1px;
   -slider-handle-radius: 6px;
 }
 
@@ -585,13 +589,11 @@ StScrollBar {
   .osd-monitor-label { font-size: 3em; }
   .level {
     height: 0.6em;
-    border-radius: 0.3em;
-    background-color: transparentize(darken($osd_bg_color,15%),0.5);
-    color: $osd_fg_color;
-  }
-  .level-bar {
-    background-color: $osd_fg_color;
-    border-radius: 0.3em;
+    -barlevel-height: 0.6em;
+    -barlevel-background-color: transparentize(darken($osd_bg_color,15%),0.5);
+    -barlevel-active-background-color: $osd_fg_color;
+    -barlevel-overdrive-color: $destructive_color;
+    -barlevel-overdrive-separator-width: 0.2em;
   }
 }
 
@@ -687,7 +689,6 @@ StScrollBar {
     height: 50px;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
-    //background-image: url("resource:///org/gnome/shell/theme/ws-switch-arrow-up.png");
     background-size: 32px;
     border-radius: 8px;
   }
@@ -733,6 +734,7 @@ StScrollBar {
   transition-duration: 500ms;
   font-weight: bold;
   height: 1.86em;
+  font-feature-settings: "tnum";
 
   &.unlock-screen,
   &.login-screen,
@@ -823,6 +825,8 @@ StScrollBar {
   }
 
   .screencast-indicator { color: $warning_color; }
+
+  .remote-access-indicator { color: $warning_color; }
 
   &.solid {
     background-color: black;
@@ -958,6 +962,7 @@ StScrollBar {
       padding: 0.1em;
       margin: 2px;
       border-radius: 1.4em;
+      font-feature-settings: "tnum";
       &:hover,&:focus { background-color: lighten($bg_color,5%); }
       &:active,&:selected {
         color: lighten($selected_fg_color,5%);
@@ -1111,7 +1116,7 @@ StScrollBar {
   .aggregate-menu {
     min-width: 21em;
     .popup-menu-icon { padding: 0 4px; }
-    .popup-sub-menu .popup-menu-item :first-child {
+    .popup-sub-menu .popup-menu-item > :first-child {
       &:ltr { /* 12px spacing + 2*4px padding */
               padding-left: 20px; margin-left: 1.09em; }
       &:rtl { /* 12px spacing + 2*4px padding */
@@ -1120,6 +1125,7 @@ StScrollBar {
   }
 
   .system-menu-action {
+    -st-icon-style: symbolic;
     color: $fg_color;
     border-radius: 32px; /* wish we could do 50% */
     padding: 13px;
@@ -1788,20 +1794,19 @@ StScrollBar {
   .login-dialog-user-list-view { -st-vfade-offset: 1em; }
   .login-dialog-user-list {
     spacing: 12px;
-    padding: .2em;
     width: 23em;
     &:expanded .login-dialog-user-list-item:selected { background-color: $selected_bg_color; color: $selected_fg_color; }
     &:expanded .login-dialog-user-list-item:logged-in { border-right: 2px solid $selected_bg_color; }
   }
   .login-dialog-user-list-item {
     border-radius: 5px;
-    padding: .2em;
+    padding: 6px;
     color: darken($osd_fg_color,30%);
-    &:ltr { padding-right: 1em; }
-    &:rtl { padding-left: 1em; }
+    &:ltr .user-widget { padding-right: 1em; }
+    &:rtl .user-widget { padding-left: 1em; }
     .login-dialog-timed-login-indicator {
       height: 2px;
-      margin: 2px 0 0 0;
+      margin-top: 6px;
       background-color: $osd_fg_color;
     }
     &:focus .login-dialog-timed-login-indicator { background-color: $selected_fg_color; }
@@ -1816,8 +1821,8 @@ StScrollBar {
     padding-left: 15px;
   }
     .user-widget-label {
-      &:ltr { padding-left: 18px; }
-      &:rtl { padding-right: 18px; }
+      &:ltr { padding-left: 14px; }
+      &:rtl { padding-right: 14px; }
     }
 
   .login-dialog-prompt-layout {
@@ -1868,6 +1873,7 @@ StScrollBar {
 .screen-shield-clock-time {
   font-size: 72pt;
   text-shadow: 0px 2px 2px rgba(0,0,0,0.4);
+  font-feature-settings: "tnum";
 }
 
 .screen-shield-clock-date { 

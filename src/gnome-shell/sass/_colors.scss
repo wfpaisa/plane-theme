@@ -2,8 +2,8 @@
 // it gets @if ed depending on $variant
 
 
-$base_color: if($variant == 'light', rgba(252, 252, 252, 0.86), rgba(40, 47, 60, 0.86));
-$bg_color: if($variant == 'light', rgba(255, 255, 255, 0.999), rgba(40, 47, 60, 0.96)); 
+$base_color: if($variant == 'light', rgba(252, 252, 252, 0.86), rgba(12, 16, 22, 0.92));
+$bg_color: if($variant == 'light', rgba(255, 255, 255, 0.999), rgba(12, 16, 22, 0.94));
 $fg_color: if($variant == 'light', rgb(50,60,70), rgb(240, 240, 240)); 
 
 $selected_fg_color: #ffffff;
@@ -24,7 +24,7 @@ $success_color: if($variant =='light', #73d216, darken(#73d216,10%));
 $destructive_color: if($variant =='light', #ef2929, darken(#ef2929,10%));
 
 $osd_fg_color: $fg_color;
-$osd_bg_color: if($variant == 'light', rgba(255, 255, 255, 0.96), rgba(45, 52, 65, 0.7));
+$osd_bg_color: if($variant == 'light', rgba(255, 255, 255, 0.66), rgba(12, 16, 22, 0.66));
 $osd_borders_color: if($variant == 'light', rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 $osd_outer_borders_color: transparentize(white, 0.9);
 
