@@ -996,7 +996,7 @@ style "entry" {
       state = ACTIVE
       detail = "entry"
       file = "assets/entry-active-bg.png"
-      border = {6, 6, 6, 6}
+      border = {12, 12, 12, 12}
       stretch = TRUE
     }
 
@@ -1955,7 +1955,7 @@ style "separator_menu_item" {
     image {
       function = BOX
       file = "assets/line-h.png"
-      border = { 0, 0, 2, 0 }
+      border = { 0, 0, 0, 0 }
       stretch = TRUE
     }
   }
