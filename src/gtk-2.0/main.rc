@@ -1685,7 +1685,7 @@ style "notebook" {
     image {
       function = BOX_GAP
       file = "assets/notebook.png" 
-      border = { 4, 4, 4, 4 }
+      border = { 5, 5, 5, 5 }
       stretch = TRUE
       gap_file = "assets/notebook-gap-horiz.png"
       gap_border = { 1, 1, 0, 0 }
@@ -1695,7 +1695,7 @@ style "notebook" {
     image {
       function = BOX_GAP
       file = "assets/notebook.png"
-      border = { 4, 4, 4, 4 }
+      border = { 5, 5, 5, 5 }
       stretch = TRUE
       gap_file = "assets/notebook-gap-horiz.png"
       gap_border = { 1, 1, 0, 0 }
@@ -1705,7 +1705,7 @@ style "notebook" {
     image {
       function = BOX_GAP
       file = "assets/notebook.png"
-      border = { 4, 4, 4, 4 }
+      border = { 5, 5, 5, 5 }
       stretch = TRUE
       gap_file = "assets/notebook-gap-vert.png"
       gap_border = { 0, 0, 1, 1 }
@@ -1715,7 +1715,7 @@ style "notebook" {
     image {
       function = BOX_GAP
       file = "assets/notebook.png" 
-      border = { 4, 4, 4, 4 }
+      border = { 5, 5, 5, 5 }
       stretch = TRUE
       gap_file = "assets/notebook-gap-vert.png"
       gap_border = { 0, 0, 1, 1 }
@@ -1727,7 +1727,7 @@ style "notebook" {
     image {
       function = BOX
       file = "assets/notebook.png"
-      border = { 4, 4, 4, 4 }
+      border = { 5, 5, 5, 5 }
       stretch = TRUE
     }
   }
