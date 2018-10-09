@@ -40,7 +40,7 @@
   $_inner_shadows: inset 0 0 4px rgba(0,0,0, 0);
 
   @if $t==normal {
-    background-color:  $bg_color;
+    background-color:  transparentize($bg_color,0.6);
 
     border-color: if($variant == 'light', rgba(0,0,0, 0.1), rgba(255,255,255, 0.1));
     @include _shadows($_inner_shadows);
