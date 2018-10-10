@@ -594,9 +594,9 @@ button {
     }
 
     &.image-button {
-      min-width: 24px;
-      padding-left: 5px;
-      padding-right: 5px;
+      min-width: 22px;
+      padding-left: 2px;
+      padding-right: 2px;
     }
 
     &.text-button {
@@ -1520,7 +1520,7 @@ searchbar > revealer > box {
 %titlebar,
 headerbar {
   padding: 0 6px;
-  min-height: 0px;
+  min-height: 28px;
   border-width: 0;
   border-radius: 0;
   border-bottom:1px solid lighten($bg_color, 4%);
@@ -1686,12 +1686,12 @@ headerbar {
 
   &.default-decoration {
     min-height: 28px;
-    padding: 4px;
+    padding: 4px 6px;
 
     button.titlebutton {
-      min-height: 26px;
-      min-width: 26px;
-      margin: 0;
+      min-height: 12px;
+      min-width: 12px;
+      margin: 1px;
       padding: 0;
     }
   }
@@ -1715,12 +1715,13 @@ headerbar {
   spinbutton,
   separator:not(.sidebar),
   button {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
+
   switch {
-    margin-top: 9px;
-    margin-bottom: 9px;
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
   &.titlebar headerbar:not(.titlebar) {
     // Drop the background of non-titlebar nested headerbars. This is needed to
@@ -2453,8 +2454,8 @@ notebook {
 
       // colors the button like the label, overridden otherwise
       button.flat {
-        &:hover { color: currentColor; }
-
+        &:hover {  color: currentColor;  background:none; box-shadow:none; border-color: transparent;}
+        // tab:hover #nautilus-tab-close-button{ image{ opacity: 1; }}
         &, &:backdrop { color: gtkalpha(currentColor, 0.3); }
 
         padding: 0;
@@ -4117,22 +4118,35 @@ infobar {
     button {
       // FIXME: extend selection mode buttons
       @include button(normal, $selected_bg_color, $selected_fg_color, none);
+      border-color: transparentize($selected_fg_color, 0.6);
 
-      &:hover { @include button(hover, $selected_bg_color, $selected_fg_color, none); }
+      &:hover { 
+        @include button(hover, $selected_bg_color, $selected_fg_color, none); 
+        border-color: transparentize($selected_fg_color, 0.4);
+        box-shadow: none;
+      }
 
       &:active,
-      &:checked { @include button(active, $selected_bg_color, $selected_fg_color, none); }
+      &:checked { 
+        @include button(active, $selected_fg_color, $selected_bg_color, none); 
+        border-color: $selected_fg_color;
+        box-shadow: none;
+        label{color: $selected_bg_color;}
+      }
 
-      &:disabled { @include button(insensitive,$selected_bg_color,$selected_fg_color,none); }
+      &:disabled { 
+        @include button(insensitive,$selected_bg_color,$selected_fg_color,none); 
+        border-color: transparentize($selected_fg_color, 0.8);
+      }
 
       &:backdrop {
         @include button(backdrop, $selected_bg_color, $selected_fg_color, none);
-        border-color: _border_color($selected_bg_color);
+        border-color: transparentize($selected_fg_color, 0.8);
 
         &:disabled {
           @include button(backdrop-insensitive, $selected_bg_color,
                           $selected_fg_color, none);
-          border-color: _border_color($selected_bg_color);
+          border-color: transparentize($selected_fg_color, 0.8);
         }
       }
     }
@@ -4455,10 +4469,59 @@ button.titlebutton {
   }
 
   &:backdrop { -gtk-icon-shadow: none; }
+  
+  border-radius: 50%;
+  min-height: 12px;
+  min-width: 12px;
+  padding: 0px;
+  margin: 1px;
+  border: none;
+  box-shadow: none;
+  transition: none;
+  color: transparent;
+  
+  image{
+    // background: #000; 
+    background-size: 1px;
+    min-width: 1px;
+    min-height: 1px;
+    -gtk-icon-source: none;
+  }
+  
+  $green_color: if($variant == 'light', #00DB8C, #71F2C3);
+  $blue_color: if($variant == 'light', #4CC3FF, #A0DFFF);
+  $purple_color: if($variant == 'light', #966ED5, #B59DDB);
 
-  // &.minimize:hover{color:#FFBD00;}
-  // &.maximize:hover{color:#00D67D;}
-  // &.close:hover{color:#FF267C;}
+  &.minimize{ background: mix($green_color, $bg_color , 60%); }
+  &.maximize{ background: mix($blue_color, $bg_color , 60%); }
+  &.close{ background: mix($purple_color, $bg_color , 60%); }
+  
+  &:active,
+  &:hover{
+    border-color: transparent; 
+    box-shadow: none;
+    transition: none;
+    color: rgba(0,0,0,0.6);
+  }
+    
+  &.minimize:active,
+  &.minimize:hover{ background: $green_color; }
+
+  &.maximize:active,
+  &.maximize:hover{ background: $blue_color; }
+
+  &.close:active,
+  &.close:hover{background:  $purple_color; }
+
+
+  &:backdrop,
+  &:backdrop:disabled{
+    color: transparent;
+
+    &.minimize{ background: mix($green_color, $insensitive_bg_color , 10%); }
+    &.maximize{ background: mix($blue_color, $insensitive_bg_color , 10%); }
+    &.close{ background: mix($purple_color, $insensitive_bg_color , 10%); }
+  }
 }
 
 .selection-mode headerbar button.titlebutton,
@@ -4649,10 +4712,32 @@ popover.emoji-completion .emoji:hover {
 .nautilus-window {
   
   headerbar{
+    
+    // Normal
+    .path-bar-box{
+      margin-top: 1px;
+      
+      button{ 
+        min-height: 16px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        // border: none;
+      }
+    }
+    // Big
+    .path-bar-box.frame{
+      background: $base_color;
+      border-radius: $br-e;
+      box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.1);
+    }
+
     button.flat{
+      
       border-radius:0px;
+      
       &:hover,
-      &:checked:hover { background: none; border-color: transparent; box-shadow: 0 2px mix($fg_color , $borders_color, 20%);}
+      &:checked:hover { background: none; border-color: transparent; box-shadow: 0 2px mix($fg_color , $borders_color, 30%);}
+      
       &:checked { border:none; box-shadow:none; background: transparent;}
     }
   }
@@ -4661,13 +4746,15 @@ popover.emoji-completion .emoji:hover {
 
   // Transparentize
   background-color: transparent;
-  notebook{background-color: $bg_color;}
-  .sidebar{background-color:  transparentize($bg_color,0.04);}
+
+  notebook{ background-color: $base_color;}
+
+  .sidebar{ background-color:  transparentize($bg_color,0.04);}
 
   paned {
   > separator {
-     background-image: image(if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%))); 
-     }
+      background-image: image(if($variant == 'light', darken($bg_color,10%), darken($bg_color,4%))); 
+    }
   }
   
   @extend %treeviewcell;

@@ -766,7 +766,7 @@ StScrollBar {
 /* TOP BAR */
 
 #panel {
-  background-color: transparentize($osd_bg_color,0.6);
+  background-color: transparentize($osd_bg_color,0.2);
   /* transition from solid to transparent */
   transition-duration: 500ms;
   font-weight: normal;
