@@ -57,9 +57,9 @@ style "default" {
 
   GtkTreeView::row_ending_details = 0
   GtkTreeView::expander-size = 11
-  GtkTreeView::vertical-separator = 4
+  GtkTreeView::vertical-separator = 0
   GtkTreeView::horizontal-separator = 4
-  GtkTreeView::allow-rules = 1
+  GtkTreeView::allow-rules = 0
   GtkTreeView::odd_row_color = shade(0.98, @base_color)
 
   GtkExpander::expander-size = 11
@@ -692,8 +692,8 @@ style "menu" {
 
     image {
       function = HLINE
-      file = "assets/null.png"
-      border = { 0, 0, 0, 0 }
+      file = "assets/frame-gap-end.png"
+      border = { 0, 0, 1, 0 }
       stretch = TRUE
     }
   }
@@ -708,7 +708,7 @@ style "menu_framed_box" {
 style "menu_item"
 {
   xthickness = 2
-  ythickness = 5
+  ythickness = 4
 
   # HACK: Gtk doesn't actually read this value
   # while rendering the menu items, but Libreoffice
@@ -923,6 +923,21 @@ style "menu_item"
       overlay_border = { 0, 0, 0, 0 }
       overlay_stretch = FALSE
       arrow_direction = RIGHT
+    }
+  }
+}
+
+style "separator_menu_item" {
+  
+  xthickness = 0
+  ythickness = 0
+
+  engine "pixmap" {
+
+    image {
+      function = BOX
+      file = "assets/line-menu.png"
+      border   = {0, 0, 0, 1}
     }
   }
 }
@@ -1944,19 +1959,6 @@ style "progressbar" {
       stretch = TRUE
       border = { 3, 3, 3, 3 }
       orientation = VERTICAL
-    }
-  }
-}
-
-style "separator_menu_item" {
-
-  engine "pixmap" {
-
-    image {
-      function = BOX
-      file = "assets/line-h.png"
-      border = { 0, 0, 0, 0 }
-      stretch = TRUE
     }
   }
 }

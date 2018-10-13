@@ -91,6 +91,7 @@ handle-h
 handle-v
 line-h
 line-v
+line-menu
 menuitem
 menubar_button
 null
