@@ -92,10 +92,12 @@ stage {
 
 /* Entries */
 StEntry {
-  border-radius: 1px;
+  border-radius: 3px;
   padding: 8px;
   border-width: 1px;
   color: $fg_color;
+  background: rgba(0,0,0,0.2);
+
   @include entry(normal);
   //&:hover { @include entry(hover);}
   &:focus { @include entry(focus);}
@@ -1773,11 +1775,12 @@ StScrollBar {
 
 .framed-user-icon {
   background-size: contain;
-  border: 1px solid $osd_fg_color;
+  background-color: rgba(0,0,0,0.1);
+  border: 2px solid rgba(255,255,255,0.5);
   color: $osd_fg_color;
-  border-radius: 3px;
+  border-radius: 60px;
   &:hover {
-    border-color: lighten($osd_fg_color,30%);
+    border-color: rgba(255,255,255,0.7);
     color: lighten($osd_fg_color,30%);
   }
 }
@@ -1800,12 +1803,18 @@ StScrollBar {
     &:default {
       @include button(normal,$c:$selected_bg_color);
       &:hover,&:focus { @include button(hover,$c:$selected_bg_color); }
-      &:active { @include button(active,$c:$selected_bg_color); }
+      &:active { @include button(active,$c:$selected_bg_color); background: #FFF; color:$selected_bg_color;}
       &:insensitive { @include button(insensitive); }
 
     }
   }
 
+  StEntry { 
+    border:1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.2);
+    box-shadow: inset 0px 0px 3px rgba(0,0,0,0.3);
+    border-radius: 24px;
+  }
 }
 
   .login-dialog-logo-bin { padding: 24px 0px; }
@@ -1955,16 +1964,18 @@ StScrollBar {
   box-shadow: 0px 2px 4px transparentize(black,0.6);
 }
 
+// Login background
 #lockDialogGroup {
-  background: #2e3436 url(./noise-texture.png);
-  background-repeat: repeat;
+  background: $theme_basecolor url("./bg.png");
+  // background-repeat: repeat;
+  background-size: cover;
 }
 
 #screenShieldNotifications {
   StButton#vhandle, StButton#hhandle {
     background-color: transparentize($bg_color,0.7);
     &:hover, &:focus { background-color: transparentize($bg_color,0.5); }
-    &:active { background-color: transparentize($selected_bg_color,0.5); }
+    &:active { background-color: $selected_bg_color; }
   }
 }
 
@@ -1995,7 +2006,7 @@ StScrollBar {
     }
     &:selected {
       border-bottom-width: 2px;
-      border-color: lighten($selected_bg_color,5%);
+      border-color: $selected_bg_color);
       color: white;
       text-shadow: black 0px 2px 2px;
     }

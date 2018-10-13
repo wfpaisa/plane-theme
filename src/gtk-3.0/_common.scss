@@ -4518,9 +4518,9 @@ button.titlebutton {
   &:backdrop:disabled{
     color: transparent;
 
-    &.minimize{ background: mix($green_color, $insensitive_bg_color , 10%); }
-    &.maximize{ background: mix($blue_color, $insensitive_bg_color , 10%); }
-    &.close{ background: mix($purple_color, $insensitive_bg_color , 10%); }
+    &.minimize{ background: mix($green_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
+    &.maximize{ background: mix($blue_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
+    &.close{ background: mix($purple_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
   }
 }
 

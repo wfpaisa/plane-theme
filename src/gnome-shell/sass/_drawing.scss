@@ -135,7 +135,7 @@
   //
   // normal button
   //
-    $_bg: if($c!=$osd_bg_color, transparentize($c, 0.5),
+    $_bg: if($c!=$osd_bg_color, $c,
                             lighten($osd_bg_color,4%));
 
     color: $osd_fg_color;
@@ -158,7 +158,10 @@
   //
   // active osd button
   //
-    background-color: lighten($bg_color,10%);
+    $_bg: if($c!=$osd_bg_color, lighten($c, 12%),
+                            lighten($bg_color,12%));
+
+    background-color: $_bg;
     text-shadow: 0 1px black;
     icon-shadow: 0 1px black;
 

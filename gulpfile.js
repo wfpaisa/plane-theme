@@ -21,7 +21,7 @@
 
 "use strict";
 
-const version = '1.5';
+const version = '1.6';
 
 /* Dependencies */
 var fs = require('fs'),
@@ -144,6 +144,12 @@ gulp.task('gnome-shell-dark-assets', function(){
 				.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`));
 })
 
+gulp.task('gnome-shell-high', function (cb) {
+	return gulp.src(`./src/gnome-shell/gnome-shell-high-contrast.scss`)
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`))
+			.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`))
+});
 /*----------  gtk-3.0  ----------*/
 
 gulp.task('gtk3-light', function (cb) {
@@ -337,7 +343,8 @@ gulp.task('watch', function () {
   			'gnome-shell-light',
 			'gnome-shell-light-assets',
 			'gnome-shell-dark',
-			'gnome-shell-dark-assets'
+			'gnome-shell-dark-assets',
+			'gnome-shell-high'
 			], function(){
   				gulp.start('copy-user-theme-folder', function(){
   					autoreload();	  				
@@ -383,6 +390,7 @@ gulp.task('default', [
 	'gnome-shell-light-assets',
 	'gnome-shell-dark',
 	'gnome-shell-dark-assets',
+	'gnome-shell-high',
 	'xfwm4-light',
 	'xfwm4-dark'
 	], (cb) => {
