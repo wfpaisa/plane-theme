@@ -4478,10 +4478,9 @@ button.titlebutton {
   border: none;
   box-shadow: none;
   transition: none;
-  color: transparent;
+  color: rgba(0,0,0,0);
   
   image{
-    // background: #000; 
     background-size: 1px;
     min-width: 1px;
     min-height: 1px;
@@ -4505,7 +4504,7 @@ button.titlebutton {
   }
     
   &.minimize:active,
-  &.minimize:hover{ background: $green_color; }
+  &.minimize:hover{ background: $green_color;}
 
   &.maximize:active,
   &.maximize:hover{ background: $blue_color; }

@@ -146,17 +146,25 @@ StScrollBar {
 /* Slider */
 
 .slider {
-  height: 1em;
-  -barlevel-height: 2px;
-  -barlevel-background-color: $insensitive_bg_color; //background of the trough
-  -barlevel-border-color: $borders_color; //trough border color
-  -barlevel-active-background-color: $selected_bg_color; //active trough fill
-  -barlevel-active-border-color: darken($selected_bg_color,10%); //active trough border
-  -barlevel-overdrive-color: $destructive_color;
-  -barlevel-overdrive-border-color: darken($selected_bg_color,10%);
+  height: 20px;
+  color: if($variant == 'light', $selected_bg_color, $fg_color);
+  -slider-height: 2px;
+  -slider-background-color: $borders_color;
+  -slider-border-color: transparent;
+  -slider-active-background-color: $selected_bg_color;
+  -slider-active-border-color: transparent;
+  -slider-border-width: 0;
+  -slider-handle-radius: 7px;
+  -barlevel-height: 4px;
+  -barlevel-background-color: $borders_color;
+  -barlevel-border-color: transparent;
+  -barlevel-active-background-color: $selected_bg_color;
+  -barlevel-active-border-color: transparent;
+  -barlevel-overdrive-color: $error_color;
+  -barlevel-overdrive-border-color: transparent;
   -barlevel-overdrive-separator-width: 2px;
-  -barlevel-border-width: 1px;
-  -slider-handle-radius: 6px;
+  -barlevel-border-width: 0;
+
 }
 
 /* Check Boxes */
@@ -1295,12 +1303,14 @@ StScrollBar {
   .search-entry {
     width: 320px;
     border-color: rgba(255,255,255, 0.1);
+    border-radius: 22px;
     
     .search-entry-icon { icon-size: 1em; padding: 0 4px; color: transparentize($fg_color,.3); }
 
     &:hover, &:focus {
       .search-entry-icon { color: $fg_color; }
     }
+    
   }
 
   //search results
@@ -2006,7 +2016,7 @@ StScrollBar {
     }
     &:selected {
       border-bottom-width: 2px;
-      border-color: $selected_bg_color);
+      border-color: $selected_bg_color;
       color: white;
       text-shadow: black 0px 2px 2px;
     }
