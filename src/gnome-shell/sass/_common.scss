@@ -444,8 +444,8 @@ StScrollBar {
     color: rgba(0,0,0,0);
   }
 
-  .prompt-dialog-null-label {
-    font-size: 10pt;
+  .prompt-dialog-null-label { 
+    font-size: 10pt; 
     padding-bottom: 8px;
   }
 
@@ -1811,9 +1811,9 @@ StScrollBar {
   .modal-dialog-button {
     padding: 3px 18px;
     &:default {
-      @include button(normal,$c:$selected_bg_color);
-      &:hover,&:focus { @include button(hover,$c:$selected_bg_color); }
-      &:active { @include button(active,$c:$selected_bg_color); background: #FFF; color:$selected_bg_color;}
+      @include button(normal,$c:$selected_bg_color, $tc:$selected_fg_color);
+      &:hover,&:focus { @include button(hover,$c:$selected_bg_color, $tc:$selected_fg_color); }
+      &:active { @include button(active,$c:$selected_bg_color, $tc:$selected_fg_color); background: #FFF; color:$selected_bg_color;}
       &:insensitive { @include button(insensitive); }
 
     }
