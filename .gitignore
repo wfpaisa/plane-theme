@@ -67,3 +67,5 @@ typings/
 *.sublime-workspace
 
 TODO.md
+
+package-lock.json
