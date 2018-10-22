@@ -20,6 +20,7 @@
 ## Build
 
 NODE: v8.12.0
+
 NPM:  v6.4.1
 
 ```bash 
@@ -64,14 +65,6 @@ $ gulp watch -D
 
 ```
 
-
-### Errors
-- Error `Local gulp not found in ~/xx/plane-theme... Try running: npm install gulp` run:
-
-```bash
-npm install gulp-cli -g
-npm install gulp -D
-```
 
 ## Update
 
