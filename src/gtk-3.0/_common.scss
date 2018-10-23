@@ -4469,58 +4469,10 @@ button.titlebutton {
   }
 
   &:backdrop { -gtk-icon-shadow: none; }
-  
-  border-radius: 50%;
-  min-height: 12px;
-  min-width: 12px;
-  padding: 0px;
-  margin: 1px;
-  border: none;
-  box-shadow: none;
-  transition: none;
-  color: rgba(0,0,0,0);
-  
-  image{
-    background-size: 1px;
-    min-width: 1px;
-    min-height: 1px;
-    -gtk-icon-source: none;
-  }
-  
-  $green_color: if($variant == 'light', #00DB8C, #71F2C3);
-  $blue_color: if($variant == 'light', #4CC3FF, #A0DFFF);
-  $purple_color: if($variant == 'light', #966ED5, #B59DDB);
 
-  &.minimize{ background: mix($green_color, $bg_color , 60%); }
-  &.maximize{ background: mix($blue_color, $bg_color , 60%); }
-  &.close{ background: mix($purple_color, $bg_color , 60%); }
-  
-  &:active,
-  &:hover{
-    border-color: transparent; 
-    box-shadow: none;
-    transition: none;
-    color: rgba(0,0,0,0.6);
-  }
-    
-  &.minimize:active,
-  &.minimize:hover{ background: $green_color;}
-
-  &.maximize:active,
-  &.maximize:hover{ background: $blue_color; }
-
-  &.close:active,
-  &.close:hover{background:  $purple_color; }
-
-
-  &:backdrop,
-  &:backdrop:disabled{
-    color: transparent;
-
-    &.minimize{ background: mix($green_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
-    &.maximize{ background: mix($blue_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
-    &.close{ background: mix($purple_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
-  }
+  // &.minimize:hover{color:#FFBD00;}
+  // &.maximize:hover{color:#00D67D;}
+  // &.close:hover{color:#FF267C;}
 }
 
 .selection-mode headerbar button.titlebutton,
@@ -4721,6 +4673,10 @@ popover.emoji-completion .emoji:hover {
         min-height: 16px;
         padding-top: 0px;
         padding-bottom: 0px;
+        
+        &:focus {
+          outline-offset: 0px;
+        }
       }
     }
     // Big
