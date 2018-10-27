@@ -1520,7 +1520,7 @@ searchbar > revealer > box {
 %titlebar,
 headerbar {
   padding: 0 6px;
-  min-height: 28px;
+  min-height: 0px;
   border-width: 0;
   border-radius: 0;
   border-bottom:1px solid lighten($bg_color, 4%);
@@ -1689,8 +1689,8 @@ headerbar {
     padding: 4px 6px;
 
     button.titlebutton {
-      min-height: 12px;
-      min-width: 12px;
+      min-height: 26px;
+      min-width: 26px;
       margin: 1px;
       padding: 0;
     }
