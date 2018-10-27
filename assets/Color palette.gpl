@@ -18,5 +18,4 @@ Columns: 1
 138	254	255	Editor Turquoise
 248	248	242	Editor Text color
 31	34	40	Editor Background
-40	43	50	Editor LineHighlight
-52	55	62	Editor LineSelection
+42	45	52	Editor Select, line selection
