@@ -15,6 +15,10 @@
 <img src="assets/screenshots/screenshot-03.png" />
 <br>
 <img src="assets/screenshots/screenshot-04.png" />
+<br>
+<img src="assets/screenshots/screenshot-05.png" />
+<br>
+<img src="assets/screenshots/screenshot-06.jpeg" />
 </p>
 
 ## Build
