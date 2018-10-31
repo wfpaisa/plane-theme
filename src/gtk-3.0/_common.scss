@@ -1689,8 +1689,8 @@ headerbar {
     padding: 4px 6px;
 
     button.titlebutton {
-      min-height: 26px;
-      min-width: 26px;
+      min-height: 24px;
+      min-width: 24px;
       margin: 1px;
       padding: 0;
     }
@@ -4459,6 +4459,9 @@ button.titlebutton {
 
   @extend %button_basic.flat;
 
+  padding-left: 3px;
+  padding-right: 3px;
+  
   //@include _button_text_shadow;
   -gtk-icon-shadow: none;
 
