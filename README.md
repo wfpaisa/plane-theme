@@ -35,11 +35,14 @@ $ npm i
 # Build
 $ gulp
 
+# Create local .themes directory if it does not already exist
+$ mkdir -p ~/.themes
+
 # Copy white variant
-$ sudo cp -a ./build/Plane /usr/share/themes/Plane
+$ cp -r ./build/Plane ~/.themes
 
 # Copy dark variant
-$ sudo cp -a ./build/Plane-dark /usr/share/themes/Plane-dark
+$ cp -r ./build/Plane-Dark ~/.themes
 
 # Active white theme
 $ gsettings set  org.gnome.desktop.interface gtk-theme Plane && gsettings set org.gnome.shell.extensions.user-theme name Plane
@@ -57,9 +60,9 @@ $ gsettings set  org.gnome.desktop.interface gtk-theme Plane-dark && gsettings s
 # Build and make symbolic link to themes
 $ npm i
 $ gulp
-$ CURR_DIR=$(pwd)
-$ sudo ln -s ${CURR_DIR}/build/Plane /usr/share/themes/Plane
-$ sudo ln -s ${CURR_DIR}/build/Plane-dark /usr/share/themes/Plane-dark
+$ mkdir -p ~/.themes
+$ ln -s $(pwd)/build/Plane ~/.themes
+$ ln -s $(pwd)/build/Plane-dark ~/.themes
 
 # Autoreload Plane
 $ gulp watch
