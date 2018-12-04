@@ -92,3 +92,5 @@ See the wiki for details: https://github.com/wfpaisa/plane-theme/wiki/GDM-Theme
 
 And all those designs that served as inspiration
 
+## Licence
+License: GPLv3
