@@ -4100,6 +4100,40 @@ paned {
  **************/
 infobar {
   border-style: none;
+  display: block;
+  background: lighten($bg_color, 2%);
+  
+  &.info{
+    &:backdrop,
+    & {
+      background-color: $success_color;
+      border-color: darken($success_color, 10%);
+    }
+  }
+
+  &.question{
+    &:backdrop,
+    & {
+      background-color: $selected_bg_color;
+      border-color: darken($selected_bg_color, 10%);
+    }
+  }
+
+  &.warning{
+    &:backdrop,
+    & {
+      background-color: $warning_color;
+      border-color: darken($warning_color, 10%);
+    } 
+  }
+
+  &.error{
+    &:backdrop,
+    & {
+      background-color: $error_color;
+      border-color: darken($error_color, 10%);
+    } 
+  }
 
   &.info,
   &.question,
@@ -4107,11 +4141,9 @@ infobar {
   &.error {
     &:backdrop, & {
       label, & { color: $selected_fg_color; }
-      background-color: $selected_bg_color;
-      border-color: darken($selected_bg_color, 10%);
     }
 
-    text-shadow: 0 1px darken($selected_bg_color, 10%);
+    text-shadow: 0 1px rgba(0,0,0,0.4);
 
     &:backdrop { text-shadow: none; }
 
