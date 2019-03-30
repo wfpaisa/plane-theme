@@ -4756,15 +4756,9 @@ popover.emoji-completion .emoji:hover {
         padding-top: 4px;
         padding-bottom: 5px;
         margin:0px;
-        border-top: 0;
-        border-bottom: 0;
         
         &:focus {
           outline-offset: 0px;
-        }
-
-        &:first-child{
-          border-left: 0;
         }
       }
     }
@@ -4775,6 +4769,15 @@ popover.emoji-completion .emoji:hover {
       margin-right: 1px;
       border-color: $borders_color;
       box-shadow: 0px 0px 2px 0px rgba(255,255,255,0.1);
+
+      button{
+        border-top-width: 0;
+        border-bottom-width: 0;
+        
+        &:first-child{  
+          border-left-width: 0;
+        }
+      }
     }
 
     button.flat{
