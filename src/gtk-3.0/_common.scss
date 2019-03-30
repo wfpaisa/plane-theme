@@ -4490,9 +4490,6 @@ button.titlebutton {
 
   @extend %button_basic.flat;
 
-  padding-left: 3px;
-  padding-right: 3px;
-  
   //@include _button_text_shadow;
   -gtk-icon-shadow: none;
 
@@ -4503,10 +4500,60 @@ button.titlebutton {
   }
 
   &:backdrop { -gtk-icon-shadow: none; }
+  
+  border-radius: 50%;
+  min-height: 16px;
+  min-width: 16px;
+  padding: 0px;
+  margin: 0px;
+  margin-left:1px;
+  margin-right: 1px;
+  border: none;
+  box-shadow: none;
+  transition: none;
+  color: rgba(0,0,0,0);
+  
+  image{
+    background-size: 1px;
+    margin:-4px;
+    -gtk-icon-source: none;
+  }
+    
+  
+  $green_color: if($variant == 'light', #FFBD00, #FFBD00);
+  $blue_color: if($variant == 'light', #00D67D, #00D67D);
+  $purple_color: if($variant == 'light', #FF267C, #FF267C);
 
-  // &.minimize:hover{color:#FFBD00;}
-  // &.maximize:hover{color:#00D67D;}
-  // &.close:hover{color:#FF267C;}
+  &.minimize{ background: mix($green_color, $bg_color , 60%); }
+  &.maximize{ background: mix($blue_color, $bg_color , 60%); }
+  &.close{ background: mix($purple_color, $bg_color , 60%); }
+  
+  &:active,
+  &:hover{
+    border-color: transparent; 
+    box-shadow: none;
+    transition: none;
+    color: rgba(0,0,0,0.6);
+  }
+    
+  &.minimize:active,
+  &.minimize:hover{ background: $green_color;}
+
+  &.maximize:active,
+  &.maximize:hover{ background: $blue_color; }
+
+  &.close:active,
+  &.close:hover{background:  $purple_color; }
+
+
+  &:backdrop,
+  &:backdrop:disabled{
+    color: transparent;
+
+    &.minimize{ background: mix($green_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
+    &.maximize{ background: mix($blue_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
+    &.close{ background: mix($purple_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
+  }
 }
 
 .selection-mode headerbar button.titlebutton,
