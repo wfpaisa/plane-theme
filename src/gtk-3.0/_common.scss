@@ -4100,7 +4100,6 @@ paned {
  **************/
 infobar {
   border-style: none;
-  display: block;
   background: lighten($bg_color, 2%);
   
   &.info{
@@ -4703,14 +4702,22 @@ popover.emoji-completion .emoji:hover {
     .path-bar-box{
       margin-top: 1px;
       border: 1px solid rgba(0,0,0,0);
+      padding: 0px;
 
       button{ 
         min-height: 16px;
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding-top: 4px;
+        padding-bottom: 5px;
+        margin:0px;
+        border-top: 0;
+        border-bottom: 0;
         
         &:focus {
           outline-offset: 0px;
+        }
+
+        &:first-child{
+          border-left: 0;
         }
       }
     }

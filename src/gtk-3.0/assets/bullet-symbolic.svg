@@ -37,8 +37,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="9.8566305"
-     inkscape:cy="5.6166397"
+     inkscape:cx="6.0394014"
+     inkscape:cy="5.4794937"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -105,10 +105,10 @@
      transform="translate(-381.00015,-339)">
     <path
        inkscape:connector-curvature="0"
-       d="m 388.00015,342 c -2.2074,0 -4,1.79259 -4,4 0,2.2074 1.7926,4 4,4 2.2074,0 4,-1.7926 4,-4 0,-2.20741 -1.7926,-4 -4,-4 z"
+       d="m 388.00015,343 c -1.65555,0 -3,1.34444 -3,3 0,1.65555 1.34445,3 3,3 1.65555,0 3,-1.34445 3,-3 0,-1.65556 -1.34445,-3 -3,-3 z"
        id="path9555"
        sodipodi:nodetypes="csssc"
-       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0pt;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.38896751;marker:none" />
+       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0pt;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#fdfffd;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.79172564;marker:none" />
   </g>
   <g
      inkscape:groupmode="layer"

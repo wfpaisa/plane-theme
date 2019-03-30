@@ -4,6 +4,9 @@
   "description": "Plane theme for Gnome Linux",
   "main": "index.js",
   "scripts": {
+    "start": "gulp",
+    "dev": "gulp watch",
+    "devd": "gulp watch -D",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
