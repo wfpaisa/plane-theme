@@ -1523,9 +1523,10 @@ headerbar {
   min-height: 0px;
   border-width: 0;
   border-radius: 0;
-  border-bottom:1px solid lighten($bg_color, 4%);
+  background-color: $bg_color;
+  // border-bottom:1px solid lighten($bg_color, 4%);
 
-  @include headerbar_fill(transparentize($bg_color,0.24));
+  // @include headerbar_fill(transparentize($bg_color,0.24));
 
   &:backdrop {
     border-color: transparent;
@@ -4524,9 +4525,9 @@ button.titlebutton {
   $blue_color: if($variant == 'light', #00D67D, #00D67D);
   $purple_color: if($variant == 'light', #FF267C, #FF267C);
 
-  &.minimize{ background: mix($green_color, $bg_color , 60%); }
-  &.maximize{ background: mix($blue_color, $bg_color , 60%); }
-  &.close{ background: mix($purple_color, $bg_color , 60%); }
+  &.minimize{ background: $green_color; }
+  &.maximize{ background: $blue_color; }
+  &.close{ background: $purple_color; }
   
   &:active,
   &:hover{
@@ -4743,8 +4744,10 @@ popover.emoji-completion .emoji:hover {
 
 .nautilus-window {
   
-  headerbar{
-    
+  headerbar {
+
+    background-color:transparentize($bg_color,0.04);
+      
     // Normal
     .path-bar-box{
       margin-top: 1px;
