@@ -4,6 +4,8 @@ $br-i: 2px; // In, Outline (default:5px)
 $br-c: 7px; // better antialiasing (default:9px)
 $br-b: 4px; // bottom windows  (default:0px)
 $br-e: 4px; // buttons and widgets, (default:3px)
+$menu_radius: 4px;
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 // generic drawing of more complex things
 
