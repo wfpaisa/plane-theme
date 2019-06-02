@@ -15,7 +15,7 @@
 $cakeisalie: "This stylesheet is generated, DO NOT EDIT";
 /* #{$cakeisalie} */
 
-$panel-corner-radius: 1px;
+$panel-corner-radius: 6px;
 
 /* Copyright 2009, 2015 Red Hat, Inc.
  *
@@ -54,7 +54,7 @@ stage {
 
 /* Buttons */
 .button {
-  border-radius: 1px;
+  border-radius: 5px;
   border-width: 1px;
   padding: 4px 32px;
   @include button(normal);
@@ -75,24 +75,24 @@ stage {
   padding: 12px;
 
   &:first-child {
-    // border-radius: 0px 0px 0px 1px;
-    border-radius: 0px;
+    border-radius: 0px 0px 0px 6px;
+    // border-radius: 0px;
   }
   &:last-child {
     border-right-width: 0px;
-    // border-radius: 0px 0px 1px 0px;
-    border-radius: 0px;
+    border-radius: 0px 0px 6px 0px;
+    // border-radius: 0px;
   }
   &:first-child:last-child {
     border-right-width: 0px;
-    // border-radius: 0px 0px 1px 1px;
-    border-radius: 0px;
+    border-radius: 0px 0px 6px 6px;
+    // border-radius: 0px;
   }
 }
 
 /* Entries */
 StEntry {
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 8px;
   border-width: 1px;
   color: $fg_color;
@@ -129,7 +129,7 @@ StScrollBar {
   }
 
   StBin#trough {
-    border-radius: 0;
+    border-radius: 4px;
     background-color: transparent;
   }
 
@@ -210,7 +210,7 @@ StScrollBar {
 .modal-dialog {
   $md_br_w: if($variant == 'light', 0px, 1px);
 
-  border-radius: 2px;
+  border-radius: 6px;
   color: $osd_fg_color;
   background-color: $base_color;
   border: $md_br_w solid rgba(255,255,255, 0.1);
@@ -578,7 +578,7 @@ StScrollBar {
   &.panel-menu {
     -boxpointer-gap: 4px;
     margin-bottom: 1.75em;
-    border-radius: 2px;
+    border-radius: 6px;
   }
 }
 
@@ -590,7 +590,7 @@ StScrollBar {
   }
   .popup-menu-boxpointer,
   .candidate-popup-boxpointer {
-    -arrow-border-radius: 0;
+    -arrow-border-radius: 6px;
     -arrow-background-color: transparent;
     -arrow-border-width: 1px;
     -arrow-border-color: lighten($bg_color,4%);
@@ -599,7 +599,7 @@ StScrollBar {
     -arrow-box-shadow: none;
     margin: 0px 4px;
     background-color: $bg_color;
-    border-radius: 2px;
+    border-radius: 6px;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4) !important;
   }
 
@@ -672,7 +672,7 @@ StScrollBar {
 
   .switcher-list .item-box {
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 6px;
   }
 
   .switcher-list .item-box:outlined {
@@ -726,7 +726,7 @@ StScrollBar {
   .workspace-switcher {
     background: transparent;
     border: 0px;
-    border-radius: 0px;
+    border-radius: 6px;
     padding: 0px;
     spacing: 8px;
   }
@@ -932,7 +932,7 @@ StScrollBar {
     .world-clocks-button,
     .weather-button,
     .events-section-title {
-      border-radius: 2px;
+      border-radius: 6px;
       padding: .4em;
     }
 
@@ -1856,7 +1856,7 @@ StScrollBar {
     &:expanded .login-dialog-user-list-item:logged-in { border-right: 2px solid $selected_bg_color; }
   }
   .login-dialog-user-list-item {
-    border-radius: 5px;
+    border-radius: 6px;
     padding: .2em;
     color: darken($osd_fg_color,30%);
     &:ltr .user-widget { padding-right: 1em; }
@@ -1954,7 +1954,7 @@ StScrollBar {
     border: 1px solid $_bubble_borders_color;
     background-color: $osd_bg_color;
     color: $_bubble_fg_color;
-    border-radius: 4px;
+    border-radius: 6px;
   }
   .notification { margin-right: 15px; } //compensate for space allocated to the scrollbar
 }
@@ -1996,7 +1996,7 @@ StScrollBar {
   spacing: 4px;
   padding: 4px;
   border: 1px solid grey;
-  border-radius: 4px;
+  border-radius: 6px;
   & > #Toolbar {
     border: 1px solid grey;
     border-radius: 4px;
