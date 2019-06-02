@@ -263,7 +263,7 @@ spinner {
 entry {
   %entry_basic, & {
     min-height: 20px;
-    padding:0px 4px 1px 4px;
+    padding: 1px 4px;
     border: 1px solid;
     border-radius: $br-e;
     transition: all 200ms $ease-out-quad;
@@ -526,7 +526,7 @@ button {
 
     min-height: 20px;
     min-width: 20px;
-    padding: 0px 4px 1px 4px;
+    padding: 1px 4px;
     border: 1px solid;
     border-radius: $br-e;
     transition: $button_transition;
@@ -2143,6 +2143,7 @@ menu,
     min-width: 40px;
     padding: 4px 6px;
     text-shadow: none;
+    transition: all .2s $ease-out-quad;
 
     &:hover {
       color: $selected_fg_color;
@@ -2293,13 +2294,21 @@ notebook {
       background-color: $backdrop_dark_fill;
     }
 
-    tabs { margin: 0px; }
+    tabs { 
+      margin: 0px;
+
+      > tab {
+        transition: all .2s $ease-out-quad;
+      }
+    }
 
     &.top {
       border-bottom-style: solid;
       > tabs {
         margin-bottom: -1px;
+
         > tab {
+
           &:hover { box-shadow: inset 0 -3px mix($fg_color , $borders_color, 20%); }
 
           &:backdrop { box-shadow: none; }
@@ -3864,7 +3873,8 @@ filechooserbutton:drop(active) {
  ***********/
 .sidebar {
   border-style: none;
-  background-color: mix($bg_color, $base_color, 50%);
+  // background-color: mix($bg_color, $base_color, 50%);
+  background-color: $bg_color;
 
   &:not(separator) {
     @at-root %sidebar_left,
@@ -4016,7 +4026,9 @@ placessidebar {
       }
     }
   }
+
 }
+
 
 placesview {
   .server-list-button > image {
@@ -4520,13 +4532,15 @@ button.titlebutton {
   min-height: 16px;
   min-width: 16px;
   padding: 0px;
-  margin: 0px;
+  margin: 10px;
   margin-left:1px;
   margin-right: 1px;
   border: none;
   box-shadow: none;
   transition: none;
   color: rgba(0,0,0,0);
+  transition: all .2s $ease-out-quad;
+  box-shadow: 0px 0px 0px 0px if($variant == 'light', rgba(0,0,0,0), rgba(255,255,255,0));
   
   image{
     background-size: 1px;
@@ -4549,6 +4563,8 @@ button.titlebutton {
     box-shadow: none;
     transition: none;
     color: rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 0px 4px if($variant == 'light', rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+
   }
     
   &.minimize:active,
@@ -4564,10 +4580,12 @@ button.titlebutton {
   &:backdrop,
   &:backdrop:disabled{
     color: transparent;
+    box-shadow: none;
+    opacity: 0.2;
 
-    &.minimize{ background: mix($green_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
-    &.maximize{ background: mix($blue_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
-    &.close{ background: mix($purple_color, $insensitive_bg_color , if($variant == 'light', 30%, 10%)); }
+    &:hover{
+      opacity: 0.4;
+    }
   }
 }
 
