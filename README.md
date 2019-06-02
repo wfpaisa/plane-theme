@@ -42,7 +42,7 @@ $ mkdir -p ~/.themes
 $ cp -r ./build/Plane ~/.themes
 
 # Copy dark variant
-$ cp -r ./build/Plane-Dark ~/.themes
+$ cp -r ./build/Plane-dark ~/.themes
 
 # Active white theme
 $ gsettings set  org.gnome.desktop.interface gtk-theme Plane && gsettings set org.gnome.shell.extensions.user-theme name Plane
