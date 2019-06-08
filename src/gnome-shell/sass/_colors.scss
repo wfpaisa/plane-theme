@@ -2,10 +2,10 @@
 // it gets @if ed depending on $variant
 
 
-$base_color: if($variant == 'light', rgba(252, 252, 252, 0.86), rgba(12, 16, 22, 0.92));
-$bg_color: if($variant == 'light', rgba(255, 255, 255, 0.999), rgba(12, 16, 22, 0.94));
+$base_color: if($variant == 'light', rgba(252, 252, 252, 0.86), rgba(48, 52, 63, 0.92));
+$bg_color: if($variant == 'light', rgba(255, 255, 255, 0.999), rgba(48, 52, 63, 0.94));
 $fg_color: if($variant == 'light', rgb(50,60,70), rgb(240, 240, 240)); 
-$theme_basecolor: if($variant == 'light', rgba(252, 252, 252, 0.999), rgba(42, 45, 53, 0.999)); // #FCFCFC , #2A2D35..for login screen
+$theme_basecolor: if($variant == 'light', rgba(252, 252, 252, 0.999), rgba(48, 52, 63, 0.999)); // #FCFCFC , #2A2D35..for login screen
 
 $selected_fg_color: #ffffff;
 $selected_bg_color: if($variant == 'light', rgb(0, 126, 255), rgb(0, 126, 255)); //#007eff
@@ -25,7 +25,7 @@ $success_color: if($variant == 'light', #37E888, darken(#37E888, 10%));
 $destructive_color: if($variant == 'light', #FF1A5C, darken(#FF1A5C, 10%));
 
 $osd_fg_color: $fg_color;
-$osd_bg_color: if($variant == 'light', rgba(255, 255, 255, 0.66), rgba(12, 16, 22, 0.66));
+$osd_bg_color: if($variant == 'light', rgba(255, 255, 255, 0.66), rgba(40, 44, 53, 0.7));
 $osd_borders_color: if($variant == 'light', rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
 $osd_outer_borders_color: transparentize(white, 0.9);
 

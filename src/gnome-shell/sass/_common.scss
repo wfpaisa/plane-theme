@@ -796,7 +796,7 @@ StScrollBar {
   }
 
   .panel-corner {
-    -panel-corner-radius: $panel-corner-radius;
+    -panel-corner-radius: 0px; //$panel-corner-radius
     -panel-corner-background-color: rgba(0, 0, 0, 0.35);
     -panel-corner-border-width: 2px;
     -panel-corner-border-color: transparent;
@@ -1284,7 +1284,7 @@ StScrollBar {
   }
 
   .window-clone-border {
-    border: 4px solid $selected_bg_color;
+    border: 2px solid $selected_bg_color;
     border-radius: 4px;
     // For window decorations with round corners we can't match
     // the exact shape when the window is scaled. So apply a shadow

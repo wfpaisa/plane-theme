@@ -19,7 +19,7 @@
    enable-background="new 0 0 16 16"
    xml:space="preserve"
    sodipodi:version="0.32"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="close-window-hover.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata
      id="metadata2399"><rdf:RDF><cc:Work
@@ -51,9 +51,9 @@
      pagecolor="#797979"
      id="base"
      showgrid="false"
-     inkscape:zoom="4"
-     inkscape:cx="28.483745"
-     inkscape:cy="67.714004"
+     inkscape:zoom="15.529631"
+     inkscape:cx="28.222974"
+     inkscape:cy="11.131333"
      inkscape:window-x="1427"
      inkscape:window-y="127"
      inkscape:current-layer="Foreground"
@@ -71,9 +71,9 @@
        snapvisiblegridlinesonly="true" /></sodipodi:namedview><path
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="csssc"
-     style="color:#000000;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;fill:#2975c4;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+     style="color:#000000;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;fill:#246fbc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5.2023778;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
      id="path822"
-     d="m 4.4362021,16 c 0,-6.410121 5.1728276,-11.60728 11.5529359,-11.60728 6.380109,0 11.552937,5.197159 11.552937,11.60728 0,6.410122 -5.172828,11.607281 -11.552937,11.607281 C 9.6090297,27.607281 4.4362021,22.410122 4.4362021,16 Z" /><path
+     d="m 0.92815666,16 c 0,-8.3174278 6.74355494,-15.06098136 15.06098134,-15.06098136 8.317427,0 15.060983,6.74355356 15.060983,15.06098136 0,8.317429 -6.743556,15.060982 -15.060983,15.060982 C 7.6717116,31.060982 0.92815666,24.317429 0.92815666,16 Z" /><path
      sodipodi:nodetypes="ccsccccccccccccccccccccccc"
      style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';-inkscape-font-specification:'Andale Mono';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.87958801;marker:none;enable-background:new"
      id="path826"
