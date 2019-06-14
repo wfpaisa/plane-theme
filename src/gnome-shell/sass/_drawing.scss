@@ -141,7 +141,7 @@
     color: $osd_fg_color;
     background-color: $_bg;
     border-color: transparentize($osd_borders_color,0.08);
-    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
     text-shadow: 0 1px black;
     icon-shadow: 0 1px black;
   }

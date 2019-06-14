@@ -210,7 +210,7 @@ StScrollBar {
 .modal-dialog {
   $md_br_w: if($variant == 'light', 0px, 1px);
 
-  border-radius: 6px;
+  border-radius: 9px;
   color: $osd_fg_color;
   background-color: $base_color;
   border: $md_br_w solid rgba(255,255,255, 0.1);
@@ -299,7 +299,7 @@ StScrollBar {
   }
 
   .end-session-dialog-logout-icon {
-    border-radius: 5px;
+    border-radius: 99px;
     width: 48px;
     height: 48px;
     background-size: contain;
@@ -466,7 +466,7 @@ StScrollBar {
   }
 
   .polkit-dialog-user-icon {
-    border-radius: 5px;
+    border-radius: 99px;
     background-size: contain;
     width: 48px;
     height: 48px;
@@ -750,7 +750,7 @@ StScrollBar {
   color: $_bubble_fg_color;
   background-color: $_bubble_bg_color;
   border: 0px solid $_bubble_borders_color;
-  border-radius: 6px;
+  border-radius: 12px;
   padding: 12px;
   box-shadow: 0 0 12px 2px rgba(0,0,0,0.1);
 }
