@@ -628,7 +628,7 @@ StScrollBar {
   text-align: center;
   font-weight: bold;
   spacing: 1em;
-  margin: 32px;
+  margin: 2px;
   min-width: 64px;
   min-height: 64px;
 
@@ -900,11 +900,11 @@ StScrollBar {
       icon-shadow: none;
     }
   }
-}
+} 
 
   // calendar popover
   #calendarArea {
-    padding: 0.75em 1.0em; 
+    padding: 0em; 
   }
 
   .calendar {
@@ -915,7 +915,7 @@ StScrollBar {
     .datemenu-today-button,
     .datemenu-displays-box,
     .message-list-sections {
-      margin: 0 1em;
+      margin: 0 0.6em;
     }
 
     .datemenu-calendar-column { spacing: 0.5em; }

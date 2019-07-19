@@ -4435,6 +4435,7 @@ decoration {
   border-radius: $br-o $br-o $br-b $br-b;
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0px;
+  // border: 1px solid rgba(255,255,255,0.1);
 
   // this needs to be transparent
   // see bug #722563
@@ -4442,7 +4443,8 @@ decoration {
 
   box-shadow:   0px 0px 12px 0px rgba(0,0,0,0.1),
                 0px 0px 4px 0px rgba(0,0,0,0.4),
-                0px 0px 0px 1px rgba(0,0,0,0.1);
+                0px 0px 0px 1px rgba(0,0,0,0.1), 
+                0px 0px 0px 1px rgba(255,255,255,0.14);
 
   // FIXME rationalize shadows
 
