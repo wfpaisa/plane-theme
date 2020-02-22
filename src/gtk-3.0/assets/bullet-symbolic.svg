@@ -17,7 +17,7 @@
    height="14"
    id="svg7384"
    version="1.1"
-   inkscape:version="0.92.2 2405546, 2018-03-11"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    width="14">
   <metadata
      id="metadata90">
@@ -37,8 +37,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="6.0394014"
-     inkscape:cy="5.4794937"
+     inkscape:cx="6.1684486"
+     inkscape:cy="5.9327595"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -46,7 +46,7 @@
      inkscape:object-nodes="true"
      inkscape:object-paths="false"
      objecttolerance="10"
-     pagecolor="#2b2b2a"
+     pagecolor="#3a3b39"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      showborder="true"
@@ -59,12 +59,12 @@
      inkscape:snap-nodes="false"
      inkscape:snap-others="false"
      inkscape:snap-to-guides="true"
-     inkscape:window-height="1016"
+     inkscape:window-height="1376"
      inkscape:window-maximized="1"
-     inkscape:window-width="1920"
+     inkscape:window-width="3440"
      inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:zoom="43.749011"
+     inkscape:window-y="639"
+     inkscape:zoom="62.240778"
      inkscape:showpageshadow="false">
     <inkscape:grid
        dotted="false"
@@ -74,14 +74,10 @@
        originx="-139.99995"
        originy="120"
        snapvisiblegridlinesonly="true"
-       spacingx="1px"
-       spacingy="1px"
+       spacingx="1"
+       spacingy="1"
        type="xygrid"
-       visible="true"
-       color="#9f9f9f"
-       opacity="0.1254902"
-       empcolor="#9f9f9f"
-       empopacity="0.25098039" />
+       visible="true" />
   </sodipodi:namedview>
   <title
      id="title9167">Gnome Symbolic Icon Theme</title>
@@ -105,10 +101,10 @@
      transform="translate(-381.00015,-339)">
     <path
        inkscape:connector-curvature="0"
-       d="m 388.00015,343 c -1.65555,0 -3,1.34444 -3,3 0,1.65555 1.34445,3 3,3 1.65555,0 3,-1.34445 3,-3 0,-1.65556 -1.34445,-3 -3,-3 z"
+       d="m 388.00015,341.99995 c -2.20743,0 -4.00005,1.79261 -4.00005,4.00005 0,2.20743 1.79262,4.00005 4.00005,4.00005 2.20743,0 4.00005,-1.79262 4.00005,-4.00005 0,-2.20744 -1.79262,-4.00005 -4.00005,-4.00005 z"
        id="path9555"
        sodipodi:nodetypes="csssc"
-       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0pt;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#fdfffd;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.79172564;marker:none" />
+       style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Andale Mono';text-indent:0pt;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.38899732;marker:none" />
   </g>
   <g
      inkscape:groupmode="layer"

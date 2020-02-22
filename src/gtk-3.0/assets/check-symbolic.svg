@@ -11,13 +11,13 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="check-symbolic.svg"
-   inkscape:export-filename="/home/sam/dev/RESOURCES/gnome-icon-theme-symbolic/src/gnome-stencils.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90"
+   inkscape:export-filename="/home/jimmac/Projects/gtk/gtk/theme/Adwaita/assets/check@2-symbolic.symbolic.png"
+   inkscape:export-xdpi="192"
+   inkscape:export-ydpi="192"
    height="14"
    id="svg7384"
    version="1.1"
-   inkscape:version="0.92.2 2405546, 2018-03-11"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    width="14">
   <metadata
      id="metadata90">
@@ -37,8 +37,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="9.8756981"
-     inkscape:cy="5.5711304"
+     inkscape:cx="7.0525573"
+     inkscape:cy="8.5476141"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -47,7 +47,7 @@
      inkscape:object-paths="false"
      objecttolerance="10"
      pagecolor="#3a3b39"
-     inkscape:pageopacity="1"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      showborder="true"
      showgrid="true"
@@ -56,32 +56,28 @@
      inkscape:snap-bbox-midpoints="false"
      inkscape:snap-global="true"
      inkscape:snap-grids="true"
-     inkscape:snap-nodes="true"
+     inkscape:snap-nodes="false"
      inkscape:snap-others="false"
      inkscape:snap-to-guides="true"
-     inkscape:window-height="1016"
-     inkscape:window-maximized="1"
-     inkscape:window-width="1920"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:zoom="42.716872"
+     inkscape:window-height="791"
+     inkscape:window-maximized="0"
+     inkscape:window-width="1611"
+     inkscape:window-x="1011"
+     inkscape:window-y="1032"
+     inkscape:zoom="1"
      inkscape:showpageshadow="false">
     <inkscape:grid
        dotted="false"
        empspacing="2"
        enabled="true"
        id="grid4866"
-       originx="0"
+       originx="-159.99995"
        originy="120"
        snapvisiblegridlinesonly="true"
        spacingx="1"
        spacingy="1"
        type="xygrid"
-       visible="true"
-       color="#9f9f9f"
-       opacity="0.1254902"
-       empcolor="#9f9f9f"
-       empopacity="0.25098039" />
+       visible="true" />
   </sodipodi:namedview>
   <title
      id="title9167">Gnome Symbolic Icon Theme</title>
@@ -105,7 +101,7 @@
      transform="translate(-401.00015,-339)">
     <path
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:3;marker:none;enable-background:accumulate"
-       d="m 412.24279,341.05025 -5.65685,5.65686 -2.82843,-2.82844 -2.12132,2.12133 4.94975,4.94974 7.77817,-7.77816 z"
+       d="m 411.89132,341.94772 -4.39702,4.34915 -3.3125,-3.1875 -2.39063,2.45313 5.21718,5.46025 6.77589,-7.31969 c 1.13568,-1.31246 -0.63533,-3.01292 -1.89292,-1.75534 z"
        id="path8913-6-7-1-5-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccc" />
