@@ -73,15 +73,13 @@ $suggested_bg_color: $selected_bg_color;
 $suggested_border_color: $selected_borders_color;
 $progress_bg_color: $selected_bg_color;
 $progress_border_color: $selected_borders_color;
-$checkradio_bg_color: $selected_bg_color;
-$checkradio_fg_color: $selected_fg_color;
+$checkradio_bg_color: #2AC558;
+$checkradio_fg_color: rgb(255,255,255);
+$checkradio_fg_color_menu: if($variant == 'light', rgba(0,0,0,0.8), rgba(255.1,255,255,0.8));
 
 // Custom Colors
 $switch_bg_color: #2AC558;
 $switch_fg_color: #FFF;
-
-$check_bg_color: #2AC558;
-$check_fg_color: #FFF;
 
 $indeterminate_bg_color: #FFC03A;
 $indeterminate_fg_color: #FFF;
