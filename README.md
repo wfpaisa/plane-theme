@@ -8,17 +8,25 @@
 - 	A beautiful theme for Gnome Linux, more information in [Plane project](https://github.com/wfpaisa/plane)
 
 <p align="center">
-<img src="assets/screenshots/screenshot-01.png" />
+<img src="assets/screenshots/Screenshot_01.png" />
 <br>
-<img src="assets/screenshots/screenshot-02.png" />
+<img src="assets/screenshots/Screenshot_02.png" />
 <br>
-<img src="assets/screenshots/screenshot-03.png" />
+<img src="assets/screenshots/Screenshot_03.png" />
 <br>
-<img src="assets/screenshots/screenshot-04.png" />
+<img src="assets/screenshots/Screenshot_04.png" />
 <br>
-<img src="assets/screenshots/screenshot-05.png" />
+<img src="assets/screenshots/Screenshot_05.png" />
 <br>
-<img src="assets/screenshots/screenshot-06.jpeg" />
+<img src="assets/screenshots/Screenshot_06.png" />
+<br>
+<img src="assets/screenshots/Screenshot_07.png" />
+<br>
+<img src="assets/screenshots/Screenshot_08.png" />
+<br>
+<img src="assets/screenshots/Screenshot_09.png" />
+<br>
+<img src="assets/screenshots/Screenshot_10.png" />
 </p>
 
 ## Build
