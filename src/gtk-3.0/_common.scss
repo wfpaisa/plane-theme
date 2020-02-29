@@ -3039,7 +3039,7 @@ radio {
   &:hover { box-shadow: if($variant == 'light', inset 0px 0px 0px 1px rgba(0,0,0,0.4), inset 0px 0px 0px 1px rgba(255,255,255,0.4)); }
   
   &:active,
-  &:checked{ background: $checkradio_bg_color; box-shadow:none; }
+  &:checked{ background: $checkradio_bg_color; @include _glow(normal,$checkradio_bg_color); }
 
   &:disabled { 
     background: if($variant == 'light', lighten($bg_color, 22%), lighten($bg_color, 2%));
