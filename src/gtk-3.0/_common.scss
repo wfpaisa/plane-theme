@@ -4716,6 +4716,7 @@ button.titlebutton {
     background-size: 0px;
     margin:-4px;
     -gtk-icon-source: none;
+    border-radius:50%;
   }
     
   
@@ -4723,18 +4724,40 @@ button.titlebutton {
   $blue_color: if($variant == 'light', #00D67D, #00D67D);
   $purple_color: if($variant == 'light', #FF267C, #FF267C);
 
-  &.minimize{ background: $green_color; @include _glow(normal,$green_color); &:hover{@include _glow(hover,$green_color)}}
-  &.maximize{ background: $blue_color; @include _glow(normal,$blue_color); &:hover{@include _glow(hover,$blue_color)}}
-  &.close{ background: $purple_color; @include _glow(normal,$purple_color); &:hover{@include _glow(hover,$purple_color)}}
+  &.minimize{ 
+    background: $green_color; 
+    @include _glow(normal,$green_color);
+    
+    &:active,
+    &:hover{
+      @include _glow(hover,$green_color);
+    }
+  }
+
+  &.maximize{ 
+    background: $blue_color; 
+    @include _glow(normal,$blue_color);
+    
+    &:active,
+    &:hover{
+      @include _glow(hover,$blue_color);
+    }
+  }
+
+  &.close{
+    background: $purple_color; 
+    @include _glow(normal,$purple_color);
+    
+    &:active,
+    &:hover{
+      @include _glow(hover,$purple_color);
+    }
+  }
   
   &:active,
   &:hover{
-    border-color: transparent; 
-    box-shadow: none;
     transition: none;
     color: rgba(0,0,0,0.6);
-    // box-shadow: 0px 0px 0px 4px if($variant == 'light', rgba(0,0,0,0.1), rgba(255,255,255,0.1));
-
   }
     
   &.minimize:active,
