@@ -1,12 +1,3 @@
-// Drawing mixins
-$br-o: 6px; // Out, Top --General-- (default:7px)
-$br-i: 2px; // In, Outline (default:5px)
-$br-c: 7px; // better antialiasing (default:9px)
-$br-b: 4px; // bottom windows  (default:0px)
-$br-e: 4px; // buttons and widgets, (default:3px)
-$menu_radius: 4px;
-$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
 // generic drawing of more complex things
 
 @function _widget_edge($c:$borders_edge) {
@@ -631,3 +622,15 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 }
 
+@mixin _glow($t, $glow_color:$selected_bg_color) {
+
+  @if $t==normal {
+    box-shadow: 0px 0px 4px transparentize($glow_color,0.5);
+  }
+
+  @if $t==hover {
+    box-shadow: 0px 0px 4px $glow_color;
+  }
+
+  border-color: $glow_color;
+}
