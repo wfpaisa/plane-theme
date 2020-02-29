@@ -343,7 +343,7 @@ entry {
       }
     }
 
-    &:focus { @include entry(focus); }
+    &:focus { @include entry(focus); @include _glow(normal); }
 
     &:disabled { @include entry(insensitive); }
 
@@ -2890,6 +2890,7 @@ switch {
 
   &:checked {
     background-color: $switch_bg_color;
+    @include _glow(normal,$switch_bg_color);
   }
 
   &:disabled {
@@ -4698,8 +4699,8 @@ button.titlebutton {
   &:backdrop { -gtk-icon-shadow: none; }
   
   border-radius: 50%;
-  min-height: 16px;
-  min-width: 16px;
+  min-height: 14px;
+  min-width: 14px;
   padding: 0px;
   margin: 10px;
   margin-left:1px;
@@ -4712,7 +4713,7 @@ button.titlebutton {
   box-shadow: 0px 0px 0px 0px if($variant == 'light', rgba(0,0,0,0), rgba(255,255,255,0));
   
   image{
-    background-size: 1px;
+    background-size: 0px;
     margin:-4px;
     -gtk-icon-source: none;
   }
@@ -4722,9 +4723,9 @@ button.titlebutton {
   $blue_color: if($variant == 'light', #00D67D, #00D67D);
   $purple_color: if($variant == 'light', #FF267C, #FF267C);
 
-  &.minimize{ background: $green_color; }
-  &.maximize{ background: $blue_color; }
-  &.close{ background: $purple_color; }
+  &.minimize{ background: $green_color; @include _glow(normal,$green_color); &:hover{@include _glow(hover,$green_color)}}
+  &.maximize{ background: $blue_color; @include _glow(normal,$blue_color); &:hover{@include _glow(hover,$blue_color)}}
+  &.close{ background: $purple_color; @include _glow(normal,$purple_color); &:hover{@include _glow(hover,$purple_color)}}
   
   &:active,
   &:hover{
@@ -4732,7 +4733,7 @@ button.titlebutton {
     box-shadow: none;
     transition: none;
     color: rgba(0,0,0,0.6);
-    box-shadow: 0px 0px 0px 4px if($variant == 'light', rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+    // box-shadow: 0px 0px 0px 4px if($variant == 'light', rgba(0,0,0,0.1), rgba(255,255,255,0.1));
 
   }
     
