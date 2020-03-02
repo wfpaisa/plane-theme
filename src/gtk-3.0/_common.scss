@@ -2921,6 +2921,7 @@ switch {
 
   &:disabled {
     background-color: if($variant == 'light', rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+    box-shadow: none;
   }
 
   &:backdrop {
@@ -3224,6 +3225,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 %scale_highlight {
   border-radius: $button_radius;
   background-color: $selected_bg_color;
+  @include _glow(hover);
 
   scale.horizontal & { 
       background:linear-gradient(90deg,$scale_color_a,$scale_color_b);
@@ -3240,6 +3242,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   &:disabled {
     background-image:none;
     background-color: transparent;
+    box-shadow: none;
   }
 
   &:backdrop {
