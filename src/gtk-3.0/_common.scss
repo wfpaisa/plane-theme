@@ -1215,6 +1215,7 @@ list row button.image-button:not(.flat) {
 %link,
 *:link {
   color: $link_color;
+  text-shadow: 0px 0px 4px transparentize($link_color,0.4);
 
   &:visited {
     color: $link_visited_color;
