@@ -21,7 +21,7 @@
 
 "use strict";
 
-const version = '3.35';
+const version = '3.36';
 
 /* Dependencies */
 var fs = require('fs'),
