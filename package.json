@@ -31,5 +31,8 @@
     "gulp-rename": "^1.2.3",
     "gulp-sass": "^4.0.1",
     "gulp-watch": "^5.0.1"
+  },
+  "volta": {
+    "node": "8.12.0"
   }
 }
