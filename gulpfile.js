@@ -21,7 +21,7 @@
 
 "use strict";
 
-const version = '3.36';
+const version = '4.0';
 
 /* Dependencies */
 var fs = require('fs'),
@@ -53,7 +53,7 @@ var dirDark = 'Plane-dark';
  *
  * @param      {string}  m       message
  */
-function timeLog(m){
+function timeLog(m) {
 	var d = new Date();
 	var n = d.toTimeString().split(' ')[0];
 
@@ -64,7 +64,7 @@ function timeLog(m){
 /**
  * GTK Auto reload
  */
-function autoreload(){
+function autoreload() {
 
 	var theme = dirLight;
 
@@ -72,21 +72,21 @@ function autoreload(){
 	if (process.argv[process.argv.length - 1]) {
 
 		let argv = process.argv[process.argv.length - 1];
-		
+
 		if (argv == '-D') theme = dirDark;
 
 
 		/* First change default theme and late change to our theme */
 		exec(`gsettings set  org.gnome.desktop.interface gtk-theme Adwaita && gsettings set org.gnome.shell.extensions.user-theme name "Deault"`, () => {
 
-			setTimeout(function() {
+			setTimeout(function () {
 				exec(`gsettings set  org.gnome.desktop.interface gtk-theme ${theme} && gsettings set org.gnome.shell.extensions.user-theme name ${theme}`, () => {
-					
+
 					timeLog(`Reload ${theme} theme`);
 					return;
-					
-				})			
-				
+
+				})
+
 			}, 500);
 		})
 
@@ -100,9 +100,9 @@ function autoreload(){
  *
  */
 
-gulp.task('copy-user-theme-folder',function(){
+gulp.task('copy-user-theme-folder', function () {
 	return gulp.src('./build/**/*')
-			.pipe(gulp.dest(os.homedir() + '/.local/share/themes/'))
+		.pipe(gulp.dest(os.homedir() + '/.local/share/themes/'))
 })
 
 /*=====  End of Global functions  ======*/
@@ -117,56 +117,78 @@ gulp.task('copy-user-theme-folder',function(){
 
 gulp.task('gnome-shell-light', function (cb) {
 	return gulp.src(`./src/gnome-shell/gnome-shell.scss`)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`))
 });
 
-gulp.task('gnome-shell-light-assets', function(){
-	return 	gulp.src([
-						"./src/gnome-shell/common-assets/*.*",
-						"./src/gnome-shell/light-assets/*.*",
-					])
-				.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`));
+gulp.task('gnome-shell-light-assets', function () {
+	return gulp.src([
+		"./src/gnome-shell/common-assets/*.*",
+		"./src/gnome-shell/light-assets/*.*",
+	])
+		.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`));
 })
 
 gulp.task('gnome-shell-dark', function (cb) {
 	return gulp.src(`./src/gnome-shell/gnome-shell-dark.scss`)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(rename('gnome-shell.css'))
-			.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(rename('gnome-shell.css'))
+		.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`))
 });
 
-gulp.task('gnome-shell-dark-assets', function(){
-	return 	gulp.src([
-						"./src/gnome-shell/common-assets/*.*",
-						"./src/gnome-shell/dark-assets/*.*",
-					])
-				.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`));
+gulp.task('gnome-shell-dark-assets', function () {
+	return gulp.src([
+		"./src/gnome-shell/common-assets/*.*",
+		"./src/gnome-shell/dark-assets/*.*",
+	])
+		.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`));
 })
 
 gulp.task('gnome-shell-high', function (cb) {
 	return gulp.src(`./src/gnome-shell/gnome-shell-high-contrast.scss`)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`))
-			.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest(`./build/${dirDark}/gnome-shell/`))
+		.pipe(gulp.dest(`./build/${dirLight}/gnome-shell/`))
 });
+
+/*----------  gtk-4.0  ----------*/
+
+gulp.task('gtk4-light', function (cb) {
+	return gulp.src(`./src/gtk-4.0/**/*.scss`)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest(`./build/${dirLight}/gtk-4.0`))
+});
+
+gulp.task('gtk4-dark', function (cb) {
+	return gulp.src(`./src/gtk-4.0/gtk-contained-dark.scss`)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(rename('gtk.css'))
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-4.0/`));
+});
+
+gulp.task('gtk4-assets', function () {
+	return gulp.src("./src/gtk-4.0/assets/*")
+		.pipe(gulp.dest(`./build/${dirLight}/gtk-4.0/assets`))
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-4.0/assets`));
+})
+
 /*----------  gtk-3.0  ----------*/
 
 gulp.task('gtk3-light', function (cb) {
 	return gulp.src(`./src/gtk-3.0/**/*.scss`)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(gulp.dest(`./build/${dirLight}/gtk-3.0`))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest(`./build/${dirLight}/gtk-3.0`))
 });
 
-gulp.task('gtk3-dark', function (cb) {	 
+gulp.task('gtk3-dark', function (cb) {
 	return gulp.src(`./src/gtk-3.0/gtk-contained-dark.scss`)
-			.pipe(sass().on('error', sass.logError))
-			.pipe(rename('gtk.css'))
-			.pipe(gulp.dest(`./build/${dirDark}/gtk-3.0/`));
+		.pipe(sass().on('error', sass.logError))
+		.pipe(rename('gtk.css'))
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-3.0/`));
 });
 
-gulp.task('gtk3-assets', function(){
-	return 	gulp.src("./src/gtk-3.0/assets/*")
+gulp.task('gtk3-assets', function () {
+	return gulp.src("./src/gtk-3.0/assets/*")
 		.pipe(gulp.dest(`./build/${dirLight}/gtk-3.0/assets`))
 		.pipe(gulp.dest(`./build/${dirDark}/gtk-3.0/assets`));
 })
@@ -174,60 +196,60 @@ gulp.task('gtk3-assets', function(){
 
 /*----------  gtk-2.0  ----------*/
 // Light
-gulp.task('gtk2-light', ['gtk2-light-assets','gtk2-light-menubar','gtk2-light-files']);
+gulp.task('gtk2-light', ['gtk2-light-assets', 'gtk2-light-menubar', 'gtk2-light-files']);
 
 gulp.task('gtk2-light-assets', function (cb) {
 	return gulp.src('./src/gtk-2.0/assets/*')
-			.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/assets`))
+		.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/assets`))
 });
 gulp.task('gtk2-light-menubar', function (cb) {
 	return gulp.src([
-				"./src/gtk-2.0/menubar-toolbar/*",
-				"!./src/gtk-2.0/menubar-toolbar/menubar-toolbar-dark.rc",
-				])
-			.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/menubar-toolbar`))
+		"./src/gtk-2.0/menubar-toolbar/*",
+		"!./src/gtk-2.0/menubar-toolbar/menubar-toolbar-dark.rc",
+	])
+		.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/menubar-toolbar`))
 });
 
-gulp.task('gtk2-light-files', function(){
-	return 	gulp.src([
-					"./src/gtk-2.0/apps.rc",
-					"./src/gtk-2.0/gtkrc",
-					"./src/gtk-2.0/main.rc",
-					"./src/gtk-2.0/panel.rc",
-					"./src/gtk-2.0/xfce-notify.rc",
-					])
-				.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0`));
+gulp.task('gtk2-light-files', function () {
+	return gulp.src([
+		"./src/gtk-2.0/apps.rc",
+		"./src/gtk-2.0/gtkrc",
+		"./src/gtk-2.0/main.rc",
+		"./src/gtk-2.0/panel.rc",
+		"./src/gtk-2.0/xfce-notify.rc",
+	])
+		.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0`));
 })
 
 // Dark
-gulp.task('gtk2-dark', ['gtk2-dark-assets','gtk2-dark-menubar','gtk2-dark-files','gtk2-gtkrc-dark']);
+gulp.task('gtk2-dark', ['gtk2-dark-assets', 'gtk2-dark-menubar', 'gtk2-dark-files', 'gtk2-gtkrc-dark']);
 
 gulp.task('gtk2-dark-assets', function (cb) {
 	return gulp.src('./src/gtk-2.0/assets-dark/*')
-			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/assets`))
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/assets`))
 });
 gulp.task('gtk2-dark-menubar', function (cb) {
 	return gulp.src([
-				"./src/gtk-2.0/menubar-toolbar/*",
-				"!./src/gtk-2.0/menubar-toolbar/menubar-toolbar.rc",
-				])
-			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/menubar-toolbar`))
+		"./src/gtk-2.0/menubar-toolbar/*",
+		"!./src/gtk-2.0/menubar-toolbar/menubar-toolbar.rc",
+	])
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0/menubar-toolbar`))
 });
 
-gulp.task('gtk2-dark-files', function(){
-	return 	gulp.src([
-					"./src/gtk-2.0/apps.rc",
-					"./src/gtk-2.0/main.rc",
-					"./src/gtk-2.0/panel.rc",
-					"./src/gtk-2.0/xfce-notify.rc",
-					])
-				.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0`));
+gulp.task('gtk2-dark-files', function () {
+	return gulp.src([
+		"./src/gtk-2.0/apps.rc",
+		"./src/gtk-2.0/main.rc",
+		"./src/gtk-2.0/panel.rc",
+		"./src/gtk-2.0/xfce-notify.rc",
+	])
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0`));
 })
 
 gulp.task('gtk2-gtkrc-dark', function (cb) {
 	return gulp.src('./src/gtk-2.0/gtkrc-dark')
-			.pipe(rename('gtkrc'))
-			.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0`))
+		.pipe(rename('gtkrc'))
+		.pipe(gulp.dest(`./build/${dirDark}/gtk-2.0`))
 });
 
 // gulp.task('gtk2-light', function(){
@@ -238,7 +260,7 @@ gulp.task('gtk2-gtkrc-dark', function (cb) {
 // 						"!./src/gtk-2.0/*-dark/*",
 // 					])
 // 				.pipe(gulp.dest(`./build/${dirLight}/gtk-2.0/`));
-		
+
 
 // })
 
@@ -263,14 +285,14 @@ gulp.task('gtk2-gtkrc-dark', function (cb) {
 
 /*----------  Theme File  ----------*/
 
-gulp.task('theme-light', function(){
+gulp.task('theme-light', function () {
 	return gulp.src('./src/index.theme')
-			.pipe(gulp.dest(`./build/${dirLight}`))
+		.pipe(gulp.dest(`./build/${dirLight}`))
 })
-gulp.task('theme-dark', function(){
+gulp.task('theme-dark', function () {
 	return gulp.src('./src/index-dark.theme')
-			.pipe(rename('index.theme'))
-			.pipe(gulp.dest(`./build/${dirDark}`))
+		.pipe(rename('index.theme'))
+		.pipe(gulp.dest(`./build/${dirDark}`))
 })
 
 
@@ -278,24 +300,24 @@ gulp.task('theme-dark', function(){
 
 gulp.task('xfwm4-light', function (cb) {
 	return gulp.src([
-				'./src/xfwm4/assets/*.png',
-				'./src/xfwm4/themerc'
-				])
-			.pipe(gulp.dest(`./build/${dirLight}/xfwm4`))
+		'./src/xfwm4/assets/*.png',
+		'./src/xfwm4/themerc'
+	])
+		.pipe(gulp.dest(`./build/${dirLight}/xfwm4`))
 });
 
 
-gulp.task('xfwm4-dark', ['xfwm4-dark-assets','xfwm4-dark-themerc']);
+gulp.task('xfwm4-dark', ['xfwm4-dark-assets', 'xfwm4-dark-themerc']);
 
 gulp.task('xfwm4-dark-assets', function (cb) {
 	return gulp.src('./src/xfwm4/assets-dark/*.png')
-			.pipe(gulp.dest(`./build/${dirDark}/xfwm4`))
+		.pipe(gulp.dest(`./build/${dirDark}/xfwm4`))
 });
 
 gulp.task('xfwm4-dark-themerc', function (cb) {
 	return gulp.src('./src/xfwm4/themerc-dark')
-			.pipe(rename('themerc'))
-			.pipe(gulp.dest(`./build/${dirDark}/xfwm4`))
+		.pipe(rename('themerc'))
+		.pipe(gulp.dest(`./build/${dirDark}/xfwm4`))
 });
 
 
@@ -310,62 +332,88 @@ gulp.task('xfwm4-dark-themerc', function (cb) {
 =============================*/
 
 gulp.task('watch', function () {
-  
-  // Gtk3
-  gulp.watch('./src/gtk-3.0/**/*.scss',  function(cb){
-  		
-  		gulp.start(['gtk3-light','gtk3-dark'], function(){
-  			
-  			gulp.start('copy-user-theme-folder', function(){
-  				autoreload();	  				
-  			})
-  		})
-  		
-  });  
-  	
-  gulp.watch('./src/gtk-3.0/assets/*', function(file){
 
-	gulp.src(file.path)
-		.pipe(gulp.dest(`./build/${dirLight}/gtk-3.0/assets`))
-		.pipe(gulp.dest(`./build/${dirDark}/gtk-3.0/assets`))
-		.on('end', (cb) => {
+	// Gtk4
+	gulp.watch('./src/gtk-4.0/**/*.scss', function (cb) {
 
-			timeLog(`gtk-3.0 Assets`);
+		gulp.start(['gtk4-light', 'gtk4-dark'], function () {
 
+			gulp.start('copy-user-theme-folder', function () {
+				autoreload();
+			})
 		})
 
-  });
+	});
 
-  // Gnome-shell
-  gulp.watch('./src/gnome-shell/**/*.scss',  function(cb){
-  		
-  		gulp.start([
-  			'gnome-shell-light',
+	gulp.watch('./src/gtk-4.0/assets/*', function (file) {
+
+		gulp.src(file.path)
+			.pipe(gulp.dest(`./build/${dirLight}/gtk-4.0/assets`))
+			.pipe(gulp.dest(`./build/${dirDark}/gtk-4.0/assets`))
+			.on('end', (cb) => {
+
+				timeLog(`gtk-4.0 Assets`);
+
+			})
+
+	});
+
+
+	// Gtk3
+	gulp.watch('./src/gtk-3.0/**/*.scss', function (cb) {
+
+		gulp.start(['gtk3-light', 'gtk3-dark'], function () {
+
+			gulp.start('copy-user-theme-folder', function () {
+				autoreload();
+			})
+		})
+
+	});
+
+	gulp.watch('./src/gtk-3.0/assets/*', function (file) {
+
+		gulp.src(file.path)
+			.pipe(gulp.dest(`./build/${dirLight}/gtk-3.0/assets`))
+			.pipe(gulp.dest(`./build/${dirDark}/gtk-3.0/assets`))
+			.on('end', (cb) => {
+
+				timeLog(`gtk-3.0 Assets`);
+
+			})
+
+	});
+
+	// Gnome-shell
+	gulp.watch('./src/gnome-shell/**/*.scss', function (cb) {
+
+		gulp.start([
+			'gnome-shell-light',
 			'gnome-shell-light-assets',
 			'gnome-shell-dark',
 			'gnome-shell-dark-assets',
 			'gnome-shell-high'
-			], function(){
-  				gulp.start('copy-user-theme-folder', function(){
-  					autoreload();	  				
-  				})
-  			})
-  		
-  });
+		], function () {
+			gulp.start('copy-user-theme-folder', function () {
+				autoreload();
+			})
+		})
+
+	});
 
 
-}); 
+});
 
 /*=====  End of Watch  ======*/
 
-gulp.task('zip-light', function(){
-	return 	gulp.src(`./build/${dirLight}/**/*`)
+gulp.task('zip-light', function () {
+	return gulp.src(`./build/${dirLight}/**/*`)
 		.pipe(zip(`${dirLight}-${version}.zip`))
 		.pipe(gulp.dest('./build/'))
 })
 
-gulp.task('zip-dark', function(){
-	return 	gulp.src(`./build/${dirDark}/**/*`)
+gulp.task('zip-dark', function () {
+	return gulp.src(`./build/${dirDark}/**/*`)
 		.pipe(zip(`${dirDark}-${version}.zip`))
 		.pipe(gulp.dest('./build/'))
 })
@@ -381,6 +429,9 @@ gulp.task('zip-dark', function(){
 gulp.task('default', [
 	'theme-light',
 	'theme-dark',
+	'gtk4-light',
+	'gtk4-dark',
+	'gtk4-assets',
 	'gtk3-light',
 	'gtk3-dark',
 	'gtk3-assets',
@@ -393,10 +444,10 @@ gulp.task('default', [
 	'gnome-shell-high',
 	'xfwm4-light',
 	'xfwm4-dark'
-	], (cb) => {
+], (cb) => {
 
-		gulp.start(['zip-light','zip-dark'], function(){
-			cb;	  				
-		})
+	gulp.start(['zip-light', 'zip-dark'], function () {
+		cb;
+	})
 
 });

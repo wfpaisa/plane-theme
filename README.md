@@ -85,17 +85,15 @@ See the wiki for details: https://github.com/wfpaisa/plane-theme/wiki/GDM-Theme
 <img src="assets/screenshots/Screenshot_10.png" />
 </p>
 
-## Update
+## Versions
 
-Upstream themes are downloaded and changes monitored.
-
-- Gtk: `/upstream/gtk-3.0` -> https://github.com/GNOME/gtk/tree/master/gtk/theme/Adwaita
-- Gnome-shell: `upstream/gnome-shell` -> https://github.com/GNOME/gnome-shell/tree/master/data/theme
+- Gtk3: 3.24.30
+- Gtk4: 4.2.1
+- Gnome-shell: 40.3
 
 
 ## Thanks to
 
-- Arc Theme
 - Adwaita Theme
 
 And all those designs that served as inspiration
