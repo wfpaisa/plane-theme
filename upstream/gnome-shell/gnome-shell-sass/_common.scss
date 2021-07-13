@@ -160,11 +160,11 @@ StScrollBar {
   StBin {
     width: 24px;
     height: 22px;
-    background-image: url("resource:///org/gnome/shell/theme/checkbox-off.svg");
+    background-image: url("./checkbox-off.svg");
   }
-  &:focus StBin { background-image: url("resource:///org/gnome/shell/theme/checkbox-off-focused.svg"); }
-  &:checked StBin { background-image: url("resource:///org/gnome/shell/theme/checkbox.svg"); }
-  &:focus:checked StBin { background-image: url("resource:///org/gnome/shell/theme/checkbox-focused.svg"); }
+  &:focus StBin { background-image: url("./checkbox-off-focused.svg"); }
+  &:checked StBin { background-image: url("./checkbox.svg"); }
+  &:focus:checked StBin { background-image: url("./checkbox-focused.svg"); }
 }
 
 /* Switches */
@@ -173,11 +173,11 @@ StScrollBar {
   width: 46px;
   height: 22px;
   background-size: contain;
-  background-image: if($variant == 'light', url("resource:///org/gnome/shell/theme/toggle-off.svg"),
-					    url("resource:///org/gnome/shell/theme/toggle-off-dark.svg"));
+  background-image: if($variant == 'light', url("./toggle-off.svg"),
+					    url("./toggle-off-dark.svg"));
   &:checked { 
-    background-image: if($variant == 'light', url("resource:///org/gnome/shell/theme/toggle-on.svg"),
-					    url("resource:///org/gnome/shell/theme/toggle-on-dark.svg"));
+    background-image: if($variant == 'light', url("./toggle-on.svg"),
+					    url("./toggle-on-dark.svg"));
   }
 }
 
@@ -1068,7 +1068,7 @@ StScrollBar {
       .calendar-day-with-events {
         color: lighten($fg_color,10%);
         font-weight: bold;
-        background-image: url("resource:///org/gnome/shell/theme/calendar-today.svg");
+        background-image: url("./calendar-today.svg");
       }
       .calendar-other-month-day {
         color: transparentize($fg_color ,0.5);
@@ -1428,7 +1428,7 @@ StScrollBar {
     }
 
     .placeholder {
-      background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
+      background-image: url("./dash-placeholder.svg");
       background-size: contain;
       height: 24px;
     }
@@ -1612,7 +1612,7 @@ StScrollBar {
     &:rtl { border-radius: 0 9px 9px 0;}
 
     .placeholder {
-      background-image: url("resource:///org/gnome/shell/theme/dash-placeholder.svg");
+      background-image: url("./dash-placeholder.svg");
       background-size: contain;
       height: 24px;
     }
@@ -1829,24 +1829,24 @@ StScrollBar {
     &.enter-key {
       border-color: lighten($selected_bg_color, 5%);
       background-color: $selected_bg_color;
-      background-image: url("resource:///org/gnome/shell/theme/key-enter.svg");
+      background-image: url("./key-enter.svg");
       &:hover, &:checked { background-color: lighten($selected_bg_color, 3%); }
       &:active { background-color: darken($selected_bg_color, 2%); }
     }
     &.shift-key-lowercase {
-      background-image: url("resource:///org/gnome/shell/theme/key-shift.svg");
+      background-image: url("./key-shift.svg");
     }
     &.shift-key-uppercase {
-      background-image: url("resource:///org/gnome/shell/theme/key-shift-uppercase.svg");
+      background-image: url("./key-shift-uppercase.svg");
     }
     &.shift-key-uppercase:latched {
-      background-image: url("resource:///org/gnome/shell/theme/key-shift-latched-uppercase.svg");
+      background-image: url("./key-shift-latched-uppercase.svg");
     }
     &.hide-key {
-      background-image: url("resource:///org/gnome/shell/theme/key-hide.svg");
+      background-image: url("./key-hide.svg");
     }
     &.layout-key {
-      background-image: url("resource:///org/gnome/shell/theme/key-layout.svg");
+      background-image: url("./key-layout.svg");
     }
   }
 
@@ -2143,7 +2143,7 @@ $_screenshield_shadow: 0px 0px 6px rgba(0, 0, 0, 0.726);
 }
 
 #lockDialogGroup {
-  background: lighten(#2e3436, 8%) url(resource:///org/gnome/shell/theme/noise-texture.png);
+  background: lighten(#2e3436, 8%) url(./noise-texture.png);
   background-repeat: repeat;
 }
 
