@@ -5388,7 +5388,8 @@ decoration {
   $_wm_border: if($variant== "light", transparentize(black, 0.77), transparentize(black, 0.25));
   $_wm_border_backdrop: if($variant== "light", transparentize(black, 0.82), transparentize(black, 0.25));
 
-  box-shadow: 0 3px 9px 1px transparentize(black, 0.5), 0 0 0 1px $_wm_border; //doing borders with box-shadow
+  // box-shadow: 0 3px 9px 1px transparentize(black, 0.5), 0 0 0 1px $_wm_border; //doing borders with box-shadow
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1), 0px 0px 4px 0px rgba(0, 0, 0, 0.4), 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 1px rgba(255, 255, 255, 0.14);
 
   // FIXME rationalize shadows
 
@@ -5400,7 +5401,7 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px transparentize(black, 0.8), 0 0 0 1px $_wm_border_backdrop;
+    box-shadow: 0px 0px 12px 0px transparent, 0px 0px 4px 0px rgba(0, 0, 0, 0.4), 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
     transition: $backdrop_transition;
   }
 
