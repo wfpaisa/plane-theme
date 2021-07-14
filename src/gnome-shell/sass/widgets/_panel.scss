@@ -1,15 +1,16 @@
 /* Top Bar */
 // a.k.a. the panel
 
-$panel_corner_radius: $base_border_radius+1;
-$panel_bg_color: if($variant == 'light', transparentize($bg_color, 0.4), transparentize($bg_color, 0.6));
-$panel_fg_color: if($variant == 'light', #2e3436, #eeecee);
-$panel_height: 2.2em;
+$panel_corner_radius: $base_border_radius + 1;
+$panel_bg_color: if($variant == "light", transparentize($bg_color, 0.4), transparentize($bg_color, 0.6));
+$panel_fg_color: if($variant == "light", #2e3436, #eeecee);
+$panel_height: 2em;
 $panel_transition_duration: 250ms; // same as the overview transition duration
 
 #panel {
   background-color: $panel_bg_color;
-  font-weight: regular;
+  font-weight: 400;
+  font-family: Roboto;
   height: $panel_height;
   font-feature-settings: "tnum";
   transition-duration: $panel_transition_duration;
@@ -27,9 +28,9 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
 
   // the rounded outset corners
   .panel-corner {
-    -panel-corner-radius: $panel_corner_radius;
-    -panel-corner-background-color: $panel_bg_color;
-    -panel-corner-border-width: 2px;
+    -panel-corner-radius: 0px;
+    -panel-corner-background-color: transparent;
+    -panel-corner-border-width: 0px;
     -panel-corner-border-color: transparent;
     -panel-corner-opacity: 1;
     transition-duration: $panel_transition_duration;
@@ -37,7 +38,7 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
 
   // panel menus
   .panel-button {
-    font-weight: bold;
+    font-weight: 400;
     color: $panel_fg_color;
     -natural-hpadding: $base_padding * 2;
     -minimum-hpadding: $base_padding;
@@ -53,9 +54,12 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
       }
     }
 
-    &:hover, &:active, &:overview, &:focus, &:checked {
-      
-      box-shadow: inset 0 0 0 100px if($variant == 'light', rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.20));
+    &:hover,
+    &:active,
+    &:overview,
+    &:focus,
+    &:checked {
+      box-shadow: inset 0 0 0 100px if($variant == "light", rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.2));
 
       // The clock display needs to have the background on .clock because
       // we want to exclude the do-not-disturb indicator from the background
@@ -63,7 +67,7 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
         box-shadow: none;
 
         .clock {
-          box-shadow: inset 0 0 0 100px if($variant == 'light', rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.20));
+          box-shadow: inset 0 0 0 100px if($variant == "light", rgba(0, 0, 0, 0.16), rgba(255, 255, 255, 0.2));
         }
       }
     }
@@ -95,7 +99,11 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
   &.login-screen,
   &:overview {
     .panel-button {
-      &:hover, &:active, &:overview, &:focus, &:checked {
+      &:hover,
+      &:active,
+      &:overview,
+      &:focus,
+      &:checked {
         box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.15);
 
         &.clock-display {
@@ -121,13 +129,17 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
 
   // indicator for active
   .screencast-indicator,
-  .remote-access-indicator { color: $warning_color; }
+  .remote-access-indicator {
+    color: $warning_color;
+  }
 }
 
 // App Menu
 #appMenu {
   spacing: $base_spacing;
-  .label-shadow { color: transparent; }
+  .label-shadow {
+    color: transparent;
+  }
 }
 
 #appMenu .panel-status-menu-box {
