@@ -2,10 +2,9 @@
 <img src="assets/logo.svg" />
 </p>
 
-
 # PLANE THEME
 
-- 	A beautiful theme for Gnome Linux, more information in [Plane project](https://github.com/wfpaisa/plane)
+-     A beautiful theme for Gnome Linux, more information in [Plane project](https://github.com/wfpaisa/plane)
 
 <p align="center">
 <img src="assets/screenshots/Screenshot_01.png" />
@@ -31,9 +30,9 @@
 
 NODE: v8.12.0
 
-NPM:  v6.4.1
+NPM: v6.4.1
 
-```bash 
+```bash
 
 # Install node modules
 $ npm i
@@ -58,10 +57,9 @@ $ gsettings set  org.gnome.desktop.interface gtk-theme Plane-dark && gsettings s
 
 ```
 
-
 ## Build with Autoreload
 
-```bash 
+```bash
 
 # Build and make symbolic link to themes
 $ npm i
@@ -79,8 +77,10 @@ $ gulp watch -D
 ```
 
 ## GDM Theme
+
 You can change the GDM (lock/login screen) theme by replacing the default GNOME Shell theme.
 See the wiki for details: https://github.com/wfpaisa/plane-theme/wiki/GDM-Theme
+
 <p align="center">
 <img src="assets/screenshots/Screenshot_10.png" />
 </p>
@@ -90,7 +90,7 @@ See the wiki for details: https://github.com/wfpaisa/plane-theme/wiki/GDM-Theme
 - Gtk3: 3.24.30
 - Gtk4: 4.2.1
 - Gnome-shell: 40.3
-
+- (Libhandy)[https://source.puri.sm/guido.gunther/libhandy/-/tree/master/src/themes]
 
 ## Thanks to
 
@@ -99,4 +99,5 @@ See the wiki for details: https://github.com/wfpaisa/plane-theme/wiki/GDM-Theme
 And all those designs that served as inspiration
 
 ## Licence
+
 License: GPLv3
