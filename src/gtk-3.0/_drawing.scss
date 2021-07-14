@@ -586,3 +586,15 @@
     color: transparentize($tc, 0.3);
   }
 }
+
+@mixin _glow($t, $glow_color: $selected_bg_color) {
+  @if $t==normal {
+    box-shadow: 0px 0px 4px transparentize($glow_color, 0.6);
+  }
+
+  @if $t==hover {
+    box-shadow: 0px 0px 4px $glow_color;
+  }
+
+  border-color: $glow_color;
+}

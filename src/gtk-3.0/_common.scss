@@ -5471,14 +5471,24 @@ button.titlebutton {
 
   @extend %button_basic_flat;
 
-  @include _button_text_shadow;
+  // @include _button_text_shadow;
 
   &:not(.appmenu) {
     border-radius: 9999px;
-    padding: $_hb_btn_pad;
+    // padding: $_hb_btn_pad;
+    padding: 0px;
     margin: 0 2px;
     min-width: 0;
     min-height: 0;
+    color: rgba(0, 0, 0, 0);
+    transition: all 0.2s $ease-out-quad;
+    box-shadow: 0px 0px 0px 0px if($variant == "light", rgba(0, 0, 0, 0), rgba(255, 255, 255, 0));
+
+    &:active,
+    &:hover {
+      transition: none;
+      color: rgba(0, 0, 0, 0.4);
+    }
   }
 
   .selection-mode & {
@@ -5487,8 +5497,66 @@ button.titlebutton {
     @extend %nobg_selected_items;
   }
 
+  $green_color: if($variant == "light", #ffbd00, #ffbd00);
+  $blue_color: if($variant == "light", #00d67d, #00d67d);
+  $purple_color: if($variant == "light", #ff267c, #ff267c);
+
+  &.minimize {
+    background: $green_color;
+    // box-shadow: inset 0 0 100px red;
+    @include _glow(normal, $green_color);
+
+    &:active,
+    &:hover {
+      @include _glow(hover, $green_color);
+    }
+  }
+
+  &.maximize {
+    background: $blue_color;
+    @include _glow(normal, $blue_color);
+
+    &:active,
+    &:hover {
+      @include _glow(hover, $blue_color);
+    }
+  }
+
+  &.close {
+    background: $purple_color;
+    @include _glow(normal, $purple_color);
+
+    &:active,
+    &:hover {
+      @include _glow(hover, $purple_color);
+    }
+  }
+
+  &.minimize:active,
+  &.minimize:hover {
+    background: $green_color;
+  }
+
+  &.maximize:active,
+  &.maximize:hover {
+    background: $blue_color;
+  }
+
+  &.close:active,
+  &.close:hover {
+    background: $purple_color;
+  }
+
   &:backdrop {
     -gtk-icon-shadow: none;
+
+    color: transparent;
+    box-shadow: none;
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 0.4;
+    }
   }
 }
 
