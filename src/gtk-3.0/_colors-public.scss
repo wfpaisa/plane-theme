@@ -86,9 +86,13 @@ these are pretty self explicative */
 
 //WM
 
-$_wm_highlight: if($variant=='light', $top_hilight,  // Sass gets mad if this is
-                  transparentize(black,1));          // done directly in the
-                                                     // color definition
+$_wm_highlight: if(
+  $variant== "light",
+  $top_hilight,
+  // Sass gets mad if this is
+  transparentize(black, 1)
+); // done directly in the
+// color definition
 
 /*
 these colors are exported for the window manager and shouldn't be used in applications,

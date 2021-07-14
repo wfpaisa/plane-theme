@@ -1,5 +1,5 @@
 // Include base styling.
-@import 'shared-base';
+@import "shared-base";
 
 // HdyComboRow
 
@@ -15,7 +15,7 @@ popover.combo {
       min-height: 50px;
 
       &:not(:last-child) {
-        border-bottom: 1px solid hdyalpha($borders_color, 0.5)
+        border-bottom: 1px solid hdyalpha($borders_color, 0.5);
       }
 
       &:first-child {
@@ -74,7 +74,8 @@ keypad {
 // HdyViewSwitcher
 
 viewswitcher {
-  &, & button {
+  &,
+  & button {
     margin: 0;
     padding: 0;
   }
@@ -127,8 +128,7 @@ viewswitcher {
         // Reimplementation of $button_fill from Adwaita. The colors are made
         // only 70% visible to avoid the highlight to be too strong.
         $c: hdyalpha($bg_color, 0.7);
-        $button_fill: if($variant == 'light', linear-gradient(to top, shade($c, 0.96) 2px, $c),
-                                              linear-gradient(to top, shade($c, 0.99) 2px, $c)) !global;
+        $button_fill: if($variant == "light", linear-gradient(to top, shade($c, 0.96) 2px, $c), linear-gradient(to top, shade($c, 0.99) 2px, $c)) !global;
         background-image: $button_fill;
       }
 
@@ -189,7 +189,8 @@ viewswitcher {
 
       > stack > box label {
         animation: needs_attention 150ms ease-in;
-        background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#3584e4), to(transparent)), -gtk-gradient(radial, center center, 0, center center, 0.5, to(rgba(255, 255, 255, 0.769231)), to(transparent));
+        background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#3584e4), to(transparent)),
+          -gtk-gradient(radial, center center, 0, center center, 0.5, to(rgba(255, 255, 255, 0.769231)), to(transparent));
         background-size: 6px 6px, 6px 6px;
         background-repeat: no-repeat;
         background-position: right 0px, right 1px;
@@ -314,6 +315,6 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
   > decoration-overlay {
     // Use a white sheen instead of @borders, as it has to be neutral enough
     // for any content and not just headerbar background
-    box-shadow: inset 0 1px rgba(255, 255, 255, if($variant == 'light', 0.8, 0.065));
+    box-shadow: inset 0 1px rgba(255, 255, 255, if($variant == "light", 0.8, 0.065));
   }
 }

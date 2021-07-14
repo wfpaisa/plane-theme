@@ -1,4 +1,3 @@
-
 @function hdyalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
 }
@@ -8,15 +7,8 @@
 }
 
 @mixin background-shadow($direction) {
-      background-image:
-        linear-gradient($direction,
-                        hdyalpha(#000, 0.05),
-                        hdyalpha(#000, 0.01) 40px,
-                        hdyalpha(#000, 0) 56px),
-        linear-gradient($direction,
-                        hdyalpha(#000, 0.03),
-                        hdyalpha(#000, 0.01) 7px,
-                        hdyalpha(#000, 0) 24px);
+  background-image: linear-gradient($direction, hdyalpha(#000, 0.05), hdyalpha(#000, 0.01) 40px, hdyalpha(#000, 0) 56px),
+    linear-gradient($direction, hdyalpha(#000, 0.03), hdyalpha(#000, 0.01) 7px, hdyalpha(#000, 0) 24px);
 }
 
 // Makes the corners of the given border rounded.
@@ -26,10 +18,22 @@
   // $border. This is needed to easily form floor-wall pairs regardless of
   // whether $border is a floor or a wall.
   $corners: (
-    'top': (('top'), ('left', 'right')),
-    'bottom': (('bottom'), ('left', 'right')),
-    'left': (('top', 'bottom'), ('left')),
-    'right': (('top', 'bottom'), ('right')),
+    "top": (
+      ("top"),
+      ("left", "right"),
+    ),
+    "bottom": (
+      ("bottom"),
+      ("left", "right"),
+    ),
+    "left": (
+      ("top", "bottom"),
+      ("left"),
+    ),
+    "right": (
+      ("top", "bottom"),
+      ("right"),
+    ),
   );
 
   @if not map-get($corners, $border) {
