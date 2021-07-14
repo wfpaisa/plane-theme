@@ -4654,6 +4654,90 @@ button.titlebutton {
   }
 
   &:backdrop { -gtk-icon-shadow: none; }
+
+
+  border-radius: 50%;
+  min-height: 14px;
+  min-width: 14px;
+  padding: 0px;
+  margin: 10px;
+  margin-left:1px;
+  margin-right: 1px;
+  border: none;
+  box-shadow: none;
+  transition: none;
+  color: rgba(0,0,0,0);
+  transition: all .2s $ease-out-quad;
+  box-shadow: 0px 0px 0px 0px if($variant == 'light', rgba(0,0,0,0), rgba(255,255,255,0));
+  
+  image{
+    background-size: 0px;
+    margin:-4px;
+    -gtk-icon-source: none;
+    border-radius:50%;
+  }
+    
+  
+  $green_color: if($variant == 'light', #FFBD00, #FFBD00);
+  $blue_color: if($variant == 'light', #00D67D, #00D67D);
+  $purple_color: if($variant == 'light', #FF267C, #FF267C);
+
+  &.minimize{ 
+    background: $green_color; 
+    @include _glow(normal,$green_color);
+    
+    &:active,
+    &:hover{
+      @include _glow(hover,$green_color);
+    }
+  }
+
+  &.maximize{ 
+    background: $blue_color; 
+    @include _glow(normal,$blue_color);
+    
+    &:active,
+    &:hover{
+      @include _glow(hover,$blue_color);
+    }
+  }
+
+  &.close{
+    background: $purple_color; 
+    @include _glow(normal,$purple_color);
+    
+    &:active,
+    &:hover{
+      @include _glow(hover,$purple_color);
+    }
+  }
+  
+  &:active,
+  &:hover{
+    transition: none;
+    color: rgba(0,0,0,0.6);
+  }
+    
+  &.minimize:active,
+  &.minimize:hover{ background: $green_color;}
+
+  &.maximize:active,
+  &.maximize:hover{ background: $blue_color; }
+
+  &.close:active,
+  &.close:hover{background:  $purple_color; }
+
+
+  &:backdrop,
+  &:backdrop:disabled{
+    color: transparent;
+    box-shadow: none;
+    opacity: 0.2;
+
+    &:hover{
+      opacity: 0.4;
+    }
+  }
 }
 
 .selection-mode headerbar button.titlebutton,
@@ -4852,4 +4936,27 @@ popover.emoji-completion contents row box {
 
 popover.emoji-completion .emoji:hover {
   background: $popover_hover_color;
+}
+
+
+window.background.csd.unified{
+  // background:none;
+  border-radius: $window_radius;
+
+  // deck{
+  //   background: red;
+
+  //   headerbar{
+  //     background: none;
+  //     // border:none;
+  //     box-shadow:none;
+  //     border-radius: 10px;
+
+  //     .titlebar.windowhandle{
+  //       background: red;
+  //       border-radius: 10px;
+  //     }
+  //   }
+  // }
+  
 }
