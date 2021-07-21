@@ -1,17 +1,17 @@
 // When color definition differs for dark and light variant
 // it gets @if ed depending on $variant
 
-$base_color: if($variant == "light", #ffffff, rgba(34, 38, 53, 0.999));
+$base_color: if($variant == "light", rgba(255, 255, 255, 0.999), rgba(34, 38, 53, 0.999));
 $text_color: if($variant == "light", black, white);
-$bg_color: if($variant == "light", #f6f5f4, rgba(34, 38, 53, 0.999));
-$fg_color: if($variant == "light", #2e3436, #eeeeec);
+$bg_color: if($variant == "light", rgba(255, 255, 255, 0.999), rgba(34, 38, 53, 0.999));
+$fg_color: if($variant == "light", #2e3436, #f1f1f7);
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == "light", #007eff, #007eff);
+$selected_bg_color: if($variant == "light", rgb(0, 126, 255), rgb(0, 126, 255)); //rgb(44, 85, 242), rgb(0, 126, 255)
 $selected_borders_color: if($variant== "light", darken($selected_bg_color, 15%), darken($selected_bg_color, 30%));
 $borders_color: if($variant == "light", darken($bg_color, 18%), darken($bg_color, 10%));
 $alt_borders_color: if($variant == "light", darken($bg_color, 24%), darken($bg_color, 18%));
-$borders_edge: if($variant == "light", transparentize(white, 0.2), transparentize($fg_color, 0.93));
+$borders_edge: transparentize($fg_color, 0.9);
 $link_color: if($variant == "light", darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%));
 $link_visited_color: if($variant == "light", darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
 $top_hilight: $borders_edge;
@@ -26,10 +26,13 @@ $scrollbar_slider_color: mix($fg_color, $bg_color, 60%);
 $scrollbar_slider_hover_color: mix($fg_color, $bg_color, 80%);
 $scrollbar_slider_active_color: if($variant== "light", darken($selected_bg_color, 10%), lighten($selected_bg_color, 10%));
 
-$warning_color: #f57900;
-$error_color: #cc0000;
-$success_color: if($variant == "light", #33d17a, darken(#33d17a, 10%));
-$destructive_color: if($variant == "light", #e01b24, darken(#e01b24, 10%));
+$warning_color: #ffc919;
+$error_color: #ff1a4c;
+$success_color: if($variant == "light", #37e888, #37e888);
+$destructive_color: if($variant == "light", $error_color, $error_color);
+
+$info_color: #007eff;
+$sucess_color: #37e888;
 
 $osd_fg_color: #eeeeec;
 $osd_text_color: white;
@@ -72,6 +75,16 @@ $suggested_bg_color: $selected_bg_color;
 $suggested_border_color: $selected_borders_color;
 $progress_bg_color: $selected_bg_color;
 $progress_border_color: $selected_borders_color;
-$checkradio_bg_color: if($variant == "light", $selected_bg_color, lighten($selected_bg_color, 10%));
-$checkradio_fg_color: $selected_fg_color;
-$checkradio_borders_color: if($variant == "light", darken($checkradio_bg_color, 20%), darken($checkradio_bg_color, 40%));
+$checkradio_bg_color: #00df9c;
+$checkradio_fg_color: rgb(255, 255, 255);
+$checkradio_fg_color_menu: if($variant == "light", rgba(0, 0, 0, 0.8), rgba(255.1, 255, 255, 0.8));
+
+// Custom Colors
+$switch_bg_color: #00df9c;
+$switch_fg_color: #fff;
+
+$indeterminate_bg_color: #ffc03a;
+$indeterminate_fg_color: #fff;
+
+$scale_color_a: mix($selected_bg_color, #023efe, 40%);
+$scale_color_b: mix($selected_bg_color, #00faff, 40%);

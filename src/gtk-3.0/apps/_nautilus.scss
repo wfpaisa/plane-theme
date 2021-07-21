@@ -1,238 +1,336 @@
-.nautilus-window,
-.nautilus-window notebook,
-.nautilus-window notebook > stack {
-  background: $base_color;
-}
-
-.nautilus-empty-state-icon {
-  opacity: 0.5;
-}
-
-.nautilus-canvas-item {
-  border-radius: 5px;
-}
-
-.nautilus-canvas-item.dim-label,
-.nautilus-list-dim-label {
-  color: mix ($fg_color, $bg_color, 0.5);
-}
-
-.nautilus-canvas-item.dim-label:selected,
-.nautilus-list-dim-label:selected {
-  color: mix ($selected_fg_color, $selected_bg_color, 0.2);
-}
-
-/* Toolbar */
-
-/* Here we use the .button background-image colors from Adwaita, but ligthen them,
- * since is not possible to use lighten () in common css. */
-@keyframes needs_attention_keyframes {
-  0% {
-    background-image: linear-gradient(to bottom, #fafafa, #ededed 40%, #e0e0e0);
-    border-color: $borders_color;
-  }
-  /* can't do animation-direction, so holding the color on two keyframes */
-  30% {
-    background-image: linear-gradient(to bottom, $base_color, $base_color, $base_color);
-    border-color: $fg_color;
-  }
-  90% {
-    background-image: linear-gradient(to bottom, $base_color, $base_color, $base_color);
-    border-color: $fg_color;
-  }
-  100% {
-    background-image: linear-gradient(to bottom, #fafafa, #ededed 40%, #e0e0e0);
-    border-color: $borders_color;
-  }
-}
-
-.nautilus-operations-button-needs-attention {
-  animation: needs_attention_keyframes 2s ease-in-out;
-}
-.nautilus-operations-button-needs-attention-multiple {
-  animation: needs_attention_keyframes 3s ease-in-out;
-  animation-iteration-count: 3;
-}
-
-.disclosure-button {
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-/* Path bar */
-
-.path-bar-box {
-  border-radius: 5px;
-  border: 1px $borders_color solid;
-  background-color: $bg_color;
-  padding-right: 6px;
-}
-
-.nautilus-path-bar button {
-  margin: 0px;
-}
-
-.nautilus-path-bar button:first-child {
-  border-width: 0px 1px 0px 0px;
-  border-radius: 3.5px 0px 0px 3.5px;
-}
-
-.nautilus-path-bar button:not(:first-child) {
-  border-width: 0px 1px 0px 1px;
-  border-radius: 0px 0px 0px 0px;
-}
-
-.nautilus-path-bar button:not(:checked) image {
-  opacity: 0.8;
-} /* dim the icon when not checked */
-
-/* Make the tags fit into the box */
-entry.search > * {
-  margin: 5px;
-}
-
-/* Sidebar */
-
-// .nautilus-window .sidebar-row:selected {
-//     background: mix($bg_color, $fg_color, 0.07);
-// }
-
-.nautilus-window .sidebar-row:selected,
-.nautilus-window .sidebar-row:selected image,
-.nautilus-window .sidebar-row:selected label {
-  color: mix($fg_color, $text_color, 0.5);
-}
-
-.nautilus-window .sidebar-row:selected:backdrop {
-  background: mix($backdrop_bg_color, $backdrop_fg_color, 0.07);
-}
-
-.nautilus-window .sidebar-row:selected:backdrop,
-.nautilus-window .sidebar-row:selected:backdrop label {
-  color: mix($backdrop_fg_color, $text_color, 0.15);
-}
-
-/* Floating status bar */
-.floating-bar {
-  padding: 1px;
-  background-color: $base_color;
-  border-width: 1px;
-  border-style: solid solid none;
-  border-color: $borders_color;
-  border-radius: 8px 8px 0 0;
-}
-
-.floating-bar.bottom.left {
-  /* axes left border and border radius */
-  border-left-style: none;
-  border-top-left-radius: 0;
-}
-.floating-bar.bottom.right {
-  /* axes right border and border radius */
-  border-right-style: none;
-  border-top-right-radius: 0;
-}
-
-.floating-bar:backdrop {
-  background-color: $backdrop_base_color;
-  border-color: $backdrop_borders_color;
-}
-
-.floating-bar button {
-  padding: 0px;
-}
-
-$disk_space_unknown: #888a85;
-$disk_space_used: #729fcf;
-$disk_space_free: #eeeeec;
-
-.disk-space-display {
-  border-style: solid;
-  border-width: 2px;
-}
-
-.disk-space-display.unknown {
-  background-color: $disk_space_unknown;
-  border-color: shade($disk_space_unknown, 0.7);
-  color: $disk_space_unknown;
-}
-.disk-space-display.unknown.border {
-  color: shade($disk_space_unknown, 0.7);
-}
-
-.disk-space-display.used {
-  background-color: $disk_space_used;
-  border-color: shade($disk_space_used, 0.7);
-  color: $disk_space_used;
-}
-.disk-space-display.used.border {
-  color: shade($disk_space_used, 0.7);
-}
-
-.disk-space-display.free {
-  background-color: $disk_space_free;
-  border-color: shade($disk_space_free, 0.7);
-  color: $disk_space_free;
-}
-.disk-space-display.free.border {
-  color: shade($disk_space_free, 0.7);
-}
-
-/* As a workaround for GtkTreeView showing thick border above first row when
- * horizontal grid lines are enabled, we add them using CSS instead. Exclude the
- * drop targets to let through the default feedback style. */
-.nautilus-list-view .view:not(:drop(active)) {
-  border-bottom: 1px solid $bg_color;
-}
-
-.search-information {
-  background-color: $selected_bg_color;
+//
+// Nautilus
+//
+.nautilus-desktop.nautilus-canvas-item {
   color: white;
-  padding: 2px;
+  text-shadow: 1px 1px transparentize(black, 0.4);
 }
 
-$conflict_bg: #fef6b6;
-
-.conflict-row {
-  background: $conflict_bg;
-  color: black;
-}
-
-.conflict-row:hover {
-  background-color: shade($conflict_bg, 0.9);
-}
-
-.conflict-row:selected {
+// info bar bottom
+.floating-bar {
   background: $selected_bg_color;
   color: $selected_fg_color;
+  border: 1px solid $bg_color;
 }
 
-/* Icon view */
-flowboxchild:selected {
+.nautilus-window {
+  headerbar {
+    background-color: transparentize($bg_color, 0.04);
+
+    // Normal
+    .path-bar-box {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0px;
+      border-radius: $button-radius;
+
+      button {
+        min-height: 16px;
+        padding-top: 4px;
+        padding-bottom: 5px;
+        margin: 0px;
+
+        &:focus {
+          outline-offset: 0px;
+        }
+      }
+    }
+    // Big
+    .path-bar-box.width-maximized {
+      background: $base_color;
+      border-radius: $button_radius;
+      margin-right: 1px;
+      border-color: $borders_color;
+      box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.1);
+
+      button {
+        border-top-width: 0;
+        border-bottom-width: 0;
+
+        &:first-child {
+          border-left-width: 0;
+        }
+      }
+    }
+
+    button.flat {
+      border-radius: 0px;
+
+      &:hover,
+      &:checked:hover {
+        background: none;
+        border-color: transparent;
+        box-shadow: 0 2px mix($fg_color, $borders_color, 30%);
+      }
+
+      &:checked {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+  }
+  // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
+  .searchbar-container {
+    margin-top: -1px;
+  }
+
+  // Transparentize
   background-color: transparent;
+
+  notebook {
+    background-color: $base_color;
+  }
+
+  .sidebar {
+    background-color: transparentize($bg_color, 0.04);
+  }
+
+  paned {
+    > separator {
+      // background-image: image(if($variant == "light", darken($bg_color, 10%), darken($bg_color, 4%)));
+      background: lighten($base_color, 2%);
+    }
+  }
+
+  // @extend %treeviewcell;
 }
 
-.icon-background {
-  background-color: black;
-  border-color: #4a90d9;
-  border-style: solid;
-  border-width: 0px;
-}
+// .nautilus-window,
+// .nautilus-window notebook,
+// .nautilus-window notebook > stack {
+//   background: $base_color;
+// }
 
-flowboxchild > .icon-item-background {
-  padding: 4px;
-}
-flowboxchild:selected > .icon-item-background {
-  padding: 4px;
-  background-color: #4a90d9;
-  border-color: #4a90d9;
-  border-style: solid;
-  border-width: 0px;
-  border-radius: 4px 4px 4px 4px;
-}
+// .nautilus-empty-state-icon {
+//   opacity: 0.5;
+// }
 
-.nautilus-menu-sort-heading {
-  min-height: 26px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+// .nautilus-canvas-item {
+//   border-radius: 5px;
+// }
+
+// .nautilus-canvas-item.dim-label,
+// .nautilus-list-dim-label {
+//   color: mix ($fg_color, $bg_color, 0.5);
+// }
+
+// .nautilus-canvas-item.dim-label:selected,
+// .nautilus-list-dim-label:selected {
+//   color: mix ($selected_fg_color, $selected_bg_color, 0.2);
+// }
+
+// /* Toolbar */
+
+// /* Here we use the .button background-image colors from Adwaita, but ligthen them,
+//  * since is not possible to use lighten () in common css. */
+// @keyframes needs_attention_keyframes {
+//   0% {
+//     background-image: linear-gradient(to bottom, #fafafa, #ededed 40%, #e0e0e0);
+//     border-color: $borders_color;
+//   }
+//   /* can't do animation-direction, so holding the color on two keyframes */
+//   30% {
+//     background-image: linear-gradient(to bottom, $base_color, $base_color, $base_color);
+//     border-color: $fg_color;
+//   }
+//   90% {
+//     background-image: linear-gradient(to bottom, $base_color, $base_color, $base_color);
+//     border-color: $fg_color;
+//   }
+//   100% {
+//     background-image: linear-gradient(to bottom, #fafafa, #ededed 40%, #e0e0e0);
+//     border-color: $borders_color;
+//   }
+// }
+
+// .nautilus-operations-button-needs-attention {
+//   animation: needs_attention_keyframes 2s ease-in-out;
+// }
+// .nautilus-operations-button-needs-attention-multiple {
+//   animation: needs_attention_keyframes 3s ease-in-out;
+//   animation-iteration-count: 3;
+// }
+
+// .disclosure-button {
+//   padding-left: 4px;
+//   padding-right: 4px;
+// }
+
+// /* Path bar */
+
+// .path-bar-box {
+//   border-radius: 5px;
+//   border: 1px $borders_color solid;
+//   background-color: $bg_color;
+//   padding-right: 6px;
+// }
+
+// .nautilus-path-bar button {
+//   margin: 0px;
+// }
+
+// .nautilus-path-bar button:first-child {
+//   border-width: 0px 1px 0px 0px;
+//   border-radius: 3.5px 0px 0px 3.5px;
+// }
+
+// .nautilus-path-bar button:not(:first-child) {
+//   border-width: 0px 1px 0px 1px;
+//   border-radius: 0px 0px 0px 0px;
+// }
+
+// .nautilus-path-bar button:not(:checked) image {
+//   opacity: 0.8;
+// } /* dim the icon when not checked */
+
+// /* Make the tags fit into the box */
+// entry.search > * {
+//   margin: 5px;
+// }
+
+// /* Sidebar */
+
+// // .nautilus-window .sidebar-row:selected {
+// //     background: mix($bg_color, $fg_color, 0.07);
+// // }
+
+// .nautilus-window .sidebar-row:selected,
+// .nautilus-window .sidebar-row:selected image,
+// .nautilus-window .sidebar-row:selected label {
+//   color: mix($fg_color, $text_color, 0.5);
+// }
+
+// .nautilus-window .sidebar-row:selected:backdrop {
+//   background: mix($backdrop_bg_color, $backdrop_fg_color, 0.07);
+// }
+
+// .nautilus-window .sidebar-row:selected:backdrop,
+// .nautilus-window .sidebar-row:selected:backdrop label {
+//   color: mix($backdrop_fg_color, $text_color, 0.15);
+// }
+
+// /* Floating status bar */
+// .floating-bar {
+//   padding: 1px;
+//   background-color: $base_color;
+//   border-width: 1px;
+//   border-style: solid solid none;
+//   border-color: $borders_color;
+//   border-radius: 8px 8px 0 0;
+// }
+
+// .floating-bar.bottom.left {
+//   /* axes left border and border radius */
+//   border-left-style: none;
+//   border-top-left-radius: 0;
+// }
+// .floating-bar.bottom.right {
+//   /* axes right border and border radius */
+//   border-right-style: none;
+//   border-top-right-radius: 0;
+// }
+
+// .floating-bar:backdrop {
+//   background-color: $backdrop_base_color;
+//   border-color: $backdrop_borders_color;
+// }
+
+// .floating-bar button {
+//   padding: 0px;
+// }
+
+// $disk_space_unknown: #888a85;
+// $disk_space_used: #729fcf;
+// $disk_space_free: #eeeeec;
+
+// .disk-space-display {
+//   border-style: solid;
+//   border-width: 2px;
+// }
+
+// .disk-space-display.unknown {
+//   background-color: $disk_space_unknown;
+//   border-color: shade($disk_space_unknown, 0.7);
+//   color: $disk_space_unknown;
+// }
+// .disk-space-display.unknown.border {
+//   color: shade($disk_space_unknown, 0.7);
+// }
+
+// .disk-space-display.used {
+//   background-color: $disk_space_used;
+//   border-color: shade($disk_space_used, 0.7);
+//   color: $disk_space_used;
+// }
+// .disk-space-display.used.border {
+//   color: shade($disk_space_used, 0.7);
+// }
+
+// .disk-space-display.free {
+//   background-color: $disk_space_free;
+//   border-color: shade($disk_space_free, 0.7);
+//   color: $disk_space_free;
+// }
+// .disk-space-display.free.border {
+//   color: shade($disk_space_free, 0.7);
+// }
+
+// /* As a workaround for GtkTreeView showing thick border above first row when
+//  * horizontal grid lines are enabled, we add them using CSS instead. Exclude the
+//  * drop targets to let through the default feedback style. */
+// .nautilus-list-view .view:not(:drop(active)) {
+//   border-bottom: 1px solid $bg_color;
+// }
+
+// .search-information {
+//   background-color: $selected_bg_color;
+//   color: white;
+//   padding: 2px;
+// }
+
+// $conflict_bg: #fef6b6;
+
+// .conflict-row {
+//   background: $conflict_bg;
+//   color: black;
+// }
+
+// .conflict-row:hover {
+//   background-color: shade($conflict_bg, 0.9);
+// }
+
+// .conflict-row:selected {
+//   background: $selected_bg_color;
+//   color: $selected_fg_color;
+// }
+
+// /* Icon view */
+// flowboxchild:selected {
+//   background-color: transparent;
+// }
+
+// .icon-background {
+//   background-color: black;
+//   border-color: #4a90d9;
+//   border-style: solid;
+//   border-width: 0px;
+// }
+
+// flowboxchild > .icon-item-background {
+//   padding: 4px;
+// }
+// flowboxchild:selected > .icon-item-background {
+//   padding: 4px;
+//   background-color: #4a90d9;
+//   border-color: #4a90d9;
+//   border-style: solid;
+//   border-width: 0px;
+//   border-radius: 4px 4px 4px 4px;
+// }
+
+// .nautilus-menu-sort-heading {
+//   min-height: 26px;
+//   padding-left: 5px;
+//   padding-right: 5px;
+// }

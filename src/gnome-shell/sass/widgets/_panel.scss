@@ -14,6 +14,8 @@ $panel_transition_duration: 250ms; // same as the overview transition duration
   height: $panel_height;
   font-feature-settings: "tnum";
   transition-duration: $panel_transition_duration;
+  // border-radius: 1em;
+  // margin: 2px;
 
   // transparent panel on lock & login screens
   &.unlock-screen,
