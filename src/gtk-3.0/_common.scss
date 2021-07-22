@@ -140,7 +140,6 @@ textview {
   text {
     @extend %view;
     background-color: darken($base_color, 5%);
-    border-radius: $button-radius;
 
     selection {
       &:focus,
@@ -2149,6 +2148,11 @@ headerbar {
     margin-top: $_hb_btn_pad;
     margin-bottom: $_hb_btn_pad;
   }
+
+  & > button {
+    background-color: transparent;
+  }
+
   switch {
     margin-top: $_switch_margin;
     margin-bottom: $_switch_margin;
@@ -2821,10 +2825,10 @@ popover.background {
 notebook {
   > header {
     padding: 0px;
-    border-color: if($variant == "light", rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+    border-color: if($variant == "light", rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.05));
     border-width: 1px;
     // background-color: $dark_fill;
-    background-color: transparent;
+    background-color: $base_color;
 
     &:backdrop {
       border-color: $backdrop_borders_color;
@@ -4299,7 +4303,7 @@ frame > border,
   margin: 0;
   padding: 0;
   border-radius: 0;
-  border: 1px solid if($variant == "light", rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+  border: 1px solid if($variant == "light", rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.05));
 
   &.flat {
     border-style: none;
@@ -4392,9 +4396,10 @@ separator {
  *********/
 list {
   color: $text_color;
-  background-color: lighten($base_color, 2%);
-  border-color: $borders_color;
+  // background-color: lighten($base_color, 2%);
+  border-color: transparent;
   border-radius: $button_radius;
+  padding: 0px;
 
   &:backdrop {
     color: $backdrop_text_color;
@@ -4404,12 +4409,17 @@ list {
 
   row {
     padding: 2px;
-    border-radius: $button_radius;
+    border-radius: 0px;
+  }
+
+  separator {
+    background-color: transparent;
   }
 }
 
 row {
   transition: all 150ms $ease-out-quad;
+  border-radius: $button_radius;
 
   &:hover {
     transition: none;
@@ -4642,7 +4652,8 @@ filechooserbutton:drop(active) {
  ***********/
 .sidebar {
   border-style: none;
-  background-color: mix($bg_color, $base_color, 50%);
+  // background-color: mix($bg_color, $base_color, 50%);
+  background-color: $base_color;
 
   &:not(separator) {
     @at-root %sidebar_left,
