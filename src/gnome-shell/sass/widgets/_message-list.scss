@@ -6,7 +6,9 @@
   width: 31.5em;
   padding: 0 $base_padding * 2;
 
-  .message-list-placeholder { spacing: 12px; }
+  .message-list-placeholder {
+    spacing: 12px;
+  }
 }
 
 .message-list-sections {
@@ -41,7 +43,7 @@
 
     // icon size and color
     > StIcon {
-      icon-size: $base_icon_size*2; // 32px
+      icon-size: $base_icon_size * 2; // 32px
       -st-icon-style: symbolic;
     }
 
@@ -74,16 +76,24 @@
       /* HACK: the label should be baseline-aligned with a 1em label, fake this with some bottom padding */
       padding-bottom: 0.13em;
 
-      &:ltr { text-align: right };
-      &:rtl { text-align: left };
+      &:ltr {
+        text-align: right;
+      }
+      &:rtl {
+        text-align: left;
+      }
     }
   }
 
   // close button
   .message-close-button {
     color: lighten($fg_color, 15%);
-    &:hover { color: if($variant=='light', lighten($fg_color, 30%), darken($fg_color, 10%)); }
-    &:active { color: if($variant=='light', lighten($fg_color, 40%), darken($fg_color, 20%)); }
+    &:hover {
+      color: if($variant== "light", lighten($fg_color, 30%), darken($fg_color, 10%));
+    }
+    &:active {
+      color: if($variant== "light", lighten($fg_color, 40%), darken($fg_color, 20%));
+    }
   }
 
   // body
@@ -108,21 +118,27 @@
     color: $fg_color;
   }
 
-  &:active { 
+  &:active {
     background-color: darken($hover_bg_color, 2%);
     color: $fg_color;
   }
 
-  &:insensitive { color: darken($fg_color,40%); }
-  
+  &:insensitive {
+    color: darken($fg_color, 40%);
+  }
+
   // fix border-radius for last button
-  &:last-child:ltr { border-radius: 0 $base_border_radius+2 $base_border_radius+2 0; }
-  &:last-child:rtl { border-radius: $base_border_radius+2 0 0 $base_border_radius+2; }
+  &:last-child:ltr {
+    border-radius: 0 $base_border_radius + 2 $base_border_radius + 2 0;
+  }
+  &:last-child:rtl {
+    border-radius: $base_border_radius + 2 0 0 $base_border_radius + 2;
+  }
 }
 
 // album-art
 .media-message-cover-icon {
-  icon-size: $base_icon_size*2 !important; // 48px
+  icon-size: $base_icon_size * 2 !important; // 48px
   border-radius: $base_border_radius;
 
   // when there is no artwork

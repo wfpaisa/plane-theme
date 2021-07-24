@@ -4,13 +4,13 @@ $popover_arrow_height: 12px;
 
 //.the popover itself
 .popup-menu-boxpointer {
-  -arrow-border-radius: $base_border_radius+4;
+  -arrow-border-radius: $base_border_radius + 4;
   -arrow-background-color: $bg_color;
   -arrow-border-width: 1px;
-  -arrow-border-color: $borders_color;
+  -arrow-border-color: rgba(255, 255, 255, 0.1);
   -arrow-base: $popover_arrow_height * 2;
   -arrow-rise: $popover_arrow_height;
-  -arrow-box-shadow: 0 1px 3px rgba(0,0,0,0.5); // dreaming bugzilla #689995
+  -arrow-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); // dreaming bugzilla #689995
 }
 
 // container of the popover menu
@@ -34,8 +34,14 @@ $popover_arrow_height: 12px;
   spacing: $base_padding;
   padding: $base_padding;
 
-  &:ltr { padding-right:1.75em; padding-left: 0; }
-  &:rtl { padding-right: 0; padding-left:1.75em; }
+  &:ltr {
+    padding-right: 1.75em;
+    padding-left: 0;
+  }
+  &:rtl {
+    padding-right: 0;
+    padding-left: 1.75em;
+  }
 
   &:checked {
     background-color: lighten($bg_color, 2%);
@@ -43,28 +49,34 @@ $popover_arrow_height: 12px;
   }
 
   &.selected {
-    background-color: transparentize(white, if($variant=='light', 0.2, 0.9));
+    background-color: transparentize(white, if($variant== "light", 0.2, 0.9));
     color: $fg_color;
   }
 
-  &:active { 
+  &:active {
     background-color: $selected_bg_color;
     color: $selected_fg_color;
   }
 
-  &:insensitive { color: transparentize($fg_color,0.5);}
+  &:insensitive {
+    color: transparentize($fg_color, 0.5);
+  }
 }
 
 // all icons and other graphical elements
 .popup-inactive-menu-item {
   color: $fg_color;
 
-  &:insensitive { color: transparentize($fg_color,0.5); }
+  &:insensitive {
+    color: transparentize($fg_color, 0.5);
+  }
 }
 
 // symbolic icons in popover
 .popup-menu-arrow,
-.popup-menu-icon { icon-size: $base_icon_size; }
+.popup-menu-icon {
+  icon-size: $base_icon_size;
+}
 
 // popover submenus
 .popup-sub-menu {
@@ -78,8 +90,12 @@ $popover_arrow_height: 12px;
 .popup-menu-ornament {
   width: 1.2em;
 
-  &:ltr { text-align: right };
-  &:rtl { text-align: left };
+  &:ltr {
+    text-align: right;
+  }
+  &:rtl {
+    text-align: left;
+  }
 }
 
 // separator
@@ -90,11 +106,12 @@ $popover_arrow_height: 12px;
     //-margin-horizontal: 24px;
     height: 1px; //not really the whole box
     margin: 6px 64px;
-    background-color: lighten($borders_color, 2%);
-    .popup-sub-menu & { //submenu separators
+    background-color: if($variant == "light", darken($bg_color, 8%), lighten($bg_color, 8%));
+    .popup-sub-menu & {
+      //submenu separators
       margin: 0 64px 0 32px;
-      @if $variant == 'dark' {
-        background-color: lighten($bg_color,10%);
+      @if $variant == "dark" {
+        background-color: lighten($bg_color, 10%);
       }
     }
   }
@@ -111,8 +128,8 @@ $popover_arrow_height: 12px;
   min-width: 21em;
 
   // lock screen, shutdown, etc. buttons
-  .popup-menu-icon { 
-    padding:0;
+  .popup-menu-icon {
+    padding: 0;
     margin: 0 $base_margin;
     -st-icon-style: symbolic;
   }
@@ -120,11 +137,11 @@ $popover_arrow_height: 12px;
   .popup-sub-menu .popup-menu-item > :first-child {
     // account for icons in submenus with padding
     &:ltr {
-      padding-left: $base_padding + $base_margin * 2; 
+      padding-left: $base_padding + $base_margin * 2;
       margin-left: $base_icon_size;
     }
     &:rtl {
-      padding-right: $base_padding + $base_margin * 2; ;
+      padding-right: $base_padding + $base_margin * 2;
       margin-right: $base_icon_size;
     }
   }

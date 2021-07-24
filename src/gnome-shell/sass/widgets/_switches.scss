@@ -9,8 +9,9 @@ $switch_width: 46px;
   height: $switch_height;
   width: $switch_width;
   background-size: contain;
-  background-image: if($variant == 'light', url("./toggle-off.svg"),url("./toggle-off-dark.svg"));
-  &:checked { 
-    background-image: if($variant == 'light', url("./toggle-on.svg"),url("./toggle-on-dark.svg"));
+  background-image: url("./toggle-off.svg");
+
+  &:checked {
+    background-image: url("./toggle-on.svg");
   }
 }

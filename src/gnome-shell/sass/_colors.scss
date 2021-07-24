@@ -1,8 +1,8 @@
 // When color definition differs for dark and light variant,
 // it gets @if ed depending on $variant
 
-$base_color: if($variant == "light", #fff, transparentize(darken(rgb(34, 38, 53), 2%), 0.02));
-$bg_color: if($variant == "light", #f6f5f4, transparentize(darken(rgb(34, 38, 53), 2%), 0.02));
+$base_color: if($variant == "light", #fff, transparentize(darken(rgb(32, 36, 51), 2%), 0.02));
+$bg_color: if($variant == "light", #f6f5f4, transparentize(darken(rgb(32, 36, 51), 2%), 0.02));
 $fg_color: if($variant == "light", #2e3436, #eeecee);
 
 $selected_fg_color: #fff;
@@ -42,3 +42,13 @@ $backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 80%);
 $backdrop_insensitive_color: if($variant == "light", darken($backdrop_bg_color, 15%), lighten($backdrop_bg_color, 15%));
 $backdrop_borders_color: mix($borders_color, $bg_color, 90%);
 $backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
+
+// Custom Colors
+$switch_bg_color: #00df9c;
+$switch_fg_color: #fff;
+
+$indeterminate_bg_color: #ffc03a;
+$indeterminate_fg_color: #fff;
+
+$scale_color_a: mix($selected_bg_color, #023efe, 40%);
+$scale_color_b: mix($selected_bg_color, #00faff, 40%);

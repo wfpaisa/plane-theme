@@ -107,8 +107,7 @@ stage {
 // button styling
 %button {
   border-radius: $base_border_radius;
-  border-style: solid;
-  border-width: 1px;
+  border-width: 0px;
   min-height: 22px;
   padding: $base_padding * 0.5 $base_padding * 4;
 
@@ -131,10 +130,7 @@ stage {
 %bubble_button {
   @include button(normal, $shadow: none);
   padding: $base_padding * 2;
-  border-style: solid;
-  border-width: 1px;
-  border-left-width: 0;
-  border-bottom-width: 0;
+  border-width: 0px;
 
   &:insensitive {
     @include button(insensitive, $shadow: none);
@@ -166,7 +162,7 @@ stage {
 
 // notification styling
 @mixin notification_bubble($flat: false) {
-  border-width: 1px;
+  border-width: 0px;
   border-style: solid;
   border-radius: $base_border_radius + 2px;
   margin: $base_margin;
@@ -176,6 +172,8 @@ stage {
   } @else {
     @include button(normal);
   }
+
+  background-color: if($variant == "light", darken($backdrop_bg_color, 5%), lighten($backdrop_bg_color, 4%));
 
   &:focus {
     @include button(focus);
