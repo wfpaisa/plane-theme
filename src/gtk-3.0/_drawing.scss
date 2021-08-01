@@ -58,8 +58,9 @@
   @if $t==normal {
     color: $text_color;
     // border-color: darken($base_color, 5%);
-    border-color: transparent;
-    background-color: darken($base_color, 5%);
+    border-color: if($variant == "light", darken($bg_color, 12%), lighten($bg_color, 10%));
+    // background-color: darken($base_color, 5%);
+    background-color: if($variant == "light", darken($bg_color, 10%), lighten($bg_color, 8%));
     @include _shadows(entry_focus_shadow(transparentize($fc, 1)), $_entry_edge);
     // for the transition to work the number of shadows in different states needs to match, hence the transparent shadow here.
   }
@@ -69,19 +70,20 @@
   }
   @if $t==insensitive {
     color: $insensitive_fg_color;
-    border-color: $borders_color;
-    background-color: darken($base_color, 3%);
+    border-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 4%));
+    // background-color: darken($base_color, 3%);
+    background-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 4%));
   }
   @if $t==backdrop {
     color: $backdrop_text_color;
-    border-color: $backdrop_borders_color;
-    background-color: darken($base_color, 4%);
+    border-color: if($variant == "light", darken($bg_color, 8%), lighten($bg_color, 4%));
+    background-color: if($variant == "light", darken($bg_color, 8%), lighten($bg_color, 4%));
   }
   @if $t==backdrop-insensitive {
     color: $backdrop_insensitive_color;
-    border-color: $backdrop_borders_color;
-    background-color: $insensitive_bg_color;
-    background-color: darken($base_color, 3%);
+    border-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 2%));
+    // background-color: $insensitive_bg_color;
+    background-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 2%));
   }
   @if $t==osd {
     color: $osd_text_color;
@@ -215,8 +217,8 @@
     //
     outline-color: transparentize($tc, 0.7);
     color: $tc;
+    border-color: if($variant == "light", darken($c, 12%), lighten($c, 10%));
     background-color: if($variant == "light", darken($c, 10%), lighten($c, 8%));
-    background-image: $backimage;
     @include _button_text_shadow($tc, $c);
   } @else if $t==hover {
     //
@@ -224,8 +226,8 @@
     //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
+    border-color: if($variant == "light", darken($c, 20%), lighten($c, 16%));
     background-color: if($variant == "light", darken($c, 18%), lighten($c, 14%));
-    background-image: $backimage;
 
     @include _button_text_shadow($tc, lighten($c, 6%));
   }
@@ -250,6 +252,7 @@
     //
     outline-color: transparentize($tc, 0.7);
     color: $selected_fg_color;
+    border-color: $selected_bg_color;
     background-color: $selected_bg_color;
     box-shadow: 0px 0px 6px rgba($selected_bg_color, 0.2);
 
@@ -261,6 +264,7 @@
     //
 
     color: $insensitive_fg_color;
+    border-color: if($variant == "light", darken($c, 4%), lighten($c, 3%));
     background-color: if($variant == "light", darken($c, 4%), lighten($c, 3%));
 
     // background-image: image($_bg);
@@ -274,11 +278,13 @@
     //
     color: $insensitive_fg_color;
     background-color: transparentize($selected_bg_color, 0.8);
+    border-color: transparentize($selected_bg_color, 0.8);
   } @else if $t==backdrop {
     //
     // backdrop button
     //
 
+    border-color: if($variant == "light", darken($c, 8%), lighten($c, 4%));
     background-color: if($variant == "light", darken($c, 8%), lighten($c, 4%));
 
     text-shadow: none;
@@ -289,11 +295,13 @@
     //
     color: $selected_fg_color;
     background-color: transparentize($selected_bg_color, 0.4);
+    border-color: transparentize($selected_bg_color, 0.4);
   } @else if $t==backdrop-insensitive {
     //
     // backdrop insensitive button
     //
 
+    border-color: if($variant == "light", darken($c, 3%), lighten($c, 2%));
     background-color: if($variant == "light", darken($c, 3%), lighten($c, 2%));
 
     text-shadow: none;
@@ -302,7 +310,7 @@
     //
     // backdrop insensitive pushed button
     //
-
+    border-color: transparentize($selected_bg_color, 0.9);
     background-color: transparentize($selected_bg_color, 0.9);
   } @else if $t==osd {
     //
@@ -310,9 +318,7 @@
     //
 
     color: $osd_fg_color;
-    background-color: transparent;
-    background-clip: padding-box;
-    background: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     text-shadow: 0 1px black;
     -gtk-icon-shadow: 0 1px black;
     outline-color: transparentize($osd_fg_color, 0.7);
@@ -322,7 +328,6 @@
     //
     color: white;
     background: rgba(255, 255, 255, 0.3);
-    background-clip: padding-box;
     text-shadow: 0 1px black;
     -gtk-icon-shadow: 0 1px black;
     outline-color: transparentize($osd_fg_color, 0.7);
@@ -344,7 +349,6 @@
     //
     color: $osd_insensitive_fg_color;
     background: rgba(255, 255, 255, 0.1);
-    background-clip: padding-box;
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;

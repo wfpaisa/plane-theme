@@ -15,8 +15,8 @@ $popover_radius: $button_radius + 4;
 // $_sizevariant: "default"; //compact otherwise
 $_sizevariant: "compact"; //compact otherwise
 $_headerbar_height: if($_sizevariant== "default", 46px, 40px);
-$_entry_height: if($_sizevariant== "default", 32px, 28px);
-$_btn_pad: if($_sizevariant== "default", 4px 9px, 2px 6px);
+$_entry_height: if($_sizevariant== "default", 32px, 26px);
+$_btn_pad: if($_sizevariant== "default", 4px 9px, 1px 6px);
 $_hb_btn_pad: if($_sizevariant== "default", 6px, 5px);
 $_img_btn_pad: if($_sizevariant== "default", 5px, 2px);
 $_sel_menu_pad: if($_sizevariant== "default", 6px 10px, 4px 10px);
@@ -374,7 +374,7 @@ entry {
     min-height: $_entry_height;
     padding-left: 8px;
     padding-right: 8px;
-    border: 0px solid;
+    border: 1px solid;
     border-radius: $button_radius;
     transition: all 200ms $ease-out-quad;
 
@@ -687,10 +687,10 @@ $_dot_color: if($variant== "light", $selected_bg_color, lighten($selected_bg_col
 button {
   @at-root %button_basic,
     & {
-    min-height: 24px;
-    min-width: 16px;
+    min-height: 22px;
+    min-width: 14px;
     padding: $_btn_pad;
-    border: 0px solid;
+    border: 1px solid;
     border-radius: $button_radius;
     transition: $button_transition;
 
@@ -1513,7 +1513,7 @@ spinbutton {
     // and nuke the style on the internal entry
     @extend %entry;
 
-    padding: 0;
+    padding: 1px;
 
     %spinbutton_horz_entry {
       min-width: 28px;
@@ -2147,11 +2147,14 @@ headerbar {
   button {
     margin-top: $_hb_btn_pad;
     margin-bottom: $_hb_btn_pad;
+    // background-color: transparent;
   }
 
-  & > button {
-    background-color: transparent;
-  }
+  // button,
+  // button:backdrop {
+  //   background-color: transparent;
+  //   border-radius: $button_radius;
+  // }
 
   switch {
     margin-top: $_switch_margin;
@@ -2633,11 +2636,12 @@ menu,
 .context-menu {
   margin: 4px; // see https://bugzilla.gnome.org/show_bug.cgi?id=591258
   padding: 4px 0px;
-  background-color: $menu_color;
-  border: 1px solid $borders_color; // adds borders in a non composited env
+  background-color: darken($menu_color, 4%);
+  border: 1px solid rgba(255, 255, 255, 0.1); // adds borders in a non composited env
+  border-radius: $menu_radius;
 
   .csd & {
-    border: none; // axes borders in a composited env
+    // border: none; // axes borders in a composited env
     border-radius: $menu_radius;
   }
 
@@ -2767,7 +2771,7 @@ popover.background {
 
   .csd &,
   & {
-    border: 1px solid $borders_color;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: $popover_radius;
   }
 
@@ -2775,10 +2779,10 @@ popover.background {
     $_popover_border: if($variant== "light", transparentize(black, 0.77), transparentize(black, 0.25));
 
     background-clip: padding-box;
-    border-color: $_popover_border;
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
-  box-shadow: 0 1px 2px transparentize(black, 0.7);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 
   &:backdrop {
     background-color: $backdrop_bg_color;
@@ -5057,17 +5061,19 @@ tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    background-color: transparentize(black, 0.2);
+    background-color: #ffd644;
     background-clip: padding-box;
-    border: 1px solid $tooltip_borders_color; // this suble border is meant to
+    padding: 0px;
+    // border: 4px solid transparent; // this suble border is meant to
+
     // not make the tooltip melt with
     // very dark backgrounds
   }
 
-  padding: 4px; /* not working */
-  border-radius: 5px;
+  padding: 0px 8px; /* not working */
+  border-radius: 5px 0px 5px 0px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
-  text-shadow: 0 1px black;
+  // text-shadow: 0 1px black;
 
   // FIXME: we need a border or tooltips vanish on black background.
   decoration {
@@ -5076,9 +5082,10 @@ tooltip {
 
   * {
     // Yeah this is ugly
-    padding: 4px;
+    padding: 0px;
     background-color: transparent;
-    color: white;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0px;
   }
 }
 
@@ -5365,17 +5372,19 @@ decoration {
 
   .csd.popup & {
     border-radius: $menu_radius;
-    box-shadow: 0 1px 2px transparentize(black, 0.8), 0 0 0 1px transparentize($_wm_border, 0.1);
+    // box-shadow: 0 1px 2px transparentize(black, 0.8), 0 0 0 1px transparentize($_wm_border, 0.1);
+    box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.1);
   }
 
   tooltip.csd & {
     border-radius: 5px;
-    box-shadow: none;
+    box-shadow: 0px 0px 6px 0px rgba(204, 89, 89, 0.3);
   }
 
   messagedialog.csd & {
     border-radius: $window_radius;
-    box-shadow: 0 1px 2px transparentize(black, 0.8), 0 0 0 1px transparentize($_wm_border, 0.1);
+    // box-shadow: 0 1px 2px transparentize(black, 0.8), 0 0 0 1px transparentize($_wm_border, 0.1);
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
   }
 
   .solid-csd & {
@@ -5407,12 +5416,15 @@ button.titlebutton {
     min-width: 0;
     min-height: 0;
     color: transparent;
+    border-color: transparent;
 
     &:active,
     &:hover {
       transition: none;
-      color: rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0);
       background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
     }
   }
 

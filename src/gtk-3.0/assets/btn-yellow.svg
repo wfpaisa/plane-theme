@@ -42,10 +42,18 @@
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="fill:#ffbd00;stroke:none;stroke-width:0.295336;stroke-linecap:round;stop-color:#000000;fill-opacity:1"
+       style="fill:#ffbd00;stroke:none;stroke-width:0.295336;stroke-linecap:round;stop-color:#000000;fill-opacity:0"
        id="path846"
        cx="3.4395833"
        cy="3.4395833"
        r="2.3812499" />
+    <rect
+       style="fill:#ffbd00;fill-opacity:1;stroke-width:0.0429443;stroke-linecap:round;stop-color:#000000"
+       id="rect862"
+       width="3.7041667"
+       height="1.0583333"
+       x="1.5875"
+       y="2.9104166"
+       ry="0" />
   </g>
 </svg>
