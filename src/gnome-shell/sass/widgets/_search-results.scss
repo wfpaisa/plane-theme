@@ -12,7 +12,7 @@
   spacing: $base_margin * 2;
 
   // separator
-  .search-section-separator { 
+  .search-section-separator {
     // height: 1px;
     // background-color: $osd_outer_borders_color;
     height: 0;
@@ -22,13 +22,13 @@
 
 // content
 .search-section-content {
-  background-color: transparentize(lighten($osd_bg_color, 5%), 0.2);
-  border-radius: $modal_radius+3;
-  border: 1px solid $osd_outer_borders_color;
-  box-shadow: 0 2px 4px 0 $shadow_color;
-  text-shadow: 0 1px if($variant == 'light', rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  border: 0;
+  text-shadow: 0 1px if($variant == "light", rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
   color: $osd_fg_color;
   padding: $base_padding * 3;
+  box-shadow: none;
   // This is the space between the provider icon and the results container
   spacing: $base_margin * 2;
 }
@@ -39,13 +39,13 @@
   &:focus,
   &:hover,
   &:selected {
-    background-color: transparentize($osd_fg_color, .9);
+    background-color: transparentize($osd_fg_color, 0.9);
     transition-duration: 200ms;
   }
 
   &:active,
   &:checked {
-    background-color: transparentize(darken($osd_bg_color, 10%), .1);
+    background-color: transparentize(darken($osd_bg_color, 10%), 0.1);
   }
 }
 
