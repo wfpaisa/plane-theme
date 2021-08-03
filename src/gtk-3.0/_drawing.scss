@@ -60,7 +60,7 @@
     // border-color: darken($base_color, 5%);
     border-color: if($variant == "light", darken($bg_color, 12%), lighten($bg_color, 10%));
     // background-color: darken($base_color, 5%);
-    background-color: if($variant == "light", darken($bg_color, 10%), lighten($bg_color, 8%));
+    // background-color: if($variant == "light", darken($bg_color, 10%), lighten($bg_color, 8%));
     @include _shadows(entry_focus_shadow(transparentize($fc, 1)), $_entry_edge);
     // for the transition to work the number of shadows in different states needs to match, hence the transparent shadow here.
   }
@@ -72,18 +72,18 @@
     color: $insensitive_fg_color;
     border-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 4%));
     // background-color: darken($base_color, 3%);
-    background-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 4%));
+    // background-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 4%));
   }
   @if $t==backdrop {
     color: $backdrop_text_color;
     border-color: if($variant == "light", darken($bg_color, 8%), lighten($bg_color, 4%));
-    background-color: if($variant == "light", darken($bg_color, 8%), lighten($bg_color, 4%));
+    // background-color: if($variant == "light", darken($bg_color, 8%), lighten($bg_color, 4%));
   }
   @if $t==backdrop-insensitive {
     color: $backdrop_insensitive_color;
     border-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 2%));
     // background-color: $insensitive_bg_color;
-    background-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 2%));
+    // background-color: if($variant == "light", darken($bg_color, 3%), lighten($bg_color, 2%));
   }
   @if $t==osd {
     color: $osd_text_color;
@@ -239,6 +239,7 @@
     color: $tc;
     outline-color: transparentize($tc, 0.7);
     background-color: if($variant == "light", darken($alt_borders_color, 10%), lighten($alt_borders_color, 6%));
+    border-color: if($variant == "light", darken($alt_borders_color, 10%), lighten($alt_borders_color, 6%));
   } @else if $t==hover-alt {
     //
     // hovered button alternative look
@@ -246,6 +247,7 @@
     color: $tc;
     outline-color: transparentize($tc, 0.7);
     background-color: if($variant == "light", darken($alt_borders_color, 18%), lighten($alt_borders_color, 10%));
+    border-color: if($variant == "light", darken($alt_borders_color, 18%), lighten($alt_borders_color, 10%));
   } @else if $t==active {
     //
     // pushed button

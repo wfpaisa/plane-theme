@@ -693,6 +693,7 @@ button {
     border: 1px solid;
     border-radius: $button_radius;
     transition: $button_transition;
+    // margin: 0 1px;
 
     @include button(normal);
 
@@ -1934,8 +1935,9 @@ headerbar {
   stackswitcher button:checked,
   button.toggle:checked {
     // background: if($variant == "light", image(darken($bg_color, 17%)), image(darken($bg_color, 9%)));
-    border-color: darken($borders_color, 3%);
-    border-top-color: darken($borders_color, 8%);
+    // border-color: darken($borders_color, 3%);
+    // border-top-color: darken($borders_color, 8%);
+    // border-radius: $button_radius;
     &:backdrop {
       @include button(backdrop-active);
     }
@@ -1968,11 +1970,6 @@ headerbar {
 
     button {
       @include button(normal, $suggested_bg_color, $selected_fg_color);
-
-      @at-root %selection_mode_button_flat,
-        &.flat {
-        @include button(undecorated);
-      }
 
       &:hover {
         @include button(hover, $suggested_bg_color, $selected_fg_color);
@@ -2147,14 +2144,32 @@ headerbar {
   button {
     margin-top: $_hb_btn_pad;
     margin-bottom: $_hb_btn_pad;
-    // background-color: transparent;
   }
 
-  // button,
-  // button:backdrop {
-  //   background-color: transparent;
-  //   border-radius: $button_radius;
-  // }
+  button,
+  button:disabled,
+  button.suggested-action:disabled,
+  button:backdrop {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .linked.stack-switcher {
+    button {
+      @include button(normal);
+      &:hover {
+        @include button(hover);
+        -gtk-icon-effect: highlight;
+      }
+
+      &:active,
+      &:checked {
+        @include button(active);
+
+        transition-duration: 50ms;
+      }
+    }
+  }
 
   switch {
     margin-top: $_switch_margin;
@@ -2501,7 +2516,7 @@ treeview.view {
       @extend %column_header_button;
 
       color: $_column_header_color;
-      background-color: $base_color;
+
       font-weight: bold;
       text-shadow: none;
       box-shadow: none;
@@ -2516,7 +2531,6 @@ treeview.view {
 
       &:active {
         @extend %column_header_button;
-
         color: $fg_color;
         transition: none; //I shouldn't need this
       }
@@ -2550,10 +2564,15 @@ treeview.view {
 %column_header_button {
   padding: 0 6px;
   background-image: none;
-  border-style: none solid solid none;
-  border-color: $_treeview_borders_color;
+  background: none;
+  border-style: none solid none none;
+  border-color: if($variant == "light", darken($bg_color, 10%), lighten($bg_color, 8%));
   border-radius: 0;
   text-shadow: none;
+
+  &:hover {
+    background-color: if($variant == "light", darken($bg_color, 5%), lighten($bg_color, 4%));
+  }
 
   &:disabled {
     border-color: $bg_color;
